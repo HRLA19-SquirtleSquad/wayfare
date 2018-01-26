@@ -1,1 +1,1 @@
-# wayfare
+# wayfare-api

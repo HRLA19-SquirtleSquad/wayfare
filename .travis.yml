@@ -1,0 +1,20 @@
+language: node_js
+node_js: node
+cache:
+  directories:
+    - node_modules
+services: postgresql
+before_script:
+  - sudo apt-get -qq update # qq for less output
+  # - createuser root
+  # - createdb codesling
+install:
+  - npm install
+  - npm run buildEnv
+  - npm run setup:rest-server
+  # - npm setup:socket-server
+  # - npm setup:services/oauth-server
+  # - npm db:setup:rest-server
+script:
+  - npm run start & # starts all back-end servers
+  - sleep 10

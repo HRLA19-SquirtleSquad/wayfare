@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:rest-server": "cd rest-server && npm start",
+    "start": "npm-run-all -p start:rest-server",
     "setup:rest-server": "cd rest-server && npm install",
     "buildEnv": "node bin/buildEnv.js"
   },
@@ -22,6 +23,7 @@
   "homepage": "https://github.com/HRLA19-SquirtleSquad/wayfare#readme",
   "dependencies": {
     "lodash": "^4.17.4",
-    "node": "^9.4.0"
+    "node": "^9.4.0",
+    "npm-run-all": "^4.1.2"
   }
 }

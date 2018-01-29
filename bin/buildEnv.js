@@ -1,7 +1,7 @@
 const fs = require('fs');
 const _ = require('lodash');
 
-const envVariables = require('../config/.env.sample');
+const envVariables = require('../config/.env.sample.js');
 
 // writes in each .env file
 const writeENVFile = (directory, variables) => {

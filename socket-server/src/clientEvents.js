@@ -32,7 +32,7 @@ const clientMessage = ({ io, room }, payload) => {
 
 const clientEmitters = {
   'client.ready': clientReady,
-  'client.update': clientUpdate,
+  //'client.update': clientUpdate,
   'client.disconnect': clientDisconnect,
   'client.message': clientMessage
 }

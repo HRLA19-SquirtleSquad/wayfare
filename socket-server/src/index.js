@@ -3,7 +3,7 @@ import SocketIo from 'socket.io';
 import { each } from 'lodash';
 import Rooms from './rooms';
 import ClientEvents from './clientEvents';
-import log from './lib/log';
+
 
 
 const server = http.createServer();

@@ -1,0 +1,17 @@
+export default class Rooms {
+  constructor(io) {
+    this.io = io;
+    this.store = new Map();
+  }
+
+findOrCreateRoom(roomId) {
+  let room = this.store.get(roomId)
+  if(!room) {
+    room = new Map();
+    room.set('id', roomId)
+    this.store.set(roomId, room)
+  }
+  return room;
+}
+
+}

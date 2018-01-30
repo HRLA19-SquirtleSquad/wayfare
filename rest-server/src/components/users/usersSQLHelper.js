@@ -6,5 +6,3 @@ export const getUserHelper = (userId) => {
     WHERE userId = ${userId} 
   `;
 }
-
-//fuck me bitch

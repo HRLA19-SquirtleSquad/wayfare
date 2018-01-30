@@ -16,12 +16,13 @@ import {
 
 const setup = async () => {
     await dropDatabase(); 
-    await dropUserTable(); 
-    await dropListingTable(); 
+
     await dropRequestTable(); 
     await dropReviewTable(); 
     await dropImageTable(); 
-
+    await dropListingTable(); 
+    await dropUserTable(); 
+    
     await createDatabase(); 
     await createUserTable(); 
     await createListingTable(); 

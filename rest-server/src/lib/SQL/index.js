@@ -45,9 +45,9 @@ export const createUserTable = async () => {
         await db.queryAsync(
             `CREATE TABLE IF NOT EXISTS users (
                 id SERIAL, 
-                name VARCHAR 255 NOT NULL,
-                email VARCHAR 255 NOT NULL,
-                image VARCHAR 500 NOT NULL,
+                name VARCHAR(255) NOT NULL,
+                email VARCHAR(255) NOT NULL,
+                image VARCHAR(500) NOT NULL,
                 type INT,
                 hostRating NUMERIC,
                 hostRatingCount INT,
@@ -82,13 +82,13 @@ export const createListingTable = async () => {
         await db.queryAsync(
             `CREATE TABLE IF NOT EXISTS listings (
                 id SERIAL, 
-                title VARCHAR 255 NOT NULL,
+                title VARCHAR (255) NOT NULL,
                 latitude NUMERIC,
                 longitude NUMERIC,
                 hostId INT,
                 guestId INT,
                 description TEXT,
-                status VARCHAR 255 NOT NULL,
+                status VARCHAR (255) NOT NULL,
                 CONSTRAINT listings_pk PRIMARY KEY(id),
                 CONSTRAINT fk_listings_hostId FOREIGN KEY(hostId) REFERENCES users(id),
                 CONSTRAINT fk_listings_guestId FOREIGN KEY(guestId) REFERENCES users(id)
@@ -159,7 +159,7 @@ export const createReviewTable = async () => {
                 CONSTRAINT reviews_pk PRIMARY KEY(id), 
                 CONSTRAINT fk_reviews_parentId FOREIGN KEY(parentId) REFERENCES reviews(id),
                 CONSTRAINT fk_reviews_commentor FOREIGN KEY(commentor) REFERENCES users(id),
-                CONSTRAINT fk_reviews_commentee FOREIGN KEY(commentee) REFERENCES users(id),
+                CONSTRAINT fk_reviews_commentee FOREIGN KEY(commentee) REFERENCES users(id)
             )
                 `
         );
@@ -189,9 +189,9 @@ export const createImageTable = async () => {
             `CREATE TABLE IF NOT EXISTS images (
                 id SERIAL, 
                 listingId INT, 
-                url VARCHAR 500 NOT NULL,
+                url VARCHAR (500) NOT NULL,
                 CONSTRAINT images_pk PRIMARY KEY(id), 
-                CONSTRAINT fk_images_listingId FOREIGN KEY(listingId) REFERENCES listings(id),
+                CONSTRAINT fk_images_listingId FOREIGN KEY(listingId) REFERENCES listings(id)
               )
                 `
         );

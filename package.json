@@ -8,6 +8,7 @@
     "start:rest-server": "cd rest-server && npm start",
     "start": "npm-run-all -p start:rest-server",
     "setup:rest-server": "cd rest-server && npm install",
+    "db:setup:rest-server": "cd rest-server && babel-node src/config/database/setup.js",
     "buildEnv": "node bin/buildEnv.js"
   },
   "repository": {
@@ -25,5 +26,8 @@
     "lodash": "^4.17.4",
     "node": "^9.4.0",
     "npm-run-all": "^4.1.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
   }
 }

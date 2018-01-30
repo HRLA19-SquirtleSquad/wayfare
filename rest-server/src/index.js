@@ -3,6 +3,9 @@ const path = require('path');
 const parser = require('body-parser');
 // const validator = require('express-validator')
 // DB?
+import './config/database'
+
+
 
 // const Router = require('./routes');
 

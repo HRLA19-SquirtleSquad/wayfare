@@ -2,7 +2,7 @@ require('dotenv').config();
 
 import db from '../../config/database'; 
 
-const database = proccess.env.NODE_ENV === 'production' ? process.env.AWS_DATABASE : process.env.LOCAL_DATABASE;
+const database = process.env.NODE_ENV === 'production' ? process.env.AWS_DATABASE : process.env.LOCAL_DATABASE;
 
 
 // SQL functions for database creation, use and drop
@@ -13,7 +13,7 @@ export const createDatabase = async () => {
         );
         console.log('successfully created database ', database); 
     } catch (err) {
-        console.log('error creating database, ', err); 
+        console.log('error creating database, '); 
     }
 }
 
@@ -24,7 +24,7 @@ export const dropDatabase = async () => {
         ); 
         console.log('successfully dropped database ', database)
     } catch (err) {
-        console.log('error dropping database ', err); 
+        console.log('error dropping database '); 
     }
 }; 
 

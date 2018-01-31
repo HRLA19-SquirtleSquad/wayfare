@@ -1,24 +1,16 @@
-const express = require('express');
-const path = require('path');
-const parser = require('body-parser');
-// const validator = require('express-validator')
-// DB?
+import http from 'http';
+
+import App from './config/express';
 import './config/database'
+// import './config/database/mongo';
+// import './config/database/setup';
 
+const app = App.express;
 
-
-// const Router = require('./routes');
-
-const app = express();
+const server = http.createServer(app);
 const PORT = process.env.PORT || 3000;
 
-// app.use(validator());
-app.use(parser.json());
-app.use(parser.urlencoded({extended: true}));
-
-// app.use('/api', Router);
-
-app.listen(PORT, (err) => {
+server.listen(PORT, (err) => {
   if (err) throw new Error;
-  console.log('Listening to PORT:', PORT);
-})
+  console.log('successfully connected to port ', PORT);
+});

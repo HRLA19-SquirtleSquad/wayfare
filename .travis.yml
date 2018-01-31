@@ -14,7 +14,7 @@ install:
   - npm run setup:rest-server
   # - npm setup:socket-server
   # - npm setup:services/oauth-server
-  # - npm db:setup:rest-server
+  - npm db:setup:rest-server
 script:
   - npm run start & # starts all back-end servers
   - sleep 10

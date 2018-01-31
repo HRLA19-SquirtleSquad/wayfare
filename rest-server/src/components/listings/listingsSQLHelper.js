@@ -1,1 +1,1 @@
-// SQL helpers that return postgres syntax for queries
+// RETURN string of psql syntax

@@ -1,5 +1,7 @@
+import db from '../../config/database'
+
 import {
-  // helpers
+  // import helpers from listingsSQLHelper
 } from './listingsSQLHelper.js';
 
 // define queries

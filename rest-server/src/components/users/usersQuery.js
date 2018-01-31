@@ -1,18 +1,13 @@
-// import db from '../../config/database'
+import db from '../../config/database'
 
 import {
   getUserHelper
 } from './usersSQLHelper.js';
 
-export const getUserQuery = async (body) => {
+export const getUserQuery = async (userId) => {
   try {
-    // const queryString = getUserHelper(body.userId);
-    // const data = await db.queryAsync(queryString);
-    
-    let data = await function() {
-      return 'test'
-    }
-    
+    const queryString = getUserHelper(userId);
+    const data = await db.queryAsync(queryString);    
     console.log('getUserQuery - successfully fetched user data', data)
     return data
   } catch(err) {

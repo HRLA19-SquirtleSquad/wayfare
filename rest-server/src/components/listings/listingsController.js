@@ -1,5 +1,5 @@
 import {
-  // queries
+  // import queries from listingsQuery
 } from './listingsQuery';
 
 // define controllers

@@ -11,17 +11,25 @@ import {
     createReviewTable,
     dropReviewTable,
     createImageTable,
-    dropImageTable
+    dropImageTable, 
+    createSkillTable, 
+    dropSkillTable, 
+    createRequestSkillTable, 
+    dropRequestSkillTable
 } from '../../lib/SQL';
+
 
 const setup = async () => {
     await dropDatabase(); 
 
-    await dropRequestTable(); 
     await dropReviewTable(); 
     await dropImageTable(); 
+    await dropRequestSkillTable(); 
+    await dropSkillTable(); 
+    await dropRequestTable(); 
     await dropListingTable(); 
     await dropUserTable(); 
+    
     
     await createDatabase(); 
     await createUserTable(); 
@@ -29,6 +37,8 @@ const setup = async () => {
     await createRequestTable(); 
     await createReviewTable(); 
     await createImageTable(); 
+    await createSkillTable(); 
+    await createRequestSkillTable(); 
 
     process.exit(); 
 }; 

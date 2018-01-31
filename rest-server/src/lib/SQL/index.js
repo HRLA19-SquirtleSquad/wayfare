@@ -47,7 +47,8 @@ export const createUserTable = async () => {
                 id SERIAL, 
                 name VARCHAR(255) NOT NULL,
                 email VARCHAR(255) NOT NULL,
-                image VARCHAR(500) NOT NULL,
+                uid VARCHAR (255) NOT NULL,
+                image text,
                 type INT,
                 hostRating NUMERIC,
                 hostRatingCount INT,
@@ -82,7 +83,9 @@ export const createListingTable = async () => {
         await db.queryAsync(
             `CREATE TABLE IF NOT EXISTS listings (
                 id SERIAL, 
-                title VARCHAR (255) NOT NULL,
+                title VARCHAR (500) NOT NULL,
+                startDate VARCHAR(255) NOT NULL, 
+                endDate VARCHAR(255) NOT NULL,
                 latitude NUMERIC,
                 longitude NUMERIC,
                 hostId INT,
@@ -212,3 +215,67 @@ export const dropImageTable = async () => {
         console.log('error dropping images table ', err); 
     }
 };
+
+
+export const createSkillTable = async () => {
+    try {
+        await db.queryAsync(
+            `CREATE TABLE IF NOT EXISTS skills (
+                id SERIAL, 
+                userId INT,
+                listingId INT,
+                skill VARCHAR(255) NOT NULL, 
+                CONSTRAINT skills_pk PRIMARY KEY(id), 
+                CONSTRAINT fk_skills_userId FOREIGN KEY(userId) REFERENCES users(id),
+                CONSTRAINT fk_skills_listingId FOREIGN KEY(listingId) REFERENCES listings(id)
+            )
+                `
+        );
+        console.log('successfully created skills table');
+
+    } catch (err) {
+        console.log('error creating skills table ', err); 
+    }
+};
+
+export const dropSkillTable = async () => {
+    try {
+        await db.queryAsync( 
+            `DROP TABLE IF EXISTS skills`
+        );
+        console.log('successfully dropped skills table')
+    } catch (err) {
+        console.log('error dropping skills table ', err); 
+    }
+}; 
+
+export const createRequestSkillTable = async () => {
+    try {
+        await db.queryAsync(
+            `CREATE TABLE IF NOT EXISTS requestSkills (
+                id SERIAL, 
+                skillId INT,
+                requestId INT,
+                CONSTRAINT requestSkills_pk PRIMARY KEY(id), 
+                CONSTRAINT fk_requestSkills_skillId FOREIGN KEY(skillId) REFERENCES skills(id),
+                CONSTRAINT fk_requestSkills_requestId FOREIGN KEY(requestId) REFERENCES requests(id)
+            )
+                `
+        );
+        console.log('successfully created requestSkills table');
+
+    } catch (err) {
+        console.log('error creating requestSkills table ', err); 
+    }
+};
+
+export const dropRequestSkillTable = async () => {
+    try {
+        await db.queryAsync( 
+            `DROP TABLE IF EXISTS requestSkills`
+        );
+        console.log('successfully dropped requestSkills table')
+    } catch (err) {
+        console.log('error dropping requestSkills table ', err); 
+    }
+}; 

@@ -5,7 +5,9 @@ import usersRouter from '../components/users/usersRouter'
 const router = express.Router();
 
 router.use('/users', usersRouter);
-// router.use('/listings', listingsRouter);
+router.use('/auth', authRouter);
+
+// router.  ('/listings', listingsRouter);
 
 export default router;
 

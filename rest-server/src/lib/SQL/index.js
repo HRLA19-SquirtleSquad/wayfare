@@ -48,7 +48,7 @@ export const createUserTable = async () => {
                 name VARCHAR(255) NOT NULL,
                 email VARCHAR(255) NOT NULL,
                 uid VARCHAR (255) NOT NULL,
-                image text,
+                image VARCHAR(500) NOT NULL,
                 type INT,
                 hostRating NUMERIC,
                 hostRatingCount INT,

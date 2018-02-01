@@ -10,7 +10,8 @@
     "setup:rest-server": "cd rest-server && npm install",
     "db:setup:rest-server": "cd rest-server && babel-node src/config/database/setup.js",
     "buildEnv": "node bin/buildEnv.js",
-    "seedData": "cd rest-server && babel-node src/lib/SQL/seed.js "
+    "seedData": "cd rest-server && babel-node src/lib/SQL/seed.js ",
+    "lint": "cd rest-server && eslint src" 
   },
   "repository": {
     "type": "git",

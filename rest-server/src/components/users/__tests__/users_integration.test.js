@@ -11,6 +11,9 @@ import {
 
 // import global api endpoints
 import {
+  signupUrl,
+  loginUrl,
+  logoutUrl,
   usersUrl,
   listingsUrl
 } from '../../../config/global/testGlobals';

@@ -1,14 +1,14 @@
-export const signUpHelper = (email, uid) => {
+export const signUpHelper = (name, email, uid, image) => {
   return `
-    INSERT INTO users (email, uid)
-    VALUES ('${email}', '${username}')
+    INSERT INTO users (name, email, uid, image)
+    VALUES ('${name}', '${email}', '${uid}', '${image}')
     RETURNING id, email, uid
   `;
 }
 
 export const loginHelper = (email, uid) => {
   return `
-    SELECT email
+    SELECT email, id
     FROM users
     WHERE email='${email}'
   `;

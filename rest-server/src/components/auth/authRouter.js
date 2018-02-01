@@ -8,11 +8,11 @@ import {
 
 const router = express.Router();
 
-router.route('/local/signup')
+router.route('/signup')
   .post(signUpController)
-router.route('/local/login')
+router.route('/login')
   .post(loginController)
-router.route('local/logout')
+router.route('/logout')
   .get(logoutController)
 
 export default router;

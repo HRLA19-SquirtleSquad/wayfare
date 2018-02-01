@@ -1,6 +1,7 @@
 import {
-  signUpQuery
-} from './usersQuery';
+  signUpQuery,
+  loginQuery
+} from './authQuery';
 
 import firebase from 'firebase';
 
@@ -17,54 +18,45 @@ firebase.initializeApp(firebase_config);
 
 export const signUpController = async (req, res) => {
   try {
+    const authData = await firebase.auth().createUserWithEmailAndPassword(req.body.email, req.body.password)
+    let email = authData.providerData[0].email;
+    let uid = authData.providerData[0].uid;
+    let name = req.body.name;
+    let image = req.body.image;
 
-    firebase.auth().createUserWithEmailAndPassword(req.body.email, req.body.password)
-      // user is added to firebase.
-
-      .then((authData) => {
-        let email = authData.providerData[0].email;
-        let uid = authData.providerData[0].uid;
-
-        // add user to sql db (find or create)
-        // send that data back to client
-        const data = await signUpQuery(email, uid)
-        console.log('user created in postgresql', data)
-
-        res.status(201).send({uid: uid, email: email, success: true, message:`User created successfully: ${email}`})
-      }).catch((error) => {
-        console.log('Error creating user.\nError Code: ", error.code, "\nError Message: ", error.message')
-        res.status(409).send({errMsg: error.message})
-      }) 
+    try {
+      const data = await signUpQuery(name, email, uid, image)
+      let id = data.rows[0].id;
+      res.status(201).send({success: true, message:`User created successfully: ${email}`, id: id, uid: uid, email: email, name: name,})
+    } catch (err) {
+      console.log('[authController.js] - Error using signUpQuery:', err)
+      res.status(409).send({errMsg: err.message})
+    }
   } catch (err) {
-    throw new Error(err);
+    console.log('[authController.js] - Failed to sign up user into Firebase: ', err)
+    res.status(409).send({errMsg: err.message})
+
   }
 }
 
 export const loginController = async (req, res) => {
   try {
+    const authData = await firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password)
+    let email = authData.providerData[0].email;
+    let uid = authData.providerData[0].uid;
 
-    firebase.auth().signInWithEmailAndPassword(req.body.username, req.body.password)
-    // user is signed in
-    .then((authData) => {
-      let uid = authData.providerData[0].uid;
-      let email = authData.providerData[0].email;
-      console.log(`User successfully signed in. UID: ${uid}, Email: ${email} `);
-
-      // query user from sql db (find)
-      // send that data back to client
+    try {
       const data = await loginQuery(email, uid)
-      console.log('user logged in. query from postgresql: ', data)
-
-
-      res.status(201).send({uid: uid, email: email, success: true, message:`This user has signed up: ${email}`})
-   
-    }).catch((error) => {
-      console.log('Error logging in.\nError Code: ", error.code, "\nError Message: ", error.message')
+      console.log('i am data from logging in:', data)
+      let id = data.rows[0].id;
+      res.status(201).send({success: true, message:`This user has signed in: ${email}`, id: id, email: email})
+    } catch (err) {
+      console.log('Error logging in.', err)
       res.status(409).send({errMsg: error.message})
-    }) 
-
+    }
   } catch (err) {
-    throw new Error(err);
+    console.log('Error logging in user via firebase.')
+    res.status(409).send({errMsg: err})
   }
 }
 

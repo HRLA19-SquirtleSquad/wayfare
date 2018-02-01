@@ -1,4 +1,4 @@
-import db from '../../config/database/index.js'
+import db from '../../config/database'
 
 
 export const createSeedUsers = async () => {
@@ -168,7 +168,7 @@ export const createRequestSkill = async () => {
         console.log('RequestSkill seed data 1 inserted')
     } catch (err) {
         console.log('RequestSkill seed data 1 did not insert')
-    }; 
+    }
 
     try {
         let query = "insert into requestSkills values (2, 7, 2)"; 
@@ -176,7 +176,7 @@ export const createRequestSkill = async () => {
         console.log('RequestSkill seed data 2 inserted')
     } catch (err) {
         console.log('RequestSkill seed data 2 did not insert')
-    }; 
+    }
 
 }
 

@@ -5,26 +5,36 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon bin/entry.js"
+    "start": "nodemon bin/entry.js",
+    "lint": "eslint src"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bluebird": "^3.5.1",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
+    "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "dotenv": "^4.0.0",
     "eslint": "^4.16.0",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-mocha": "^4.11.0",
+    "eslint-plugin-react": "^7.6.1",
+    "eslint-plugin-security": "^1.4.0",
     "express": "^4.16.2",
     "helmet": "^3.10.0",
+    "jest": "^22.1.4",
+    "node": "^9.4.0",
     "nodemon": "^1.14.11",
     "pg": "^7.4.1",
     "supertest": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1"
   }
 }

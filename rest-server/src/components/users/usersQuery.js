@@ -2,7 +2,7 @@ import db from '../../config/database'
 
 import {
   getUserHelper
-} from './usersSQLHelper.js';
+} from './usersSQLHelper';
 
 export const getUserQuery = async (userId) => {
   try {

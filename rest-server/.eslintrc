@@ -1,0 +1,19 @@
+{
+"extends": [
+  "airbnb-base",
+  "plugin:security/recommended",
+  "eslint:recommended"
+  ],
+"plugins": [
+  "node",
+  "security",
+  "mocha",
+  "import"
+  ],
+"rules": {
+  "no-console": "off",
+  "import/first": "off",
+  "import/prefer-default-export": "off"
+
+}
+}

@@ -1,7 +1,6 @@
 import {
     createDatabase,
     dropDatabase, 
-    useDatabase,
     createUserTable, 
     dropUserTable,
     createListingTable,

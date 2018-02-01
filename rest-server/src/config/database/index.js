@@ -23,11 +23,11 @@ db.on('connect', () => {
 });
 
 db.on('remove', client => {
-    console.log('successfully removed client'); 
+    console.log('successfully removed client', client); 
 });
 
 db.on('error', err => {
-    console.log('error in pg'); 
+    console.log('error in pg', err); 
 }); 
 
 db.connect(); 

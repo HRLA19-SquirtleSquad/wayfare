@@ -1,4 +1,5 @@
 import axios from 'axios';
+import db from '../config/database/mongo';
 import {
   serverInitialState,
   serverChanged,
@@ -27,7 +28,14 @@ const clientDisconnect = ({}) => {
 
 const clientMessage = ({ io, room }, payload) => {
   console.log('client message heard');
-  serverMessage({ io, room }, payload);
+  
+  db.storeMessage(payload.username, payload.message, payload.room, function(err, data){
+    if (err) {
+      console.log('couldnt save message to mongodb')
+    } else {
+      serverMessage({ io, room }, payload);
+    }
+  })
 };
 
 const clientEmitters = {

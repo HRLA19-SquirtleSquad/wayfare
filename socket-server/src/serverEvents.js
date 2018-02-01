@@ -1,3 +1,5 @@
+import Message from '../config/database/mongo';
+
 export const serverInitalState = ({client, room}, payload) => {
   if (!room.get('chat')) {
     room.set('chat', payload)
@@ -18,7 +20,7 @@ export const serverChanged = ({ io, room }) => {
   const email = room.get('email');
   io
     .in(roomId)
-    .emit('server changed', { text, email });
+    .emit('server changed', { email });
 };
 
 export const serverLeave = ({ io, room }) => {
@@ -30,5 +32,6 @@ export const serverLeave = ({ io, room }) => {
 export const serverMessage = ({io, room}, message) => {
   io 
     .in(room.get('id'))
-    .emit('server.message', message);
-};
+    .emit('server.message', message)
+
+  };

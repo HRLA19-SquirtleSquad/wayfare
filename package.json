@@ -6,8 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:rest-server": "cd rest-server && npm start",
-    "start": "npm-run-all -p start:rest-server",
+    "start:socket-server": "cd socket-server && npm start",
+    "start": "npm-run-all -p start:rest-server start:socket-server",
     "setup:rest-server": "cd rest-server && npm install",
+    "setup:socket-server": "cd socket-server && npm install",
     "db:setup:rest-server": "cd rest-server && babel-node src/config/database/setup.js",
     "buildEnv": "node bin/buildEnv.js",
     "seedData": "cd rest-server && babel-node src/lib/SQL/seed.js ",

@@ -1,34 +1,27 @@
 require('dotenv').config();
 require('dotenv').load();
 
-import * as request from 'supertest';
+const request = require('supertest');
+// import * as request from 'supertest'
 
-// import db setup functions
-import { 
-  dropUserTable,
-  createUserTable
-} from '../../../lib/SQL';
+// import { 
+//   dropUserTable,
+//   createUserTable
+// } from '../../../lib/SQL';
 
-// import global api endpoints
 import {
-  signupUrl,
-  loginUrl,
-  logoutUrl,
-  usersUrl,
-  listingsUrl
+  getUserUrl
 } from '../../../config/global/testGlobals';
 
-// import new instance of a server
-import app from'../../../config/express';
+// import app from'../../../config/express';
+import {server} from  '../../../';
 
-let token;
-
-beforeAll(async () => {
-  await dropUserTable();
-  await createUserTable();
-  token = await request(app)
-    .post(usersUrl)
-    .send()
-})
-
-
+describe('test', () => {
+  test('should do something', async () => {
+    expect.assertions(1);
+    const response = await request(server)
+      .get(getUserUrl)
+      .query({uid: 'fakei34309'})
+    expect(response.statusCode).toBe(200);
+  })
+});

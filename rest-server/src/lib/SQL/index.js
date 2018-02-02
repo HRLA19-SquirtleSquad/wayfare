@@ -46,7 +46,7 @@ export const createUserTable = async () => {
             `CREATE TABLE IF NOT EXISTS users (
                 id SERIAL, 
                 name VARCHAR(255),
-                email VARCHAR(255) NOT NULL,
+                email VARCHAR(255) UNIQUE NOT NULL,
                 uid VARCHAR (255) NOT NULL,
                 image text,
                 type INT,

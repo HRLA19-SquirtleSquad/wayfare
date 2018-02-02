@@ -12,7 +12,5 @@ router.route('/signup')
   .post(signUpController)
 router.route('/login')
   .post(loginController)
-router.route('/logout')
-  .get(logoutController)
 
 export default router;

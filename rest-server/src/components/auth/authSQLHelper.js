@@ -1,7 +1,8 @@
-export const signUpHelper = (name, email, uid, image) => {
+export const signUpHelper = (email, uid, image, name) => {
   return `
-    INSERT INTO users (name, email, uid, image)
-    VALUES ('${name}', '${email}', '${uid}', '${image}')
+    INSERT INTO users (email, uid, image, name)
+    VALUES ('${email}', '${uid}', '${image}', '${name}')
+    ON CONFLICT DO NOTHING
     RETURNING id, email, uid
   `;
 }

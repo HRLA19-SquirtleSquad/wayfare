@@ -52,7 +52,7 @@ export const loginController = async (req, res) => {
       res.status(201).send({success: true, message:`This user has signed in: ${email}`, id: id, email: email})
     } catch (err) {
       console.log('Error logging in.', err)
-      res.status(409).send({errMsg: error.message})
+      res.status(409).send({errMsg: err.message})
     }
   } catch (err) {
     console.log('Error logging in user via firebase.')

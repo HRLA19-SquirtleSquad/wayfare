@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage --silent --forceExit",
     "start": "nodemon bin/entry.js",
     "lint": "eslint src"
   },

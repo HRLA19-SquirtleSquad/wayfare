@@ -5,9 +5,9 @@ import './config/database'
 // import './config/database/mongo';
 // import './config/database/setup';
 
-const app = App.express;
+export const app = App.express;
 
-export const server = http.createServer(app);
+const server = http.createServer(app);
 const PORT = process.env.PORT || 3000;
 
 server.listen(PORT, (err) => {

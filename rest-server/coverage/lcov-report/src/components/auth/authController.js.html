@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/auth/authController.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/components/auth</a> authController.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">12.82% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>5/39</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">12.82% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>5/39</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {
+  signUpQuery,
+  loginQuery
+} from './authQuery';
+&nbsp;
+import firebase from 'firebase';
+&nbsp;
+let firebase_config = {
+  apiKey: process.env.FB_APIKEY,
+  authDomain: process.env.FB_AUTHDOMAIN,
+  databaseURL: process.env.FB_DATABASEURL,
+  projectId: process.env.FB_PROJECTID,
+  storageBucket: process.env.FB_STORAGEBUCKET,
+  messagingSenderId: process.env.FB_MESSAGINGSENDERID
+}
+&nbsp;
+firebase.initializeApp(firebase_config);
+&nbsp;
+export const signUpController = <span class="fstat-no" title="function not covered" >as</span>ync (req, res) =&gt; {
+<span class="cstat-no" title="statement not covered" >  try {</span>
+    const authData = <span class="cstat-no" title="statement not covered" >await firebase.auth().createUserWithEmailAndPassword(req.body.email, req.body.password)</span>
+    let email = <span class="cstat-no" title="statement not covered" >authData.providerData[0].email;</span>
+    let uid = <span class="cstat-no" title="statement not covered" >authData.providerData[0].uid;</span>
+    let name = <span class="cstat-no" title="statement not covered" >req.body.name;</span>
+    let image = <span class="cstat-no" title="statement not covered" >req.body.image;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    try {</span>
+      const data = <span class="cstat-no" title="statement not covered" >await signUpQuery(name, email, uid, image)</span>
+      let id = <span class="cstat-no" title="statement not covered" >data.rows[0].id;</span>
+<span class="cstat-no" title="statement not covered" >      res.status(201).send({success: true, message:`User created successfully: ${email}`, id: id, uid: uid, email: email, name: name,})</span>
+    } catch (err) {
+<span class="cstat-no" title="statement not covered" >      console.log('[authController.js] - Error using signUpQuery:', err)</span>
+<span class="cstat-no" title="statement not covered" >      res.status(409).send({errMsg: err.message})</span>
+    }
+  } catch (err) {
+<span class="cstat-no" title="statement not covered" >    console.log('[authController.js] - Failed to sign up user into Firebase: ', err)</span>
+<span class="cstat-no" title="statement not covered" >    res.status(409).send({errMsg: err.message})</span>
+&nbsp;
+  }
+}
+&nbsp;
+export const loginController = <span class="fstat-no" title="function not covered" >as</span>ync (req, res) =&gt; {
+<span class="cstat-no" title="statement not covered" >  try {</span>
+    const authData = <span class="cstat-no" title="statement not covered" >await firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password)</span>
+    let email = <span class="cstat-no" title="statement not covered" >authData.providerData[0].email;</span>
+    let uid = <span class="cstat-no" title="statement not covered" >authData.providerData[0].uid;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    try {</span>
+      const data = <span class="cstat-no" title="statement not covered" >await loginQuery(email, uid)</span>
+<span class="cstat-no" title="statement not covered" >      console.log('i am data from logging in:', data)</span>
+      let id = <span class="cstat-no" title="statement not covered" >data.rows[0].id;</span>
+<span class="cstat-no" title="statement not covered" >      res.status(201).send({success: true, message:`This user has signed in: ${email}`, id: id, email: email})</span>
+    } catch (err) {
+<span class="cstat-no" title="statement not covered" >      console.log('Error logging in.', err)</span>
+<span class="cstat-no" title="statement not covered" >      res.status(409).send({errMsg: err.message})</span>
+    }
+  } catch (err) {
+<span class="cstat-no" title="statement not covered" >    console.log('Error logging in user via firebase.')</span>
+<span class="cstat-no" title="statement not covered" >    res.status(409).send({errMsg: err})</span>
+  }
+}
+&nbsp;
+export const logoutController = <span class="fstat-no" title="function not covered" >as</span>ync (req, res) =&gt; {
+<span class="cstat-no" title="statement not covered" >  try {</span>
+<span class="cstat-no" title="statement not covered" >    firebase.auth().signOut().then(<span class="fstat-no" title="function not covered" >fu</span>nction() {</span>
+<span class="cstat-no" title="statement not covered" >      console.log("Sign out successful.")</span>
+<span class="cstat-no" title="statement not covered" >      res.status(200).send({success: true, message: `Sign out successful.`})</span>
+    }).catch(<span class="fstat-no" title="function not covered" >fu</span>nction(error) {
+<span class="cstat-no" title="statement not covered" >      console.log('Error logging out:', error)</span>
+<span class="cstat-no" title="statement not covered" >      res.status(409).send({success: false, errMsg: `Error logging out.`})</span>
+&nbsp;
+    });
+  } catch (err) {
+<span class="cstat-no" title="statement not covered" >    throw new Error(err);</span>
+  }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Feb 02 2018 09:46:03 GMT-0800 (Pacific Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

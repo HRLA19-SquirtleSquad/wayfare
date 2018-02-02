@@ -87,3 +87,6 @@ $RECYCLE.BIN/
 .com.apple.timemachine.donotpresent
 
 ### OTHERS ###
+
+/rest-server/coverage
+coverage

@@ -88,3 +88,6 @@ $RECYCLE.BIN/
 .com.apple.timemachine.donotpresent
 
 ### OTHERS ###
+
+/coverage
+coverage

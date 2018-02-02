@@ -21,12 +21,6 @@ const envBuild = {
     'PORT=4155',
     'REST_SERVER_URL=http://localhost:4990',
     'TOKEN_SECRET='
-  ],
-  'oauth-server': [
-    'NODE_ENV=',
-    'HOST=localhost',
-    'PORT=',
-    'REST_SERVER_URL=localhost:3396'
   ]
 }
 

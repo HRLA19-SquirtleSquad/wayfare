@@ -45,10 +45,10 @@ export const createUserTable = async () => {
         await db.queryAsync(
             `CREATE TABLE IF NOT EXISTS users (
                 id SERIAL, 
-                name VARCHAR(255) NOT NULL,
+                name VARCHAR(255),
                 email VARCHAR(255) NOT NULL,
                 uid VARCHAR (255) NOT NULL,
-                image VARCHAR(500) NOT NULL,
+                image text,
                 type INT,
                 hostRating NUMERIC,
                 hostRatingCount INT,

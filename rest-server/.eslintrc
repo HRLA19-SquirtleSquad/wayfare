@@ -1,19 +1,29 @@
 {
-"extends": [
-  "airbnb-base",
-  "plugin:security/recommended",
-  "eslint:recommended"
+  "extends": [
+    "airbnb-base",
+    "plugin:security/recommended",
+    "eslint:recommended",
+    "plugin:jest/recommended"
   ],
-"plugins": [
-  "node",
-  "security",
-  "mocha",
-  "import"
+  "plugins": [
+    "node",
+    "security",
+    "mocha",
+    "import",
+    "jest"
   ],
-"rules": {
-  "no-console": "off",
-  "import/first": "off",
-  "import/prefer-default-export": "off"
-
-}
+  "rules": {
+    "no-console": "off",
+    "import/first": "off",
+    "import/prefer-default-export": "off",
+    "import/no-unresolved": [
+      2, 
+      { "caseSensitive": false }
+    ],
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error"
+  }
 }

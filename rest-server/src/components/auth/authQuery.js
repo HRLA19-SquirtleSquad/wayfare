@@ -3,7 +3,7 @@ import db from '../../config/database'
 import {
   signUpHelper,
   loginHelper
-} from './authSQLHelper.js';
+} from './authSQLHelper';
 
 export const signUpQuery = async (name, email, uid, image) => {
   try {

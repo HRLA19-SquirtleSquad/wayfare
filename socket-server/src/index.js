@@ -4,15 +4,11 @@ import { each } from 'lodash';
 import Rooms from './rooms';
 import ClientEvents from './clientEvents';
 
-
-
 const server = http.createServer();
 const io = SocketIo(server);
 const rooms = new Rooms(io);
 
-
 io.on('connection', (client) => {
-  client.removeAllListeners();
   console.log('client connected');
   const { roomId } = client.handshake.query;
   const room = rooms.findOrCreateRoom(roomId || 'default');

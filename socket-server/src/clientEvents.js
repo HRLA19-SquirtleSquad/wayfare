@@ -29,10 +29,11 @@ const clientDisconnect = ({}) => {
 const clientMessage = ({ io, room }, payload) => {
   console.log('client message heard');
   
-  db.storeMessage(payload.username, payload.message, payload.room, function(err, data){
+  db.storeChat(payload.author, payload.message, payload.room, function(err, data){
     if (err) {
       console.log('couldnt save message to mongodb')
     } else {
+      console.log('message saved?')
       serverMessage({ io, room }, payload);
     }
   })

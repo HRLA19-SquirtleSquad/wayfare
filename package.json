@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:rest-server": "cd rest-server && npm run test",
+    "test": "npm-run-all -p test:rest-server",
     "start:rest-server": "cd rest-server && npm start",
     "start:socket-server": "cd socket-server && npm start",
     "start": "npm-run-all -p start:rest-server start:socket-server",
@@ -13,7 +14,7 @@
     "db:setup:rest-server": "cd rest-server && babel-node src/config/database/setup.js",
     "buildEnv": "node bin/buildEnv.js",
     "seedData": "cd rest-server && babel-node src/lib/SQL/seed.js ",
-    "lint": "cd rest-server && eslint src" 
+    "lint": "cd rest-server && eslint src"
   },
   "repository": {
     "type": "git",

@@ -76,6 +76,24 @@ export const dropUserTable = async () => {
     }
 }; 
 
+export const dropAllTables = async () => {
+    await dropReviewTable(); 
+    await dropImageTable(); 
+    await dropRequestSkillTable(); 
+    await dropSkillTable(); 
+    await dropRequestTable(); 
+    await dropListingTable(); 
+    await dropUserTable(); 
+}
+export const createAllTables = async () => {
+    await createUserTable(); 
+    await createListingTable(); 
+    await createRequestTable(); 
+    await createReviewTable(); 
+    await createImageTable(); 
+    await createSkillTable(); 
+    await createRequestSkillTable(); 
+}
 
 //LISTINGS table
 export const createListingTable = async () => {

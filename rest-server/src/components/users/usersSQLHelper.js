@@ -6,7 +6,6 @@ export const getUserHelper = (uid) => {
 }
 
 export const postUserHelper = (name, email, uid) => {
-  console.log('sql')
   return `
     insert into users values (
       default, 

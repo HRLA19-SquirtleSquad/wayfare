@@ -49,11 +49,12 @@ export const createUserTable = async () => {
                 email VARCHAR(255) UNIQUE NOT NULL,
                 uid VARCHAR (255) NOT NULL,
                 image text,
-                type INT,
-                hostRating NUMERIC,
-                hostRatingCount INT,
-                guestRating NUMERIC,
-                guestRatingCount INT,
+                city VARCHAR (255),
+                type INT DEFAULT 0,
+                hostRating NUMERIC DEFAULT 0,
+                hostRatingCount INT DEFAULT 0,
+                guestRating NUMERIC DEFAULT 0,
+                guestRatingCount INT DEFAULT 0,
                 CONSTRAINT users_pk PRIMARY KEY(id)
             )
                 `
@@ -106,10 +107,13 @@ export const createListingTable = async () => {
                 endDate VARCHAR(255) NOT NULL,
                 latitude NUMERIC,
                 longitude NUMERIC,
+                address VARCHAR (250),
+                city VARCHAR (250), 
                 hostId INT,
                 guestId INT,
+                viewCount INT DEFAULT 0,
                 description TEXT,
-                status VARCHAR (255) NOT NULL,
+                status VARCHAR (255) NOT NULL DEFAULT 'PENDING',
                 CONSTRAINT listings_pk PRIMARY KEY(id),
                 CONSTRAINT fk_listings_hostId FOREIGN KEY(hostId) REFERENCES users(id),
                 CONSTRAINT fk_listings_guestId FOREIGN KEY(guestId) REFERENCES users(id)
@@ -172,7 +176,7 @@ export const createReviewTable = async () => {
         await db.queryAsync(
             `CREATE TABLE IF NOT EXISTS reviews (
                 id SERIAL, 
-                parentId INT,
+                parentId INT DEFAULT 0,
                 rating NUMERIC, 
                 review TEXT, 
                 commentor INT, 

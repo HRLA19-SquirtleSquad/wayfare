@@ -9,8 +9,8 @@
     "start:rest-server": "cd rest-server && npm start",
     "start:socket-server": "cd socket-server && npm start",
     "start": "npm-run-all -p start:rest-server start:socket-server",
-    "setup:rest-server": "cd rest-server && npm install",
     "setup:socket-server": "cd socket-server && npm install",
+    "setup:rest-server": "cd rest-server && npm install && redis-server",
     "db:setup:rest-server": "cd rest-server && babel-node src/config/database/setup.js",
     "buildEnv": "node bin/buildEnv.js",
     "seedData": "cd rest-server && babel-node src/lib/SQL/seed.js ",
@@ -29,9 +29,11 @@
   "homepage": "https://github.com/HRLA19-SquirtleSquad/wayfare#readme",
   "dependencies": {
     "firebase": "^4.9.0",
+    "cron": "^1.3.0",
     "lodash": "^4.17.4",
     "node": "^9.4.0",
-    "npm-run-all": "^4.1.2"
+    "npm-run-all": "^4.1.2",
+    "redis": "^2.8.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0"

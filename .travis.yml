@@ -6,6 +6,7 @@ cache:
 services: 
   - postgresql
   - redis-server
+  - mongodb
 before_script:
   - sudo apt-get -qq update # qq for less output
   # - createuser root

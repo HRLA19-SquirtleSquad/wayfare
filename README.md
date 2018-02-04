@@ -23,7 +23,6 @@ npm run start
 
   #redis
     --brew install redis
-    --npm install
 
 #To start rest-server
   --npm install

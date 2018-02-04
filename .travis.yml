@@ -3,7 +3,10 @@ node_js: node
 cache:
   directories:
     - node_modules
-services: postgresql
+services: 
+  - postgresql
+  - redis-server
+  - mongodb
 before_script:
   - sudo apt-get -qq update # qq for less output
   # - createuser root
@@ -11,7 +14,8 @@ before_script:
 install:
   - npm install
   - npm run buildEnv
-  - npm run setup:rest-server
+  - npm run setup:rest-server & 
+  - sleep 10
   - npm run setup:socket-server
   # - npm setup:services/oauth-server
   - npm run db:setup:rest-server

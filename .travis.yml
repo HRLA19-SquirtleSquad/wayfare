@@ -3,7 +3,9 @@ node_js: node
 cache:
   directories:
     - node_modules
-services: postgresql, redis
+services: 
+  - postgresql
+  - redis-server
 before_script:
   - sudo apt-get -qq update # qq for less output
   # - createuser root

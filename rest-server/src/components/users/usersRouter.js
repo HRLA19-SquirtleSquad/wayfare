@@ -13,4 +13,7 @@ router.route('/getUser')
 router.route('/postUser')
   .post(postUserController)
 
+router.route('/editUser')
+  .put(updateUserController)
+
 export default router;

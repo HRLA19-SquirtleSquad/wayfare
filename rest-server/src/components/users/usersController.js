@@ -23,3 +23,13 @@ export const postUserController = async (req, res) => {
     throw new Error(err);
   }
 }
+
+export const updateUserController = async (req, res) => {
+  try {
+    const data = await putUserQuery(req.body);
+    // console.log('putUserController - successfully updated user data', data);
+    return res.status(200).send(data);
+  } catch (err) {
+    throw new Error(err);
+  }
+}

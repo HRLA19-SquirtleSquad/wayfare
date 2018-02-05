@@ -1,11 +1,10 @@
-import { setTopListings } from './redis/redis.js'; 
+import { setTopListings } from './redis/redis'; 
+
 let CronJob = require('cron').CronJob;
 
 new CronJob('59 59 23 * * *', function() {
-  console.log('You will see this message every second');
   setTopListings(); 
 }, null, true, 'America/Los_Angeles');
 
 setTopListings();  
 
-console.log('done')

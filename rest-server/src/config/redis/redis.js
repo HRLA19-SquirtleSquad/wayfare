@@ -1,6 +1,6 @@
 import Promise from 'bluebird'; 
-import { getTopListingsQuery, getListingImagesQuery } from '../../components/listings/listingsQuery.js'; 
-import {getListingImagesHelper} from '../../components/listings/listingsSQLHelper'
+import { getTopListingsQuery, getListingImagesQuery } from '../../components/listings/listingsQuery'; 
+
 let redis = require("redis"),
     client = redis.createClient();
 

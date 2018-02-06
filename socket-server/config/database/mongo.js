@@ -13,6 +13,7 @@ db.once('open', () => {
 //mongoose Schema
 const ChatSchema = mongoose.Schema({
   author: String,
+  authorImage: String,
   message: String,
   room: String,
 },
@@ -24,10 +25,11 @@ const ChatSchema = mongoose.Schema({
 //mongoose model
 const Chat = mongoose.model('Chat', ChatSchema);
 
-const storeChat = (username, message, room, callback) => {
+const storeChat = (username, authorImage,message, room, callback) => {
 
   new Chat({
     author: username,
+    authorImage: authorImage,
     message: message,
     room: room
   }).save((err, data) => {

@@ -6,8 +6,21 @@ export const getTopListingsHelper = () => {
   `;
 }
 
-export const getListingImagesHelper = (listingId) => {
+export const getListingImagesHelper = ( listingId ) => {
   return `
     SELECT url from images where id = ${listingId}
+  `
+}
+
+export const getListingHelper = ( listingId ) => {
+  return `
+    SELECT * FROM LISTINGS WHERE id = ${listingId}
+  `
+}
+
+
+export const updateListingViewCountHelper = ( listingId )  => {
+  return `
+    UPDATE listings SET viewCount = viewCount + 1 WHERE id = ${listingId}
   `
 }

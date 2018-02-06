@@ -3,7 +3,7 @@ import http from 'http';
 import App from './config/express';
 import './config/database'
 // import './config/database/mongo';
-import './config/cron.js'; 
+import './config/cron'; 
 
 export const app = App.express;
 

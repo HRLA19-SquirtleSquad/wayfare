@@ -3,7 +3,9 @@ import express from 'express';
 import {
   getUserController,
   postUserController,
-  updateUserController
+  updateUserController, 
+  getUserNameController, 
+  getUserReviewsController
 } from './usersController';
 
 const router = express.Router();
@@ -16,5 +18,12 @@ router.route('/postUser')
 
 router.route('/editUser')
   .put(updateUserController)
+
+router.route('/getUserName') 
+  .get(getUserNameController); 
+
+router.route('/getUserReviews') 
+  .get(getUserReviewsController); 
+
 
 export default router;

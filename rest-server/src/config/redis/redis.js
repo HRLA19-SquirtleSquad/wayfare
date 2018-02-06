@@ -21,7 +21,7 @@ export const setTopListings = async () => {
       client.hset([i, "id", listing.id , "title", listing.title, "city", listing.city, "image", image.rows[0].url], redis.print); 
     }
   }
-  client.quit(); 
+  //client.quit(); 
   
 }
 
@@ -31,7 +31,7 @@ export const getTopListings = async () => {
     for (let i  = 0; i < 10; i++) {
       let obj = {}; 
       obj.id = await client.hgetAsync(i, "id"); 
-      obj.name = await client.hgetAsync(i, "name"); 
+      obj.title = await client.hgetAsync(i, "title"); 
       obj.city = await client.hgetAsync(i, "city")
       obj.image = await client.hgetAsync(i, "image"); 
       topListings.push(obj); 

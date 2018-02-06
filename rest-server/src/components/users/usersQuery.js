@@ -3,7 +3,9 @@ import db from '../../config/database'
 import {
   getUserHelper,
   postUserHelper,
-  putUserHelper
+  putUserHelper, 
+  getUserNameHelper,
+  getUserReviewsHelper
 } from './usersSQLHelper';
 
 export const getUserQuery = async (uid) => {
@@ -45,5 +47,26 @@ export const editUserQuery = async (body) => {
     return data;
   } catch (err) {
     throw new Error (err);
+  }
+}
+
+export const getUserNameQuery = async (userId) => {
+  try {
+    const queryString = getUserNameHelper(userId); 
+    const data = await db.queryAsync(queryString); 
+    return data; 
+  } catch (err) {
+    throw new Error (err); 
+  }
+}
+
+
+export const getUserReviewsQuery = async (userId) => {
+  try {
+    const queryString = getUserReviewsHelper(userId); 
+    const data = await db.queryAsync(queryString); 
+    return data; 
+  } catch (err) {
+    throw new Error (err); 
   }
 }

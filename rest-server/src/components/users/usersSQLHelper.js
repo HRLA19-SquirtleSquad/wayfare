@@ -29,3 +29,16 @@ export const putUserHelper = (city, bio, image, uid) => {
     WHERE uid = '${uid}'
   `
 }
+
+
+export const getUserNameHelper = (userId) => {
+  return `
+  SELECT name FROM users WHERE id = ${userId}
+  `
+}
+
+export const getUserReviewsHelper = (userId) => {
+  return `
+    SELECT * FROM reviews WHERE commentee = ${userId}
+  `
+}

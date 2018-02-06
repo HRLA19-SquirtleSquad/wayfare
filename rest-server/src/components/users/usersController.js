@@ -1,7 +1,9 @@
 import {
   getUserQuery,
   postUserQuery,
-  editUserQuery
+  editUserQuery,
+  getUserNameQuery, 
+  getUserReviewsQuery
 } from './usersQuery';
 
 export const getUserController = async (req, res) => {
@@ -32,5 +34,28 @@ export const updateUserController = async (req, res) => {
     return res.status(200).send(data);
   } catch (err) {
     throw new Error(err);
+  }
+}
+
+export const getUserNameController = async (req, res) => {
+  try {
+    const data = await getUserNameQuery(req.query.userId); 
+    return res.status(200).send(data.rows[0].name); 
+  } catch (err) {
+    throw new Error(err); 
+  }
+}
+
+export const getUserReviewsController = async (req, res) => {
+  try {
+    const data = await getUserReviewsQuery(req.query.userId); 
+    let reviews = data.rows; 
+    for (let i = 0; i <reviews.length; i ++) {
+      let user = await getUserNameQuery(reviews[i].commentor); 
+      data.rows[i].commentor = user.rows[0].name; 
+    }
+    return res.status(200).send(data); 
+  } catch (err) {
+    throw new Error(err); 
   }
 }

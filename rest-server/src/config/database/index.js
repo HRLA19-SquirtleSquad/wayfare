@@ -22,8 +22,8 @@ db.on('connect', () => {
     console.log('successfully connected to pg', config.database);
 });
 
-db.on('remove', client => {
-    console.log('successfully removed client', client); 
+db.on('remove', () => {
+    console.log('successfully removed client'); 
 });
 
 db.on('error', err => {

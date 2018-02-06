@@ -3,26 +3,26 @@ import db from '../../config/database'
 
 export const createSeedUsers = async () => {
    try{
-       let query = "insert into users values (default, 'Danieo Sanchez', 'damndanieo@skynet.com', 'asdj4569ssf90', 'https://media.mnn.com/assets/images/2015/09/river-otters-lead-photo.jpg.638x0_q80_crop-smart.jpg', 0, 0, 0, 0.05, 323)"
+       let query = "insert into users values (DEFAULT, 'Danieo Sanchez', 'damndanieo@skynet.com', 'asdj4569ssf90', 'hi, im daniel', https://media.mnn.com/assets/images/2015/09/river-otters-lead-photo.jpg.638x0_q80_crop-smart.jpg', 'LA', 0, 0, 0, 0.05, 323)"
         await db.queryAsync(query)
         console.log('user seed data 1 inserted'); 
    } catch (err) {
         console.log('user seed data 1 did not insert', err)
    }
    try{
-        let query = "insert into users values (default, 'Chris King-Kong', 'emergency@poopvan.com', 'asdf823r9asd', 'https://images-na.ssl-images-amazon.com/images/I/513Y54TGdwL._SY445_.jpg', 0, 0, 0, 2.2, 43)"
+        let query = "insert into users values (DEFAULT, 'Chris King-Kong', 'emergency@poopvan.com', 'asdf823r9asd', 'hi, im chris', 'https://images-na.ssl-images-amazon.com/images/I/513Y54TGdwL._SY445_.jpg', 'LA', 0, 0, 0, 2.2, 43)"
         await db.queryAsync(query)
         console.log('user seed data 2 inserted'); 
     } catch (err) {
         console.log('user seed data 2 did not insert', err)
     }try{
-        let query = "insert into users values (default, 'Brian Hong', 'briguy@aol.com', 'asdfi34309', 'https://www.google.com/imgres?imgurl=https://assets.pokemon.com/assets/cms2/img/pokedex/detail/043.png&imgrefurl=https://www.pokemon.com/us/pokedex/oddish&h=215&w=215&tbnid=WrwAjzyZuIzfJM:&tbnh=186&tbnw=186&usg=__CSzNNoD5rLyNQI3NT7NIN5qNubI%3D&vet=10ahUKEwj8oceH24LZAhUH7mMKHdEdCP0Q_B0ItAEwEw..i&docid=49mknwwZxyCNfM&itg=1&sa=X&ved=0ahUKEwj8oceH24LZAhUH7mMKHdEdCP0Q_B0ItAEwEw', 1, 3.2, 12, 0, 0)"
+        let query = "insert into users values (3, 'Brian Hong', 'briguy@aol.com', 'asdfi34309', 'hi, im brian', 'https://www.google.com/imgres?imgurl=https://assets.pokemon.com/assets/cms2/img/pokedex/detail/043.png&imgrefurl=https://www.pokemon.com/us/pokedex/oddish&h=215&w=215&tbnid=WrwAjzyZuIzfJM:&tbnh=186&tbnw=186&usg=__CSzNNoD5rLyNQI3NT7NIN5qNubI%3D&vet=10ahUKEwj8oceH24LZAhUH7mMKHdEdCP0Q_B0ItAEwEw..i&docid=49mknwwZxyCNfM&itg=1&sa=X&ved=0ahUKEwj8oceH24LZAhUH7mMKHdEdCP0Q_B0ItAEwEw', 'LA', 1, 3.2, 12, 0, 0)"
         await db.queryAsync(query)
         console.log('user seed data 3 inserted'); 
     } catch (err) {
         console.log('user seed data 3 did not insert', err)
     }try{
-        let query = "insert into users values (default, 'ErIc Carmona', 'BballinEric@lakers.com', 'sdiwef23r8nv', 'https://www.google.com/imgres?imgurl=https://cdn-s3.si.com/s3fs-public/teams/basketball/nba/players/214152-300x300.png&imgrefurl=https://www.si.com/nba/player/214152/lebron-james&h=300&w=300&tbnid=Um0-ny3STqIOgM:&tbnh=186&tbnw=186&usg=__mS80Wbc4A7om2qWHMAX-4jeAL6s%3D&vet=10ahUKEwi2pfC83ILZAhVNwWMKHcnjDskQ_B0IwAEwHA..i&docid=l9fHBl84MfA_GM&itg=1&sa=X&ved=0ahUKEwi2pfC83ILZAhVNwWMKHcnjDskQ_B0IwAEwHA', 1, .01, 14, 5, 22)"
+        let query = "insert into users values (4, 'ErIc Carmona', 'BballinEric@lakers.com', 'sdiwef23r8nv', 'hi, im erIc', 'https://www.google.com/imgres?imgurl=https://cdn-s3.si.com/s3fs-public/teams/basketball/nba/players/214152-300x300.png&imgrefurl=https://www.si.com/nba/player/214152/lebron-james&h=300&w=300&tbnid=Um0-ny3STqIOgM:&tbnh=186&tbnw=186&usg=__mS80Wbc4A7om2qWHMAX-4jeAL6s%3D&vet=10ahUKEwi2pfC83ILZAhVNwWMKHcnjDskQ_B0IwAEwHA..i&docid=l9fHBl84MfA_GM&itg=1&sa=X&ved=0ahUKEwi2pfC83ILZAhVNwWMKHcnjDskQ_B0IwAEwHA', 'LA', 1, .01, 14, 5, 22)"
         await db.queryAsync(query)
         console.log('user seed data 4 inserted'); 
     } catch (err) {
@@ -32,7 +32,7 @@ export const createSeedUsers = async () => {
 
 export const createSeedListings = async () => {
     try {
-        let query = "insert into listings values (default, 'The comfiest dining room bed in the world', '2/3/18', '2/26/18', 1.2032934, 123.2340923, 3, null, 'Need a place to sleep in privacy and comfort? Well then, this is not for you. Come join me for a roof over your head, a comfy bed and a table to eat at, all from the same position.', 'PENDING')"; 
+        let query = "insert into listings values (default, 'The comfiest dining room bed in the world', '2/3/18', '2/26/18', 1.2032934, 123.2340923, '1234 drive', 'LA', 3, null, 0, 'Need a place to sleep in privacy and comfort? Well then, this is not for you. Come join me for a roof over your head, a comfy bed and a table to eat at, all from the same position.', 'PENDING')"; 
         await db.queryAsync(query); 
         console.log('listing seed data 1 inserted')
     } catch (err) {
@@ -40,7 +40,7 @@ export const createSeedListings = async () => {
     }
 
     try {
-        let query = "insert into listings values (default, 'Erics bitchin pad', '2/14/18', '2/15/18', 24.3424, 54093.1234, 4, null, 'Come sleep here for some tutuchu tutuchu', 'PENDING') "
+        let query = "insert into listings values (default, 'Erics bitchin pad', '2/14/18', '2/15/18', 24.3424, 54093.1234, '4456 place avenue', 'LA', 4, null, 0, 'Come sleep here for some tutuchu tutuchu', 'PENDING') "
         await db.queryAsync(query); 
         console.log('listing seed data 2 inserted'); 
     } catch (err) {
@@ -188,6 +188,8 @@ const seedData = async () => {
     await createSeedImages(); 
     await createSeedSkills(); 
     await createRequestSkill(); 
+
+    process.exit(); 
 }
 
 seedData(); 

@@ -21,3 +21,24 @@ export const postUserHelper = (name, email, uid) => {
     )
   `
 }
+
+export const putUserHelper = (city, bio, image, uid) => {
+  return `
+    UPDATE users
+    SET city = '${city}', bio = '${bio}', image = '${image}'
+    WHERE uid = '${uid}'
+  `
+}
+
+
+export const getUserNameHelper = (userId) => {
+  return `
+  SELECT name FROM users WHERE id = ${userId}
+  `
+}
+
+export const getUserReviewsHelper = (userId) => {
+  return `
+    SELECT * FROM reviews WHERE commentee = ${userId}
+  `
+}

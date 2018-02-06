@@ -2,7 +2,10 @@ import express from 'express';
 
 import {
   getUserController,
-  postUserController
+  postUserController,
+  updateUserController, 
+  getUserNameController, 
+  getUserReviewsController
 } from './usersController';
 
 const router = express.Router();
@@ -12,5 +15,15 @@ router.route('/getUser')
 
 router.route('/postUser')
   .post(postUserController)
+
+router.route('/editUser')
+  .put(updateUserController)
+
+router.route('/getUserName') 
+  .get(getUserNameController); 
+
+router.route('/getUserReviews') 
+  .get(getUserReviewsController); 
+
 
 export default router;

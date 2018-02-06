@@ -1,6 +1,7 @@
 import {
   getUserQuery,
-  postUserQuery
+  postUserQuery,
+  editUserQuery
 } from './usersQuery';
 
 export const getUserController = async (req, res) => {
@@ -26,7 +27,7 @@ export const postUserController = async (req, res) => {
 
 export const updateUserController = async (req, res) => {
   try {
-    const data = await putUserQuery(req.body);
+    const data = await editUserQuery(req.body);
     // console.log('putUserController - successfully updated user data', data);
     return res.status(200).send(data);
   } catch (err) {

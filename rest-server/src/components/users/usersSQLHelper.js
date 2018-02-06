@@ -21,3 +21,11 @@ export const postUserHelper = (name, email, uid) => {
     )
   `
 }
+
+export const putUserHelper = (city, bio, image, uid) => {
+  return `
+    UPDATE users
+    SET city = '${city}', bio = '${bio}', image = '${image}'
+    WHERE uid = '${uid}'
+  `
+}

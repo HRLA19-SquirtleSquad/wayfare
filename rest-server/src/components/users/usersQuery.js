@@ -2,7 +2,8 @@ import db from '../../config/database'
 
 import {
   getUserHelper,
-  postUserHelper
+  postUserHelper,
+  putUserHelper
 } from './usersSQLHelper';
 
 export const getUserQuery = async (uid) => {
@@ -27,6 +28,22 @@ export const postUserQuery = async (body) => {
     // console.log('postUserQuery - successfully posted user data', data)
     return data
   } catch(err) {
+    throw new Error (err);
+  }
+}
+
+export const editUserQuery = async (body) => {
+  try {
+    const queryString = putUserHelper(
+      body.city,
+      body.bio,
+      body.image,
+      body.uid
+    );
+    const data = await db.queryAsync(queryString);
+    // console.log('editUserQuery - successfully edited user data', data)
+    return data;
+  } catch (err) {
     throw new Error (err);
   }
 }

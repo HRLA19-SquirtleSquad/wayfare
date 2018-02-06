@@ -2,7 +2,8 @@ import express from 'express';
 
 import {
   getUserController,
-  postUserController
+  postUserController,
+  updateUserController
 } from './usersController';
 
 const router = express.Router();

@@ -1,6 +1,7 @@
 import {
   getUserQuery,
-  postUserQuery
+  postUserQuery,
+  editUserQuery
 } from './usersQuery';
 
 export const getUserController = async (req, res) => {
@@ -19,6 +20,16 @@ export const postUserController = async (req, res) => {
     const data = await postUserQuery(req.body);
     // console.log('postUserController - successfully posted user data', data);
     return res.status(201).send(data);
+  } catch (err) {
+    throw new Error(err);
+  }
+}
+
+export const updateUserController = async (req, res) => {
+  try {
+    const data = await editUserQuery(req.body);
+    // console.log('putUserController - successfully updated user data', data);
+    return res.status(200).send(data);
   } catch (err) {
     throw new Error(err);
   }

@@ -11,10 +11,11 @@ db.once('open', () => {
   console.log('mongoose connected successfully');
 });
 //mongoose Schema
-const MessageSchema = mongoose.Schema({
+const ChatSchema = mongoose.Schema({
   author: String,
-  body: String,
-  chatroom: String,
+  authorImage: String,
+  message: String,
+  room: String,
 },
 {
   timestamps: true
@@ -22,12 +23,13 @@ const MessageSchema = mongoose.Schema({
 )
 
 //mongoose model
-const Message = mongoose.model('Message', MessageSchema);
+const Chat = mongoose.model('Chat', ChatSchema);
 
-const storeMessage = (username, message, room, callback) => {
+const storeChat = (username, authorImage,message, room, callback) => {
 
-  new Message({
-    username: username,
+  new Chat({
+    author: username,
+    authorImage: authorImage,
     message: message,
     room: room
   }).save((err, data) => {
@@ -39,6 +41,6 @@ const storeMessage = (username, message, room, callback) => {
   })
 }
 
-module.exports.Message = Message;
-module.exports.storeMessage = storeMessage;
+module.exports.Chat = Chat;
+module.exports.storeChat = storeChat;
 

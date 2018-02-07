@@ -2,7 +2,8 @@ import {
   // import queries from listingsQuery
   getListingImagesQuery, 
   getListingQuery, 
-  updateListingViewCountQuery
+  updateListingViewCountQuery, 
+  getListingSkillsQuery
 } from './listingsQuery';
 import { getTopListings } from '../../config/redis/redis'
 
@@ -40,6 +41,15 @@ export const getTopTenListings = async (req, res) => {
     const data = await getTopListings(); 
     return res.status(200).send(data); 
   } catch (err) {
+    throw new Error (err); 
+  }
+}
+
+export const getListingSkills = async (req, res) => {
+  try {
+    const data = await getListingSkillsQuery(req.query.listingId); 
+    return res.status(200).send(data.rows); 
+  }  catch (err) {
     throw new Error (err); 
   }
 }

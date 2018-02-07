@@ -8,7 +8,8 @@ import {
   getUserReviewsHelper,
   getGivenReviewsHelper,
   getReceivedReviewsHelper,
-  upgradeUserHelper
+  upgradeUserHelper,
+  getUserDataHelper
 } from './usersSQLHelper';
 
 export const getUserQuery = async (uid) => {
@@ -63,11 +64,21 @@ export const getUserNameQuery = async (userId) => {
   }
 }
 
+export const getUserDataQuery = async (userId) => {
+  try {
+    const queryString = getUserDataHelper(userId); 
+    const data = await db.queryAsync(queryString); 
+    return data; 
+  } catch (err) {
+    throw new Error (err); 
+  }
+}
 
 export const getUserReviewsQuery = async (userId) => {
   try {
     const queryString = getUserReviewsHelper(userId); 
     const data = await db.queryAsync(queryString); 
+    console.log('review data', data); 
     return data; 
   } catch (err) {
     throw new Error(err); 

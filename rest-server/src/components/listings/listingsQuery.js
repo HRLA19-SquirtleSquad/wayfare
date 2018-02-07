@@ -4,7 +4,8 @@ import {
   getTopListingsHelper, 
   getListingImagesHelper, 
   getListingHelper, 
-  updateListingViewCountHelper
+  updateListingViewCountHelper, 
+  getListingSkillsHelper
 } from './listingsSQLHelper';
 
 // define queries
@@ -44,6 +45,16 @@ export const updateListingViewCountQuery = async (listingId) => {
   try {
     const queryString = updateListingViewCountHelper(listingId); 
     await db.queryAsync(queryString); 
+  } catch (err) {
+    throw new Error (err); 
+  }
+}
+
+export const getListingSkillsQuery = async ( listingId ) => {
+  try {
+    const queryString = getListingSkillsHelper(listingId); 
+    const data = await db.queryAsync(queryString); 
+    return data; 
   } catch (err) {
     throw new Error (err); 
   }

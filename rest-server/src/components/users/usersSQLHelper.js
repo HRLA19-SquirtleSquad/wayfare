@@ -2,7 +2,7 @@ export const getUserHelper = (uid) => {
   return `
     SELECT * FROM users 
     WHERE uid = '${uid}' 
-  `;
+  `
 }
 
 export const postUserHelper = (name, email, uid) => {

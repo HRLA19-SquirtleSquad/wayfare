@@ -7,6 +7,9 @@ const envBuild = {
     'LOCAL_DATABASE=wayfare',
     'LOCAL_PASSWORD=password',
     'LOCAL_PORT=5432',
+    'AWS_ACCESS_KEY_ID=',
+    'AWS_SECRET_ACCESS_KEY='
+
     // --- FOR AWS RDS ---
     // 'AWS_USER=',
     // 'AWS_HOST=',

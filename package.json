@@ -6,14 +6,16 @@
   "scripts": {
     "test:rest-server": "cd rest-server && npm run test",
     "test": "npm-run-all -p test:rest-server",
+    "start:mongod": "cd socket-server && mongod",
     "start:rest-server": "cd rest-server && npm start",
     "start:socket-server": "cd socket-server && npm start",
-    "start": "npm-run-all -p start:rest-server start:socket-server",
+    "start:redis-server": "cd rest-server && redis-server",
+    "start": "npm-run-all -p start:mongod start:rest-server start:socket-server",
     "setup:socket-server": "cd socket-server && npm install",
-    "setup:rest-server": "cd rest-server && npm install && redis-server",
+    "setup:rest-server": "cd rest-server && npm install",
     "db:setup:rest-server": "cd rest-server && babel-node src/config/database/setup.js",
     "buildEnv": "node bin/buildEnv.js",
-    "seedData": "cd rest-server && babel-node src/lib/SQL/seed.js ",
+    "seedData": "cd rest-server && babel-node src/lib/SQL/seed.js",
     "lint": "cd rest-server && eslint src"
   },
   "repository": {

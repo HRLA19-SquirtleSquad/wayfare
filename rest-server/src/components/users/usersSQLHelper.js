@@ -42,3 +42,15 @@ export const getUserReviewsHelper = (userId) => {
     SELECT * FROM reviews WHERE commentee = ${userId}
   `
 }
+
+export const getGivenReviewsHelper = (id) => {
+  return `
+    SELECT * FROM reviews WHERE commentor = ${id}
+  `
+}
+
+export const getReceivedReviewsHelper = (id) => {
+  return `
+  SELECT * FROM reviews WHERE commentee = ${id}
+  `
+}

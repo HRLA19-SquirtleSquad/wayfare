@@ -3,7 +3,9 @@ import {
   postUserQuery,
   editUserQuery,
   getUserNameQuery, 
-  getUserReviewsQuery
+  getUserReviewsQuery,
+  getGivenReviewsQuery,
+  getReceivedReviewsQuery
 } from './usersQuery';
 
 export const getUserController = async (req, res) => {
@@ -57,5 +59,39 @@ export const getUserReviewsController = async (req, res) => {
     return res.status(200).send(data); 
   } catch (err) {
     throw new Error(err); 
+  }
+}
+
+export const getGivenReviewsController = async (req, res) => {
+  try {
+    const data = await getUserQuery(req.query.userId);
+    let id = data.rows[0].id;
+    const reviews = await getGivenReviewsQuery(id);
+    for (let i = 0; i < reviews.rows.length; i++) {
+      let commentor = await getUserNameQuery(reviews.rows[i].commentor);
+      let commentee = await getUserNameQuery(reviews.rows[i].commentee);
+      reviews.rows[i].commentor = commentor.rows[0].name;
+      reviews.rows[i].commentee = commentee.rows[0].name
+    }
+    return res.status(200).send(reviews.rows); 
+  } catch (err) {
+    throw new Error(err);
+  }
+}
+
+export const getReceivedReviewsController = async (req, res) => {
+  try {
+    const data = await getUserQuery(req.query.userId);
+    let id = data.rows[0].id;
+    const reviews = await getReceivedReviewsQuery(id);
+    for (let i = 0; i < reviews.rows.length; i++) {
+      let commentor = await getUserNameQuery(reviews.rows[i].commentor);
+      let commentee = await getUserNameQuery(reviews.rows[i].commentee);
+      reviews.rows[i].commentor = commentor.rows[0].name;
+      reviews.rows[i].commentee = commentee.rows[0].name
+    }
+    return res.status(200).send(reviews.rows); 
+  } catch (err) {
+    throw new Error(err);
   }
 }

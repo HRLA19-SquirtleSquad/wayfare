@@ -5,7 +5,9 @@ import {
   postUserHelper,
   putUserHelper, 
   getUserNameHelper,
-  getUserReviewsHelper
+  getUserReviewsHelper,
+  getGivenReviewsHelper,
+  getReceivedReviewsHelper
 } from './usersSQLHelper';
 
 export const getUserQuery = async (uid) => {
@@ -68,5 +70,25 @@ export const getUserReviewsQuery = async (userId) => {
     return data; 
   } catch (err) {
     throw new Error (err); 
+  }
+}
+
+export const getGivenReviewsQuery = async (uid) => {
+  try {
+    const queryString = getGivenReviewsHelper(uid);
+    const data = await db.queryAsync(queryString);
+    return data;
+  } catch (err) {
+    throw new Error(err);
+  }
+}
+
+export const getReceivedReviewsQuery = async (uid) => {
+  try {
+    const queryString = getReceivedReviewsHelper(uid);
+    const data = await db.queryAsync(queryString);
+    return data;
+  } catch (err) {
+    throw new Error(err);
   }
 }

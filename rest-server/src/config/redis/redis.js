@@ -1,12 +1,15 @@
+import redis from 'redis';
 import Promise from 'bluebird'; 
 import { getTopListingsQuery, getListingImagesQuery } from '../../components/listings/listingsQuery'; 
 
-let redis = require("redis"),
-    client = redis.createClient();
-
+const client = redis.createClient();
 
 Promise.promisifyAll(redis.RedisClient.prototype);
 Promise.promisifyAll(redis.Multi.prototype);  
+
+client.on("connect", function () {
+  console.log('redis connected');
+});
 
 client.on("error", function (err) {
     console.log("Error " + err);

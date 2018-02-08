@@ -78,7 +78,6 @@ export const getUserReviewsQuery = async (userId) => {
   try {
     const queryString = getUserReviewsHelper(userId); 
     const data = await db.queryAsync(queryString); 
-    console.log('review data', data); 
     return data; 
   } catch (err) {
     throw new Error(err); 

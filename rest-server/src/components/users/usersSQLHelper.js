@@ -62,3 +62,9 @@ export const upgradeUserHelper = (uid, type) => {
     WHERE uid = '${uid}'
   `
 }
+
+export const getUserDataHelper = ( userId ) => {
+  return `
+    SELECT * FROM users WHERE id = ${userId}
+    `
+}

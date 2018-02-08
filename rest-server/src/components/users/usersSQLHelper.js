@@ -30,7 +30,6 @@ export const putUserHelper = (city, bio, image, uid) => {
   `
 }
 
-
 export const getUserNameHelper = (userId) => {
   return `
   SELECT name FROM users WHERE id = ${userId}
@@ -52,5 +51,14 @@ export const getGivenReviewsHelper = (id) => {
 export const getReceivedReviewsHelper = (id) => {
   return `
   SELECT * FROM reviews WHERE commentee = ${id}
+  `
+}
+
+export const upgradeUserHelper = (uid, type) => {
+  type === 0 ? type = 1 : type = 0;
+  return `
+    UPDATE users
+    SET type = '${type}'
+    WHERE uid = '${uid}'
   `
 }

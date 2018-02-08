@@ -7,7 +7,8 @@ import {
   getUserNameController, 
   getUserReviewsController,
   getGivenReviewsController,
-  getReceivedReviewsController
+  getReceivedReviewsController,
+  upgradeUserController
 } from './usersController';
 
 const router = express.Router();
@@ -32,5 +33,7 @@ router.route('/getGivenReviews')
 
 router.route('/getReceivedReviews')
   .get(getReceivedReviewsController);
+router.route('/upgradeUser')
+  .put(upgradeUserController)
 
 export default router;

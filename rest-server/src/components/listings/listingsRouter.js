@@ -8,7 +8,8 @@ import {
   getListingSkills, 
   createListing,
   getSearchedListings,
-  postListingPhoto
+  postListingPhoto,
+  addSkillToListing
   // import controllers from listingsController
 } from './listingsController';
 
@@ -36,9 +37,12 @@ router.route('/getListingSkills')
   .get(getListingSkills)
 
 router.route('/createListing')
-  .put(createListing)
+  .post(createListing)
 
 router.route('/getSearchedListings')
   .get(getSearchedListings)
   
+router.route('/addSkill') 
+  .post(addSkillToListing)
+
 export default router;

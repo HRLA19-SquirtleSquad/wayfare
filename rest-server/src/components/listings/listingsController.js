@@ -6,7 +6,8 @@ import {
   getListingSkillsQuery, 
   createListingQuery,
   getSearchedListingsQuery,
-  postListingPhotoQuery
+  postListingPhotoQuery,
+  addSkillToListingQuery
 } from './listingsQuery';
 import { getTopListings } from '../../config/redis/redis'
 
@@ -15,7 +16,8 @@ import { getTopListings } from '../../config/redis/redis'
 export const getListingPhoto = async (req, res) => {
   try {
     const data = await getListingImagesQuery(req.query.listingId); 
-    return res.status(200).send(data.rows[0].url);
+    const result = data.rows[0] ? data.rows[0].url : ''; 
+    return res.status(200).send(result);
   } catch (err) {
     throw new Error(err);
   }
@@ -83,4 +85,11 @@ export const postListingPhoto = async (req, res) => {
   }
 }
 
-
+export const addSkillToListing = async (req, res) => {
+  try {
+    const data = await addSkillToListingQuery(req.body.params); 
+    return res.status(200).send(data); 
+  } catch (err) {
+    throw new Error (err); 
+  }
+}

@@ -7,7 +7,9 @@ import {
   getUserNameHelper,
   getUserReviewsHelper,
   getGivenReviewsHelper,
-  getReceivedReviewsHelper
+  getReceivedReviewsHelper,
+  getUserReviewsHelper,
+  upgradeUserHelper
 } from './usersSQLHelper';
 
 export const getUserQuery = async (uid) => {
@@ -17,7 +19,7 @@ export const getUserQuery = async (uid) => {
     // console.log('getUserQuery - successfully fetched user data', data)
     return data
   } catch(err) {
-    throw new Error (err);
+    throw new Error(err);
   }
 }
 
@@ -32,7 +34,7 @@ export const postUserQuery = async (body) => {
     // console.log('postUserQuery - successfully posted user data', data)
     return data
   } catch(err) {
-    throw new Error (err);
+    throw new Error(err);
   }
 }
 
@@ -48,7 +50,7 @@ export const editUserQuery = async (body) => {
     // console.log('editUserQuery - successfully edited user data', data)
     return data;
   } catch (err) {
-    throw new Error (err);
+    throw new Error(err);
   }
 }
 
@@ -58,7 +60,7 @@ export const getUserNameQuery = async (userId) => {
     const data = await db.queryAsync(queryString); 
     return data; 
   } catch (err) {
-    throw new Error (err); 
+    throw new Error(err); 
   }
 }
 
@@ -69,7 +71,20 @@ export const getUserReviewsQuery = async (userId) => {
     const data = await db.queryAsync(queryString); 
     return data; 
   } catch (err) {
-    throw new Error (err); 
+    throw new Error(err); 
+  }
+}
+
+export const upgradeUserQuery = async (body) => {
+  try {
+    const queryString = upgradeUserHelper(
+      body.uid,
+      body.type
+    );
+    const data = await db.queryAsync(queryString);
+    return data;
+  } catch (err) {
+    throw new Error(err); 
   }
 }
 

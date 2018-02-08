@@ -8,7 +8,6 @@ import {
   getUserReviewsHelper,
   getGivenReviewsHelper,
   getReceivedReviewsHelper,
-  getUserReviewsHelper,
   upgradeUserHelper
 } from './usersSQLHelper';
 

@@ -18,18 +18,13 @@ const upload = multer({
 });
 
 router.post('/upload', upload.single('theseNamesMustMatch'), (req, res) => {
-    const file = req.file;
-    const body = req.body;
-
     s3.putObject({
       Bucket: 'wayfareuserimages',
-      Key: req.body.name,
+      Key: req.body.keypath,
       Body: req.file.buffer,
     }, (err) => {
       if (err) return res.status(400).send(err)
-      let email = encodeURIComponent(req.body.email);
-      let imagename = encodeURIComponent(req.body.imagename);
-      let url = `https://s3-us-west-1.amazonaws.com/wayfareuserimages/profilePictures/${email}/${imagename}`
+      let url = `https://s3-us-west-1.amazonaws.com/wayfareuserimages/${req.body.endurl}`
       res.status(201).send({message: 'File uploaded to S3!', url: url})
     })
   })

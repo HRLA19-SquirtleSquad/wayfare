@@ -7,9 +7,15 @@ import {
   getTopTenListings, 
   getListingSkills, 
   createListing,
+<<<<<<< HEAD
   getSearchedListings,
   postListingPhoto,
   addSkillToListing
+=======
+  getUserSkills,
+  createUserSkills,
+  deleteUserSkills
+>>>>>>> [Feature] - booking form - render/add/delete skills
   // import controllers from listingsController
 } from './listingsController';
 
@@ -37,6 +43,7 @@ router.route('/getListingSkills')
   .get(getListingSkills)
 
 router.route('/createListing')
+<<<<<<< HEAD
   .post(createListing)
 
 router.route('/getSearchedListings')
@@ -44,5 +51,17 @@ router.route('/getSearchedListings')
   
 router.route('/addSkill') 
   .post(addSkillToListing)
+=======
+  .put(createListing)
+
+router.route('/createUserSkills')
+  .post(createUserSkills)
+
+router.route('/getUserSkills')
+  .get(getUserSkills)
+
+router.route('/deleteUserSkills')
+  .delete(deleteUserSkills)
+>>>>>>> [Feature] - booking form - render/add/delete skills
 
 export default router;

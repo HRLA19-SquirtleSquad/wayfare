@@ -8,7 +8,13 @@ import {
   getSearchedListingsQuery,
   postListingPhotoQuery,
   addSkillToListingQuery
+  getUserSkillsQuery,
+  createUserSkillsQuery,
+  deleteUserSkillsQuery
 } from './listingsQuery';
+import {
+  getUserQuery
+} from '../users/usersQuery';
 import { getTopListings } from '../../config/redis/redis'
 
 // define controllers
@@ -85,6 +91,35 @@ export const postListingPhoto = async (req, res) => {
   }
 }
 
+export const createUserSkills = async (req, res) => {
+  try {
+    //get user id first using uid
+    const user = await getUserQuery(req.body.uid);
+    const userId = user.rows[0].id
+    // create user skill using the userId
+    // console.log(user.rows[0].id)
+    await createUserSkillsQuery(userId, req.body.skill)
+    const data = await getUserSkillsQuery(userId);
+    // console.log(data)
+    return res.status(200).send(data)
+  } catch (err) {
+    throw new Error (err); 
+  }
+}
+
+export const getUserSkills = async (req, res) => {
+  try {
+    // get user id first using uid
+    const userId = await getUserQuery(req.query.uid);
+    // get user skills using the userId
+    const data = await getUserSkillsQuery(userId.rows[0].id)
+    // console.log(data)
+    return res.status(200).send(data)
+  } catch (err) {
+    throw new Error (err); 
+  }
+}
+
 export const addSkillToListing = async (req, res) => {
   try {
     const data = await addSkillToListingQuery(req.body.params); 
@@ -93,3 +128,14 @@ export const addSkillToListing = async (req, res) => {
     throw new Error (err); 
   }
 }
+export const deleteUserSkills = async (req, res) => {
+  try {
+    await deleteUserSkillsQuery(req.query.id);
+    const data = await getUserSkillsQuery(req.query.uid)
+    console.log(data)
+    return res.status(200).send(data)
+  } catch (err) {
+    throw new Error(err);
+  }
+}
+

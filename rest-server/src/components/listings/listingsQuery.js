@@ -10,6 +10,9 @@ import {
   getSearchedListingsHelper,
   postListingPhotoHelper,
   addSkillToListingHelper
+  getUserSkillsHelper,
+  createUserSkillsHelper,
+  deleteUserSkillsHelper
 } from './listingsSQLHelper';
 
 // define queries
@@ -103,5 +106,33 @@ export const addSkillToListingQuery = async ( skillDetails ) => {
     return data; 
   } catch (err) {
     throw new Error (err); 
+  }
+}
+export const createUserSkillsQuery = async ( userId, skill ) => {
+  try {
+    const queryString = createUserSkillsHelper( userId, skill);
+    const data = await db.queryAsync(queryString);
+    return data;
+  } catch (err) {
+    throw new Error(err);
+  }
+}
+export const getUserSkillsQuery = async ( userId ) => {
+  try {
+    const queryString = getUserSkillsHelper( userId);
+    const data = await db.queryAsync(queryString);
+    return data;
+  } catch (err) {
+    throw new Error(err);
+  }
+}
+
+export const deleteUserSkillsQuery = async (id) => {
+  try {
+    const queryString = deleteUserSkillsHelper(id);
+    const data = await db.queryAsync(queryString)
+    return data;
+  } catch(err) {
+    throw new Error(err);
   }
 }

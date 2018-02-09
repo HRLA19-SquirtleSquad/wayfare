@@ -57,3 +57,20 @@ export const addSkillToListingHelper = ( { listingId, skill}) => {
     INSERT INTO skills VALUES (DEFAULT, null, ${listingId}, '${skill}') RETURNING id
   `
 }
+export const createUserSkillsHelper = (userId, skill) => {
+  return `
+    INSERT INTO skills values (DEFAULT, ${userId}, null, '${skill}') 
+  `
+}
+
+export const getUserSkillsHelper = ( userId ) => {
+  return `
+    SELECT * FROM skills where userId = ${userId} 
+  `
+}
+
+export const deleteUserSkillsHelper = ( id ) => {
+  return `
+    DELETE FROM skills where id = ${id}
+  `
+}

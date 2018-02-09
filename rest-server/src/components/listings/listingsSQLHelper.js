@@ -18,7 +18,6 @@ export const getListingHelper = ( listingId ) => {
   `
 }
 
-
 export const updateListingViewCountHelper = ( listingId )  => {
   return `
     UPDATE listings SET viewCount = viewCount + 1 WHERE id = ${listingId} RETURNING viewCount
@@ -36,3 +35,10 @@ export const createListingHelper = ( title, startDate, endDate, latitude, longit
     INSERT INTO listings VALUES (DEFAULT, '${title}', '${startDate}', '${endDate}', ${latitude}, ${longitude}, '${address}', '${city}', ${hostId}, null, 0, '${description}', 'PENDING') RETURNING id
   `
 }
+
+export const getSearchedListingsHelper = ( city ) => {
+  return `
+    SELECT * FROM LISTINGS
+  `
+  // Revise so users can search by city
+};

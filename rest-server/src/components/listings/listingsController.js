@@ -45,7 +45,6 @@ export const getTopTenListings = async (req, res) => {
   } catch (err) {
     throw new Error (err); 
   }
-<<<<<<< HEAD
 }
 
 export const getListingSkills = async (req, res) => {
@@ -64,8 +63,6 @@ export const createListing = async (req, res) => {
   } catch (err) {
     throw new Error (err); 
   }
-||||||| merged common ancestors
-=======
 }
 
 export const getSearchedListings = async (req, res) => {
@@ -75,5 +72,4 @@ export const getSearchedListings = async (req, res) => {
   } catch (err) {
     throw new Error (err);
   }
->>>>>>> [search] setup search endpoints
 }

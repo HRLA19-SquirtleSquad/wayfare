@@ -21,8 +21,8 @@ export const setTopListings = async () => {
     let listing = topListings.rows[i]; 
     if (listing) {
       let image = await getListingImagesQuery(listing.id); 
-      image = image || null; 
-      client.hset([i, "id", listing.id , "title", listing.title, "city", listing.city, "image", image.rows[0].url], redis.print); 
+      let imageURL = image.rows[0] ? image.rows[0].url : ''; 
+      client.hset([i, "id", listing.id , "title", listing.title, "city", listing.city, "image", imageURL], redis.print); 
     }
   }
   //client.quit(); 

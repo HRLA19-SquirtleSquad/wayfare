@@ -8,7 +8,8 @@ import {
   getListingSkillsHelper, 
   createListingHelper,
   getSearchedListingsHelper,
-  postListingPhotoHelper
+  postListingPhotoHelper,
+  addSkillToListingHelper
 } from './listingsSQLHelper';
 
 // define queries
@@ -95,3 +96,12 @@ export const postListingPhotoQuery = async (listingId, url) => {
   }
 }
 
+export const addSkillToListingQuery = async ( skillDetails ) => {
+  try {
+    const queryString = addSkillToListingHelper( skillDetails ); 
+    const data = await db.queryAsync(queryString); 
+    return data; 
+  } catch (err) {
+    throw new Error (err); 
+  }
+}

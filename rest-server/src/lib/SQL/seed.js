@@ -35,7 +35,7 @@ export const createSeedUsers = async () => {
 
 export const createSeedListings = async () => {
   try {
-    let query = "insert into listings values (default, 'The comfiest dining room bed in the world', '2/3/18', '2/26/18', 1.2032934, 123.2340923, '1234 drive', 'LA', 3, null, 0, 'Need a place to sleep in privacy and comfort? Well then, this is not for you. Come join me for a roof over your head, a comfy bed and a table to eat at, all from the same position.', 'PENDING')"; 
+    let query = "insert into listings values (default, 'The comfiest dining room bed in the world', '2/3/18', '2/26/18', 1.2032934, 123.2340923, '1234 drive', 'Los Angeles', 'CA', 'United States', 3, null, 0, 'Need a place to sleep in privacy and comfort? Well then, this is not for you. Come join me for a roof over your head, a comfy bed and a table to eat at, all from the same position.', 'PENDING')"; 
     await db.queryAsync(query); 
     console.log('listing seed data 1 inserted')
   } catch (err) {
@@ -43,12 +43,29 @@ export const createSeedListings = async () => {
   }
 
   try {
-    let query = "insert into listings values (default, 'Erics bitchin pad', '2/14/18', '2/15/18', 24.3424, 54093.1234, '4456 place avenue', 'LA', 4, null, 0, 'Come sleep here for some tutuchu tutuchu', 'PENDING') "
+    let query = "insert into listings values (default, 'Erics bitchin pad', '2/14/18', '2/15/18', 24.3424, 54093.1234, '4456 place avenue', 'Los Angeles', 'CA', 'United States', 4, null, 0, 'Come sleep here for some tutuchu tutuchu', 'PENDING') "
     await db.queryAsync(query); 
     console.log('listing seed data 2 inserted'); 
   } catch (err) {
     console.log('listing seed data 2 did not insert', err)
   }
+
+  try {
+    let query = "insert into listings values (default, 'The MF plaza', '2/17/18', '2/27/18', 0, 0, '768 5th Ave', 'New York', 'NY', 'United States', 1, null, 1, 'Come sleep at tha plazaaa', 'PENDING') "
+    await db.queryAsync(query); 
+    console.log('listing seed data 3 inserted'); 
+  } catch (err) {
+    console.log('listing seed data 3 did not insert', err)
+  }
+
+  try {
+    let query = "insert into listings values (default, 'SD chris gay pad', '2/17/18', '2/27/18', 0, 0, '11039 Avenida De Los Lobos', 'San Diego', 'CA', 'United States', 2, null, 1, 'Come sleep at tha plazaaa', 'PENDING') "
+    await db.queryAsync(query); 
+    console.log('listing seed data 4 inserted'); 
+  } catch (err) {
+    console.log('listing seed data 4 did not insert', err)
+  }
+  
 }
 
 export const createSeedRequests = async () => {
@@ -98,6 +115,14 @@ export const createSeedImages = async () => {
 
   try {
     let query = "insert into images values (default, 2, 'http://www.topinspired.com/wp-content/uploads/2013/11/Ideas-For-Unforgettable-Romantic-Surprise-1.jpg')"
+    await db.queryAsync(query); 
+    console.log('image seed data 2 inserted'); 
+  } catch (err) {
+    console.log('image seed data 2 did not insert')
+  }
+
+  try {
+    let query = "insert into images values (default, 3, 'https://images.datahubus.com/5739f864b5dc6545f27c3164/the-plaza-residences/1-central-park-south_.jpg')"
     await db.queryAsync(query); 
     console.log('image seed data 2 inserted'); 
   } catch (err) {

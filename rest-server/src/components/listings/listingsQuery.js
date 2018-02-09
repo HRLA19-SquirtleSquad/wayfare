@@ -7,7 +7,8 @@ import {
   updateListingViewCountHelper, 
   getListingSkillsHelper, 
   createListingHelper,
-  getSearchedListingsHelper
+  getSearchedListingsHelper,
+  postListingPhotoHelper
 } from './listingsSQLHelper';
 
 // define queries
@@ -25,7 +26,8 @@ export const getTopListingsQuery = async () => {
 export const getListingImagesQuery = async (listingId) => {
   try{ 
     const queryString = getListingImagesHelper(listingId); 
-    const data = await db.queryAsync(queryString); 
+    const data = await db.queryAsync(queryString);
+    console.log('i am data after getting images from sql...', data) 
     //console.log('getListingImagesQuery - successfully fetched listing images'); 
     return data; 
   } catch (err) {
@@ -82,3 +84,14 @@ export const getSearchedListingsQuery = async (city) => {
     throw new Error (err);
   }
 }
+export const postListingPhotoQuery = async (listingId, url) => {
+  try {
+    console.log('i am listingid and url:', listingId, url)
+    const queryString = postListingPhotoHelper(listingId, url); 
+    const data = await db.queryAsync(queryString); 
+    return data; 
+  } catch (err) {
+    throw new Error (err); 
+  }
+}
+

@@ -7,7 +7,8 @@ import {
   getTopTenListings, 
   getListingSkills, 
   createListing,
-  getSearchedListings
+  getSearchedListings,
+  postListingPhoto
   // import controllers from listingsController
 } from './listingsController';
 
@@ -15,6 +16,9 @@ const router = express.Router();
 
 // ex: router.route(blah)
 //      .get(blah)
+
+router.route('/postPhoto')
+  .post(postListingPhoto);
 
 router.route('/getPhoto') 
   .get(getListingPhoto); 

@@ -8,7 +8,7 @@ export const getTopListingsHelper = () => {
 
 export const getListingImagesHelper = ( listingId ) => {
   return `
-    SELECT url from images where id = ${listingId}
+    SELECT url from images where listingid = ${listingId}
   `
 }
 
@@ -42,3 +42,13 @@ export const getSearchedListingsHelper = ( city ) => {
   `
   // Revise so users can search by city
 };
+export const postListingPhotoHelper = ( listingId, url ) => {
+  return `
+    INSERT INTO images (listingId, url)
+    VALUES ('${listingId}', '${url}')
+    ON CONFLICT DO NOTHING
+    RETURNING id
+  `
+}
+
+

@@ -5,7 +5,8 @@ import {
   updateListingViewCountQuery, 
   getListingSkillsQuery, 
   createListingQuery,
-  getSearchedListingsQuery
+  getSearchedListingsQuery,
+  postListingPhotoQuery
 } from './listingsQuery';
 import { getTopListings } from '../../config/redis/redis'
 
@@ -73,3 +74,13 @@ export const getSearchedListings = async (req, res) => {
     throw new Error (err);
   }
 }
+export const postListingPhoto = async (req, res) => {
+  try {
+    const data = await postListingPhotoQuery(req.body.listingId, req.body.url); 
+    return res.status(200).send(data); 
+  } catch (err) {
+    throw new Error (err); 
+  }
+}
+
+

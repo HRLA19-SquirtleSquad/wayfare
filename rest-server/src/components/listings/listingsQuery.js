@@ -6,7 +6,8 @@ import {
   getListingHelper, 
   updateListingViewCountHelper, 
   getListingSkillsHelper, 
-  createListingHelper
+  createListingHelper,
+  getSearchedListingsHelper
 } from './listingsSQLHelper';
 
 // define queries
@@ -69,5 +70,15 @@ export const createListingQuery = async ( {title, startDate, endDate, latitude, 
     return data; 
   } catch (err) {
     throw new Error (err); 
+  }
+}
+
+export const getSearchedListingsQuery = async (city) => {
+  try {
+    const queryString = getSearchedListingsHelper(city);
+    const data = await db.queryAsync(queryString);
+    return data;
+  } catch (err) {
+    throw new Error (err);
   }
 }

@@ -4,7 +4,8 @@ import {
   getListingQuery, 
   updateListingViewCountQuery, 
   getListingSkillsQuery, 
-  createListingQuery
+  createListingQuery,
+  getSearchedListingsQuery
 } from './listingsQuery';
 import { getTopListings } from '../../config/redis/redis'
 
@@ -44,6 +45,7 @@ export const getTopTenListings = async (req, res) => {
   } catch (err) {
     throw new Error (err); 
   }
+<<<<<<< HEAD
 }
 
 export const getListingSkills = async (req, res) => {
@@ -62,4 +64,16 @@ export const createListing = async (req, res) => {
   } catch (err) {
     throw new Error (err); 
   }
+||||||| merged common ancestors
+=======
+}
+
+export const getSearchedListings = async (req, res) => {
+  try {
+    const data = await getSearchedListingsQuery(req.query.city);
+    return res.status(200).send(data);
+  } catch (err) {
+    throw new Error (err);
+  }
+>>>>>>> [search] setup search endpoints
 }

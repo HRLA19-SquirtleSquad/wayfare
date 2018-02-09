@@ -6,7 +6,8 @@ import {
   updateListingViewCount, 
   getTopTenListings, 
   getListingSkills, 
-  createListing
+  createListing,
+  getSearchedListings
   // import controllers from listingsController
 } from './listingsController';
 
@@ -32,5 +33,8 @@ router.route('/getListingSkills')
 
 router.route('/createListing')
   .put(createListing)
+
+router.route('/getSearchedListings')
+  .get(getSearchedListings)
   
 export default router;

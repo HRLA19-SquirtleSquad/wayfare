@@ -14,7 +14,7 @@ const router = express.Router();
 
 const upload = multer({
   storage: multer.memoryStorage(),
-  limits: { fileSize: 5000000 },
+  limits: { fileSize: 2000000 },
 });
 
 router.post('/upload', upload.single('theseNamesMustMatch'), (req, res) => {

@@ -30,9 +30,9 @@ export const getListingSkillsHelper = ( listingId ) => {
   `
 }
 
-export const createListingHelper = ( title, startDate, endDate, latitude, longitude, address, city, hostId, description ) => {
+export const createListingHelper = ( title, startDate, endDate, latitude, longitude, address, city, state, country, hostId, description ) => {
   return `
-    INSERT INTO listings VALUES (DEFAULT, '${title}', '${startDate}', '${endDate}', ${latitude}, ${longitude}, '${address}', '${city}', null, null, ${hostId}, null, 0, '${description}', 'PENDING') RETURNING id
+    INSERT INTO listings VALUES (DEFAULT, '${title}', '${startDate}', '${endDate}', ${latitude}, ${longitude}, '${address}', '${city}', '${state}', '${country}', ${hostId}, null, 0, '${description}', 'PENDING') RETURNING id
   `
 }
 

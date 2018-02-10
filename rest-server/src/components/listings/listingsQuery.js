@@ -66,9 +66,9 @@ export const getListingSkillsQuery = async ( listingId ) => {
   }
 }
 
-export const createListingQuery = async ( {title, startDate, endDate, latitude, longitude, address, city, hostId, description} ) => {
+export const createListingQuery = async ( {title, startDate, endDate, latitude, longitude, address, city, state, country, hostId, description} ) => {
   try {
-    const queryString = createListingHelper( title, startDate, endDate, latitude, longitude, address, city, hostId, description ); 
+    const queryString = createListingHelper( title, startDate, endDate, latitude, longitude, address, city, state, country, hostId, description ); 
     const data = await db.queryAsync(queryString); 
     return data; 
   } catch (err) {

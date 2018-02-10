@@ -12,7 +12,9 @@ import {
   addSkillToListingHelper
   getUserSkillsHelper,
   createUserSkillsHelper,
-  deleteUserSkillsHelper
+  deleteUserSkillsHelper,
+  createRequestHelper,
+  createRequestSkillsHelper
 } from './listingsSQLHelper';
 
 // define queries
@@ -136,3 +138,24 @@ export const deleteUserSkillsQuery = async (id) => {
     throw new Error(err);
   }
 }
+
+export const createRequestQuery = async (guestId, listingId ) => {
+  try {
+    const queryString = createRequestHelper(guestId, listingId);
+    const data = await db.queryAsync(queryString)
+    return data;
+  } catch(err) {
+    throw new Error(err);
+  }
+}
+
+export const createRequestSkillsQuery = async (skillId, requestId ) => {
+  try {
+    const queryString = createRequestSkillsHelper(skillId, requestId);
+    const data = await db.queryAsync(queryString)
+    return data;
+  } catch(err) {
+    throw new Error(err);
+  }
+}
+

@@ -74,3 +74,15 @@ export const deleteUserSkillsHelper = ( id ) => {
     DELETE FROM skills where id = ${id}
   `
 }
+
+export const createRequestHelper = ( guestId, listingId ) => {
+  return `
+    INSERT INTO requests VALUES (DEFAULT, ${guestId}, ${listingId}) RETURNING id
+  `
+}
+
+export const createRequestSkillsHelper = (skillId, requestId) => {
+  return `
+    INSERT INTO requestskills VALUES (DEFAULT, ${skillId}, ${requestId})
+  `
+}

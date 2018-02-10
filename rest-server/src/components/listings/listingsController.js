@@ -10,7 +10,10 @@ import {
   addSkillToListingQuery
   getUserSkillsQuery,
   createUserSkillsQuery,
-  deleteUserSkillsQuery
+  deleteUserSkillsQuery,
+  createRequestQuery,
+  createRequestSkillsQuery,
+  
 } from './listingsQuery';
 import {
   getUserQuery
@@ -139,3 +142,22 @@ export const deleteUserSkills = async (req, res) => {
   }
 }
 
+export const createRequestAndRequestSkills = async (req, res) => {
+  try {
+    let guestId = req.body.guestId
+    let listingId = req.body.listingId
+    let skillIdArray = req.body.skillId
+    console.log(skillIdArray)
+    
+    const request = await createRequestQuery(guestId, listingId)
+    const requestId = request.rows[0].id
+    
+    await skillIdArray.map(skillId => {
+      console.log(typeof skillId)
+      createRequestSkillsQuery(skillId, requestId)
+    })
+    return res.status(200)
+  } catch(err) {
+    throw new Error(err);
+  }
+}

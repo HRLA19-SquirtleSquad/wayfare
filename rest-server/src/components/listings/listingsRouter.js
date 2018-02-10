@@ -9,10 +9,9 @@ import {
   createListing,
   getSearchedListings,
   postListingPhoto,
-  addSkillToListing
+  addSkillToListing,
   getUserSkills,
   createUserSkills,
-  deleteUserSkills
   deleteUserSkills,
   createRequestAndRequestSkills
   // import controllers from listingsController

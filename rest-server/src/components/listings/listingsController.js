@@ -7,7 +7,7 @@ import {
   createListingQuery,
   getSearchedListingsQuery,
   postListingPhotoQuery,
-  addSkillToListingQuery
+  addSkillToListingQuery,
   getUserSkillsQuery,
   createUserSkillsQuery,
   deleteUserSkillsQuery,

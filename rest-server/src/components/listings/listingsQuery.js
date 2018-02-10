@@ -9,7 +9,7 @@ import {
   createListingHelper,
   getSearchedListingsHelper,
   postListingPhotoHelper,
-  addSkillToListingHelper
+  addSkillToListingHelper,
   getUserSkillsHelper,
   createUserSkillsHelper,
   deleteUserSkillsHelper,

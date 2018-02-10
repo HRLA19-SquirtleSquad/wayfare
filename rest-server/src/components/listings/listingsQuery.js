@@ -34,7 +34,7 @@ export const getListingImagesQuery = async (listingId) => {
   try{ 
     const queryString = getListingImagesHelper(listingId); 
     const data = await db.queryAsync(queryString);
-    console.log('i am data after getting images from sql...', data) 
+    
     //console.log('getListingImagesQuery - successfully fetched listing images'); 
     return data; 
   } catch (err) {

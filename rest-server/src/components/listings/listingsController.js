@@ -37,7 +37,7 @@ export const getListing  = async (req, res) => {
     const data = await getListingQuery(req.query.listingId); 
     return res.status(200).send(data.rows[0]); 
   } catch (err) {
-    throw new Error( err); 
+    throw new Error(err); 
   }
 }
 

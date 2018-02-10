@@ -13,7 +13,8 @@ import {
   getUserSkills,
   createUserSkills,
   deleteUserSkills,
-  createRequestAndRequestSkills
+  createRequestAndRequestSkills,
+  getListingsByStatus
   // import controllers from listingsController
 } from './listingsController';
 
@@ -45,6 +46,9 @@ router.route('/createListing')
 
 router.route('/getSearchedListings')
   .get(getSearchedListings)
+
+router.route('/getListingsByStatus')
+  .get(getListingsByStatus)
   
 router.route('/addSkill') 
   .post(addSkillToListing)

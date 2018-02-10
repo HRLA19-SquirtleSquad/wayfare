@@ -59,7 +59,7 @@ export const createSeedListings = async () => {
   }
 
   try {
-    let query = "insert into listings values (default, 'SD chris gay pad', '2/17/18', '2/27/18', 2.234234, 13.63456, '11039 Avenida De Los Lobos', 'San Diego', 'CA', 'United States', 2, null, 1, 'Come sleep at tha plazaaa', 'PENDING') "
+    let query = "insert into listings values (default, 'SD chris cool pad', '2/17/18', '2/27/18', 2.234234, 13.63456, '11039 Avenida De Los Lobos', 'San Diego', 'CA', 'United States', 2, null, 1, 'Come sleep at tha plazaaa', 'PENDING') "
     await db.queryAsync(query); 
     console.log('listing seed data 4 inserted'); 
   } catch (err) {

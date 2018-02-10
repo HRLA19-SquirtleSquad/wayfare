@@ -13,7 +13,7 @@ import {
   deleteUserSkillsQuery,
   createRequestQuery,
   createRequestSkillsQuery,
-  
+  getListingsByStatusQuery
 } from './listingsQuery';
 import {
   getUserQuery
@@ -159,5 +159,16 @@ export const createRequestAndRequestSkills = async (req, res) => {
     return res.status(200)
   } catch(err) {
     throw new Error(err);
+  }
+}
+
+export const getListingsByStatus = async (req, res) => {
+  try {
+   console.log('req.query.status', req.query.status)
+    const data = await getListingsByStatusQuery(req.query.status); 
+    return res.status(200).send(data)
+  }
+  catch (err) {
+    throw new Error(err)
   }
 }

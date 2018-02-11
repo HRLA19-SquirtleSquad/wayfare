@@ -38,21 +38,21 @@ export const getUserNameHelper = (userId) => {
 
 export const getUserReviewsHelper = (userId) => {
   return `
-    SELECT * FROM reviews WHERE commentee = ${userId}
+    SELECT * FROM reviews WHERE commentor = ${userId} OR commentee = ${userId}
   `
 }
 
-export const getGivenReviewsHelper = (id) => {
-  return `
-    SELECT * FROM reviews WHERE commentor = ${id}
-  `
-}
+// export const getGivenReviewsHelper = (userId) => {
+//   return `
+//     SELECT * FROM reviews WHERE commentor = ${userId} OR commentee = ${userId}
+//   `
+// }
 
-export const getReceivedReviewsHelper = (id) => {
-  return `
-  SELECT * FROM reviews WHERE commentee = ${id}
-  `
-}
+// export const getReceivedReviewsHelper = (userId) => {
+//   return `
+//     SELECT * FROM reviews WHERE commentor = ${userId} OR commentee = ${userId}
+//   `
+// }
 
 export const upgradeUserHelper = (uid, type) => {
   type === 0 ? type = 1 : type = 0;

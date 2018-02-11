@@ -97,12 +97,12 @@ export const postListingPhoto = async (req, res) => {
 export const createUserSkills = async (req, res) => {
   try {
     //get user id first using uid
-    const user = await getUserQuery(req.body.uid);
-    const userId = user.rows[0].id
+    // const user = await getUserQuery(req.body.uid);
+    
     // create user skill using the userId
     // console.log(user.rows[0].id)
-    await createUserSkillsQuery(userId, req.body.skill)
-    const data = await getUserSkillsQuery(userId);
+    await createUserSkillsQuery(req.body.userId, req.body.skill)
+    const data = await getUserSkillsQuery(req.body.userId);
     // console.log(data)
     return res.status(200).send(data)
   } catch (err) {
@@ -112,11 +112,11 @@ export const createUserSkills = async (req, res) => {
 
 export const getUserSkills = async (req, res) => {
   try {
-    // get user id first using uid
-    const userId = await getUserQuery(req.query.uid);
-    // get user skills using the userId
-    const data = await getUserSkillsQuery(userId.rows[0].id)
-    // console.log(data)
+    console.log('query id', req.query.userId)
+    // const userId = await getUserQuery(req.query.userId);
+    // console.log('userId', userId)
+    const data = await getUserSkillsQuery(req.query.userId)
+    // console.log('data', data)
     return res.status(200).send(data)
   } catch (err) {
     throw new Error (err); 
@@ -147,7 +147,6 @@ export const createRequestAndRequestSkills = async (req, res) => {
     let guestId = req.body.guestId
     let listingId = req.body.listingId
     let skillIdArray = req.body.skillId
-    console.log(skillIdArray)
     
     const request = await createRequestQuery(guestId, listingId)
     const requestId = request.rows[0].id

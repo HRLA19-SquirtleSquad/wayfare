@@ -5,32 +5,38 @@ import {
 } from './'
 
 export const createSeedUsers = async () => {
-   try{
-       let query = "insert into users values (DEFAULT, 'Danieo Sanchez', 'damndanieo@skynet.com', 'asdj4569ssf90', 'hi, im daniel', 'https://media.mnn.com/assets/images/2015/09/river-otters-lead-photo.jpg.638x0_q80_crop-smart.jpg', 'LA', 0, 0, 0, 0.05, 323)"
-        await db.queryAsync(query)
-        console.log('user seed data 1 inserted'); 
-   } catch (err) {
-        console.log('user seed data 1 did not insert', err)
-   }
-   try{
-        let query = "insert into users values (DEFAULT, 'Chris King-Kong', 'emergency@poopvan.com', 'asdf823r9asd', 'hi, im chris', 'https://images-na.ssl-images-amazon.com/images/I/513Y54TGdwL._SY445_.jpg', 'LA', 0, 0, 0, 2.2, 43)"
-        await db.queryAsync(query)
-        console.log('user seed data 2 inserted'); 
-    } catch (err) {
-        console.log('user seed data 2 did not insert', err)
-    }try{
-        let query = "insert into users values (DEFAULT, 'Brian Hong', 'briguy@aol.com', 'asdfi34309', 'hi, im brian', 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/043.png', 'LA', 1, 3.2, 12, 0, 0)"
-        await db.queryAsync(query)
-        console.log('user seed data 3 inserted'); 
-    } catch (err) {
-        console.log('user seed data 3 did not insert', err)
-    }try{
-        let query = "insert into users values (DEFAULT, 'ErIc Carmona', 'BballinEric@lakers.com', 'sdiwef23r8nv', 'hi, im erIc', 'https://cdn-s3.si.com/s3fs-public/teams/basketball/nba/players/214152-300x300.png', 'LA', 1, .01, 14, 5, 22)"
-        await db.queryAsync(query)
-        console.log('user seed data 4 inserted'); 
-    } catch (err) {
-        console.log('user seed data 4 did not insert', err)
-    }
+  try {
+    let query = "insert into users values (DEFAULT, 'Danieo Sanchez', 'damndanieo@skynet.com', 'asdj4569ssf90', 'hi, im daniel', 'https://media.mnn.com/assets/images/2015/09/river-otters-lead-photo.jpg.638x0_q80_crop-smart.jpg', 'LA', 0, 0, 0, 0.05, 323)"
+    await db.queryAsync(query)
+    console.log('user seed data 1 inserted'); 
+  } catch (err) {
+    console.log('user seed data 1 did not insert', err)
+  }
+  
+  try {
+    let query = "insert into users values (DEFAULT, 'Chris King-Kong', 'emergency@poopvan.com', 'asdf823r9asd', 'hi, im chris', 'https://images-na.ssl-images-amazon.com/images/I/513Y54TGdwL._SY445_.jpg', 'LA', 0, 0, 0, 2.2, 43)"
+    await db.queryAsync(query)
+    console.log('user seed data 2 inserted'); 
+  } catch (err) {
+    console.log('user seed data 2 did not insert', err)
+  }
+  
+  try {
+    let query = "insert into users values (DEFAULT, 'Brian Hong', 'briguy@aol.com', 'asdfi34309', 'hi, im brian', 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/043.png', 'LA', 1, 3.2, 12, 0, 0)"
+    await db.queryAsync(query)
+    console.log('user seed data 3 inserted'); 
+  } catch (err) {
+    console.log('user seed data 3 did not insert', err)
+  }
+  
+  try {
+    let query = "insert into users values (DEFAULT, 'ErIc Carmona', 'BballinEric@lakers.com', 'sdiwef23r8nv', 'hi, im erIc', 'https://cdn-s3.si.com/s3fs-public/teams/basketball/nba/players/214152-300x300.png', 'LA', 1, .01, 14, 5, 22)"
+    await db.queryAsync(query)
+    console.log('user seed data 4 inserted'); 
+  } catch (err) {
+    console.log('user seed data 4 did not insert', err)
+  } 
+
 }
 
 export const createSeedListings = async () => {
@@ -88,15 +94,15 @@ export const createSeedRequests = async () => {
 
 export const createSeedReviews = async () => {
   try {
-    let query = "insert into reviews values (default, null, 5, 'This place was great! I loved the breakfast in bed, it was even right from the table!', 2, 3)"
+    let query = "insert into reviews values (default, null, 5, 'This place was great! I loved the breakfast in bed, it was even right from the table!', 2, 3, 'guest')"
     await db.queryAsync(query); 
     console.log('review seed data 1 inserted'); 
   } catch (err) {
-    console.log('review seed data 1 did not insert')
+    console.log('review seed data 1 did not insert', err)
   }
 
   try {
-    let query = "insert into reviews values (default, null, 0, 'DO NOT BOOK. Host misunderstood my offer to help him make music...', 1, 4)"
+    let query = "insert into reviews values (default, null, 0, 'DO NOT BOOK. Host misunderstood my offer to help him make music...', 1, 4, 'guest')"
     await db.queryAsync(query); 
     console.log('review seed data 2 inserted'); 
   } catch (err) {

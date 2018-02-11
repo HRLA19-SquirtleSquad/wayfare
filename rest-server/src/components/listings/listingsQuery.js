@@ -14,7 +14,8 @@ import {
   createUserSkillsHelper,
   deleteUserSkillsHelper,
   createRequestHelper,
-  createRequestSkillsHelper
+  createRequestSkillsHelper, 
+  getListingsByStatusHelper
 } from './listingsSQLHelper';
 
 // define queries
@@ -33,7 +34,7 @@ export const getListingImagesQuery = async (listingId) => {
   try{ 
     const queryString = getListingImagesHelper(listingId); 
     const data = await db.queryAsync(queryString);
-    console.log('i am data after getting images from sql...', data) 
+    
     //console.log('getListingImagesQuery - successfully fetched listing images'); 
     return data; 
   } catch (err) {
@@ -100,6 +101,17 @@ export const postListingPhotoQuery = async (listingId, url) => {
     throw new Error (err); 
   }
 }
+export const getListingsByStatusQuery = async (status) => {
+  try {
+    console.log('i am status:', status)
+    const queryString = getListingsByStatusHelper(status); 
+    const data = await db.queryAsync(queryString); 
+    return data; 
+  } catch (err) {
+    throw new Error (err); 
+  }
+}
+
 
 export const addSkillToListingQuery = async ( skillDetails ) => {
   try {

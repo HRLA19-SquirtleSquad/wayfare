@@ -51,6 +51,12 @@ export const postListingPhotoHelper = ( listingId, url ) => {
   `
 }
 
+export const getListingsByStatusHelper = ( status ) => {
+  return `
+    SELECT * FROM listings WHERE status = '${status}'
+  `
+}
+
 
 export const addSkillToListingHelper = ( { listingId, skill}) => {
   return `

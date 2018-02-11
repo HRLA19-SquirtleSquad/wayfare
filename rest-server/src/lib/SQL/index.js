@@ -184,6 +184,7 @@ export const createReviewTable = async () => {
                 review TEXT, 
                 commentor INT, 
                 commentee INT,
+                type TEXT,
                 CONSTRAINT reviews_pk PRIMARY KEY(id), 
                 CONSTRAINT fk_reviews_parentId FOREIGN KEY(parentId) REFERENCES reviews(id),
                 CONSTRAINT fk_reviews_commentor FOREIGN KEY(commentor) REFERENCES users(id),

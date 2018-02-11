@@ -97,9 +97,9 @@ export const upgradeUserQuery = async (body) => {
   }
 }
 
-export const getGivenReviewsQuery = async (uid) => {
+export const getGivenReviewsQuery = async (userId) => {
   try {
-    const queryString = getGivenReviewsHelper(uid);
+    const queryString = getGivenReviewsHelper(userId);
     const data = await db.queryAsync(queryString);
     return data;
   } catch (err) {
@@ -107,9 +107,9 @@ export const getGivenReviewsQuery = async (uid) => {
   }
 }
 
-export const getReceivedReviewsQuery = async (uid) => {
+export const getReceivedReviewsQuery = async (userId) => {
   try {
-    const queryString = getReceivedReviewsHelper(uid);
+    const queryString = getReceivedReviewsHelper(userId);
     const data = await db.queryAsync(queryString);
     return data;
   } catch (err) {

@@ -66,9 +66,7 @@ export const getUserReviewsController = async (req, res) => {
 
 export const getGivenReviewsController = async (req, res) => {
   try {
-    const data = await getUserQuery(req.query.userId);
-    let id = data.rows[0].id;
-    const reviews = await getGivenReviewsQuery(id);
+    const reviews = await getGivenReviewsQuery(req.query.userId);
     for (let i = 0; i < reviews.rows.length; i++) {
       let commentor = await getUserNameQuery(reviews.rows[i].commentor);
       let commentee = await getUserNameQuery(reviews.rows[i].commentee);
@@ -83,9 +81,7 @@ export const getGivenReviewsController = async (req, res) => {
 
 export const getReceivedReviewsController = async (req, res) => {
   try {
-    const data = await getUserQuery(req.query.userId);
-    let id = data.rows[0].id;
-    const reviews = await getReceivedReviewsQuery(id);
+    const reviews = await getReceivedReviewsQuery(req.query.userId);
     for (let i = 0; i < reviews.rows.length; i++) {
       let commentor = await getUserNameQuery(reviews.rows[i].commentor);
       let commentee = await getUserNameQuery(reviews.rows[i].commentee);

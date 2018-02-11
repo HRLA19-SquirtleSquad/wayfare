@@ -91,3 +91,21 @@ export const createRequestSkillsHelper = (skillId, requestId) => {
     INSERT INTO requestskills VALUES (DEFAULT, ${skillId}, ${requestId})
   `
 }
+
+
+export const updateListingHelper = ( { title, startDate, endDate, latitude, longitude, address, city, state, country, description, listingId}) => {
+  return `
+    UPDATE listings SET
+      title = '${title}', 
+      startDate = '${startDate}', 
+      endDate = '${endDate}', 
+      latitude = ${latitude}, 
+      longitude = ${longitude}, 
+      address = '${address}', 
+      city = '${city}', 
+      state = '${state}', 
+      country = '${country}', 
+      description = '${description}'
+    WHERE id = ${listingId}
+  `
+}

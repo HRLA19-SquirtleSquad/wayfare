@@ -14,7 +14,8 @@ import {
   createUserSkills,
   deleteUserSkills,
   createRequestAndRequestSkills,
-  getListingsByStatus
+  getListingsByStatus,
+  updateListing
   // import controllers from listingsController
 } from './listingsController';
 
@@ -64,5 +65,9 @@ router.route('/deleteUserSkills')
 
 router.route('/createRequestAndRequestSkills')
   .post(createRequestAndRequestSkills)
+
+router.route('/updateListing')
+  .put(updateListing)
+
 
 export default router;

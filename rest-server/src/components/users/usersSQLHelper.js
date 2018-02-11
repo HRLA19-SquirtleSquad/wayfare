@@ -42,17 +42,17 @@ export const getUserReviewsHelper = (userId) => {
   `
 }
 
-export const getGivenReviewsHelper = (userId) => {
-  return `
-    SELECT * FROM reviews WHERE commentor = ${userId} OR commentee = ${userId}
-  `
-}
+// export const getGivenReviewsHelper = (userId) => {
+//   return `
+//     SELECT * FROM reviews WHERE commentor = ${userId} OR commentee = ${userId}
+//   `
+// }
 
-export const getReceivedReviewsHelper = (userId) => {
-  return `
-    SELECT * FROM reviews WHERE commentor = ${userId} OR commentee = ${userId}
-  `
-}
+// export const getReceivedReviewsHelper = (userId) => {
+//   return `
+//     SELECT * FROM reviews WHERE commentor = ${userId} OR commentee = ${userId}
+//   `
+// }
 
 export const upgradeUserHelper = (uid, type) => {
   type === 0 ? type = 1 : type = 0;

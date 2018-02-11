@@ -97,22 +97,22 @@ export const upgradeUserQuery = async (body) => {
   }
 }
 
-export const getGivenReviewsQuery = async (userId) => {
-  try {
-    const queryString = getGivenReviewsHelper(userId);
-    const data = await db.queryAsync(queryString);
-    return data;
-  } catch (err) {
-    throw new Error(err);
-  }
-}
+// export const getGivenReviewsQuery = async (userId) => {
+//   try {
+//     const queryString = getGivenReviewsHelper(userId);
+//     const data = await db.queryAsync(queryString);
+//     return data;
+//   } catch (err) {
+//     throw new Error(err);
+//   }
+// }
 
-export const getReceivedReviewsQuery = async (userId) => {
-  try {
-    const queryString = getReceivedReviewsHelper(userId);
-    const data = await db.queryAsync(queryString);
-    return data;
-  } catch (err) {
-    throw new Error(err);
-  }
-}
+// export const getReceivedReviewsQuery = async (userId) => {
+//   try {
+//     const queryString = getReceivedReviewsHelper(userId);
+//     const data = await db.queryAsync(queryString);
+//     return data;
+//   } catch (err) {
+//     throw new Error(err);
+//   }
+// }

@@ -69,35 +69,35 @@ export const getUserReviewsController = async (req, res) => {
   }
 }
 
-export const getGivenReviewsController = async (req, res) => {
-  try {
-    const reviews = await getGivenReviewsQuery(req.query.userId);
-    for (let i = 0; i < reviews.rows.length; i++) {
-      let commentor = await getUserNameQuery(reviews.rows[i].commentor);
-      let commentee = await getUserNameQuery(reviews.rows[i].commentee);
-      reviews.rows[i].commentor = commentor.rows[0].name;
-      reviews.rows[i].commentee = commentee.rows[0].name
-    }
-    return res.status(200).send(reviews.rows); 
-  } catch (err) {
-    throw new Error(err);
-  }
-}
+// export const getGivenReviewsController = async (req, res) => {
+//   try {
+//     const reviews = await getGivenReviewsQuery(req.query.userId);
+//     for (let i = 0; i < reviews.rows.length; i++) {
+//       let commentor = await getUserNameQuery(reviews.rows[i].commentor);
+//       let commentee = await getUserNameQuery(reviews.rows[i].commentee);
+//       reviews.rows[i].commentor = commentor.rows[0].name;
+//       reviews.rows[i].commentee = commentee.rows[0].name
+//     }
+//     return res.status(200).send(reviews.rows); 
+//   } catch (err) {
+//     throw new Error(err);
+//   }
+// }
 
-export const getReceivedReviewsController = async (req, res) => {
-  try {
-    const reviews = await getReceivedReviewsQuery(req.query.userId);
-    for (let i = 0; i < reviews.rows.length; i++) {
-      let commentor = await getUserNameQuery(reviews.rows[i].commentor);
-      let commentee = await getUserNameQuery(reviews.rows[i].commentee);
-      reviews.rows[i].commentor = commentor.rows[0].name;
-      reviews.rows[i].commentee = commentee.rows[0].name
-    }
-    return res.status(200).send(reviews.rows); 
-  } catch (err) {
-    throw new Error(err);
-  }
-}
+// export const getReceivedReviewsController = async (req, res) => {
+//   try {
+//     const reviews = await getReceivedReviewsQuery(req.query.userId);
+//     for (let i = 0; i < reviews.rows.length; i++) {
+//       let commentor = await getUserNameQuery(reviews.rows[i].commentor);
+//       let commentee = await getUserNameQuery(reviews.rows[i].commentee);
+//       reviews.rows[i].commentor = commentor.rows[0].name;
+//       reviews.rows[i].commentee = commentee.rows[0].name
+//     }
+//     return res.status(200).send(reviews.rows); 
+//   } catch (err) {
+//     throw new Error(err);
+//   }
+// }
 
 export const upgradeUserController = async (req, res) => {
   try {

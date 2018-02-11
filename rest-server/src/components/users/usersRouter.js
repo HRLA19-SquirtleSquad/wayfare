@@ -29,11 +29,11 @@ router.route('/getUserName')
 router.route('/getUserReviews') 
   .get(getUserReviewsController); 
 
-router.route('/getGivenReviews')
-  .get(getGivenReviewsController);
+// router.route('/getGivenReviews')
+//   .get(getGivenReviewsController);
 
-router.route('/getReceivedReviews')
-  .get(getReceivedReviewsController);
+// router.route('/getReceivedReviews')
+//   .get(getReceivedReviewsController);
 
 router.route('/upgradeUser')
   .put(upgradeUserController)

@@ -38,7 +38,7 @@ export const getUserNameHelper = (userId) => {
 
 export const getUserReviewsHelper = (userId) => {
   return `
-    SELECT * FROM reviews WHERE commentee = ${userId}
+    SELECT * FROM reviews WHERE commentor = ${userId} OR commentee = ${userId}
   `
 }
 

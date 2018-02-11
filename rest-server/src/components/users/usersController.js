@@ -53,10 +53,15 @@ export const getUserNameController = async (req, res) => {
 export const getUserReviewsController = async (req, res) => {
   try {
     const data = await getUserReviewsQuery(req.query.userId); 
-    let reviews = data.rows; 
-    for (let i = 0; i <reviews.length; i ++) {
-      let user = await getUserNameQuery(reviews[i].commentor); 
-      data.rows[i].commentor = user.rows[0].name; 
+    // let reviews = data.rows; 
+    for (let i = 0; i <data.rows.length; i ++) {
+      // let user = await getUserNameQuery(reviews[i].commentor); 
+      // data.rows[i].commentor = user.rows[0].name;
+      
+      let commentor = await getUserNameQuery(data.rows[i].commentor);
+      let commentee = await getUserNameQuery(data.rows[i].commentee);
+      data.rows[i].commentor = commentor.rows[0].name;
+      data.rows[i].commentee = commentee.rows[0].name
     }
     return res.status(200).send(data); 
   } catch (err) {

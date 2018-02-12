@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { getMessagesController, getLastMessageController } from './chatController';
+import { getMessagesController, getLastMessageController, postStaticMessageController} from './chatController';
 
 const chatRouter = express.Router();
 
@@ -9,6 +9,9 @@ chatRouter.route('/getMessages')
 
 chatRouter.route('/getLastMessage')
   .get(getLastMessageController)
+
+chatRouter.route('/postStaticMessage')
+  .post(postStaticMessageController)
 
 
 export default chatRouter;

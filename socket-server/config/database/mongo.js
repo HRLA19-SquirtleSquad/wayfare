@@ -10,12 +10,33 @@ db.on('error', () => {
 db.once('open', () => {
   console.log('mongoose connected successfully');
 });
-//mongoose Schema
+
 const ChatSchema = mongoose.Schema({
-  author: String,
-  authorImage: String,
+  guestName: String,
+  guestImage: String,
+  guestId: Number,
+  hostName: String,
+  hostImage: String,
+  hostId: Number,
+  listingId: Number,
   message: String,
   room: String,
+},
+{
+  timestamps: true
+} 
+)
+
+const RoomSchema = mongoose.Schema({
+  roomId: {type: String, unique: true},
+  guestName: String,
+  guestImage: String,
+  guestId: Number,
+  hostName: String,
+  hostImage: String,
+  hostId: Number,
+  listingId: Number,
+  listingTitle: String
 },
 {
   timestamps: true
@@ -25,13 +46,18 @@ const ChatSchema = mongoose.Schema({
 //mongoose model
 const Chat = mongoose.model('Chat', ChatSchema);
 
-const storeChat = (username, authorImage,message, room, callback) => {
+const storeChat = (guestName, guestImage, guestId, hostName, hostImage, hostId, listingId, message, room, callback) => {
 
   new Chat({
-    author: username,
-    authorImage: authorImage,
+    guestName: guestName,
+    guestImage, guestImage,
+    guestId, guestId,
+    hostName: hostName,
+    hostImage: hostImage,
+    hostId: hostId,
+    listingId: listingId,
     message: message,
-    room: room
+    room: room,
   }).save((err, data) => {
     if (err) {
       callback(err, null);
@@ -41,6 +67,9 @@ const storeChat = (username, authorImage,message, room, callback) => {
   })
 }
 
+const Room = mongoose.model('Room', RoomSchema);
+
+module.exports.Room = Room;
 module.exports.Chat = Chat;
 module.exports.storeChat = storeChat;
 

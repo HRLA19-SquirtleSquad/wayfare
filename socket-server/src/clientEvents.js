@@ -39,6 +39,21 @@ const clientMessage = ({ io, room }, payload) => {
   })
 };
 
+const clientRoomCreate = ({ io, room }, payload) => {
+  console.log('room creation heard');
+  
+  db.storeRoom(payload.roomId, payload.guestId, payload.hostId, payload.listingId, function(err, data){
+    if (err) {
+      console.log('couldnt save room to mongodb')
+    } else {
+      console.log('room saved?')
+      serverMessage({ io, room }, payload);
+    }
+  })
+};
+
+
+
 const clientEmitters = {
   'client.ready': clientReady,
   //'client.update': clientUpdate,

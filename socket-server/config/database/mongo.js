@@ -22,6 +22,17 @@ const ChatSchema = mongoose.Schema({
 } 
 )
 
+const RoomSchema = mongoose.Schema({
+  roomId: {type: String, unique: true},
+  guestId: String,
+  hostId: String,
+  listingId: String,
+},
+{
+  timestamps: true
+} 
+)
+
 //mongoose model
 const Chat = mongoose.model('Chat', ChatSchema);
 
@@ -41,6 +52,24 @@ const storeChat = (username, authorImage,message, room, callback) => {
   })
 }
 
+const Room = mongoose.model('Room', RoomSchema);
+// const storeRoom = (roomId, guestId, hostId, listingId, callback) => {
+//   new Room({
+//     roomId: roomId,
+//     guestId: guestId,
+//     hostId: hostId,
+//     listingId: listingId
+//   }).save((err, data) => {
+//     if (err) {
+//       callback(err, null);
+//     } else {
+//       callback(null, data)
+//     }
+//   })
+// }
+
+module.exports.Room = Room;
 module.exports.Chat = Chat;
 module.exports.storeChat = storeChat;
+// module.exports.storeRoom = storeRoom;
 

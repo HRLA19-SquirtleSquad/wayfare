@@ -11,11 +11,22 @@ db.once('open', () => {
   console.log('mongoose connected successfully');
 });
 //mongoose Schema
+
+  // author: String,
+  // authorImage: String,
+  // message: String,
+  // room: String,
+
 const ChatSchema = mongoose.Schema({
-  author: String,
-  authorImage: String,
-  message: String,
-  room: String,
+  guestName: String, // changed
+  guestImage: String, // changed
+  guestId: Number, // new
+  hostName: String, // new
+  hostImage: String, // new
+  hostId: Number, // new
+  listingId: Number, // new
+  message: String, // changed
+  room: String, // changed
 },
 {
   timestamps: true
@@ -36,13 +47,18 @@ const RoomSchema = mongoose.Schema({
 //mongoose model
 const Chat = mongoose.model('Chat', ChatSchema);
 
-const storeChat = (username, authorImage,message, room, callback) => {
+const storeChat = (guestName, guestImage, guestId, hostName, hostImage, hostId, listingId, message, room, callback) => {
 
   new Chat({
-    author: username,
-    authorImage: authorImage,
+    guestName: guestName,
+    guestImage, guestImage,
+    guestId, guestId,
+    hostName: hostName,
+    hostImage: hostImage,
+    hostId: hostId,
+    listingId: listingId,
     message: message,
-    room: room
+    room: room,
   }).save((err, data) => {
     if (err) {
       callback(err, null);
@@ -52,13 +68,13 @@ const storeChat = (username, authorImage,message, room, callback) => {
   })
 }
 
-const Room = mongoose.model('Room', RoomSchema);
-// const storeRoom = (roomId, guestId, hostId, listingId, callback) => {
-//   new Room({
-//     roomId: roomId,
-//     guestId: guestId,
-//     hostId: hostId,
-//     listingId: listingId
+// const storeChat = (username, authorImage,message, room, callback) => {
+
+//   new Chat({
+//     author: username,
+//     authorImage: authorImage,
+//     message: message,
+//     room: room
 //   }).save((err, data) => {
 //     if (err) {
 //       callback(err, null);
@@ -68,8 +84,9 @@ const Room = mongoose.model('Room', RoomSchema);
 //   })
 // }
 
+const Room = mongoose.model('Room', RoomSchema);
+
 module.exports.Room = Room;
 module.exports.Chat = Chat;
 module.exports.storeChat = storeChat;
-// module.exports.storeRoom = storeRoom;
 

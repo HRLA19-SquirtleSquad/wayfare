@@ -3,20 +3,18 @@ import db from '../mongo';
 
 export const createRoomQuery = async (roomId, guestId, hostId, listingId) => {
   try {
-
-    const queryString = createRoomHelper(roomId, guestId, hostId, listingId);
-    const room = new Room({
+    const data = await new db.Room({
       roomId: roomId,
       guestId: guestId,
       hostId: hostId,
       listingId: listingId
-    })
+    }).save();
 
-    const data = await room.save();
     console.log('i am saved room data...', data)
     return data;
   }
   catch (err) {
+    // will error if a room with same name already exists.
     console.log('Error creating room (createRoomQuery)', err)
   }
 }

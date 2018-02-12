@@ -22,3 +22,26 @@ export const getLastMessageQuery = async () => {
     console.log('couldnt get last messagequery', err)
   }
 }
+
+export const postStaticMessageQuery = async (guestName, guestImage, guestId, hostName, hostImage, hostId, listingId, message, room) => {
+  try {
+
+    const data = await new db.Chat({
+      guestName: guestName,
+      guestImage: guestImage,
+      guestId: guestId,
+      hostName: hostName,
+      hostImage: hostImage,
+      hostId: hostId,
+      listingId: listingId,
+      message: message,
+      room: room
+    }).save();
+
+    console.log('i am new chat message:', data)
+    return data;
+  }
+  catch (err) {
+    console.log('Error posting new chat message (postStaticMessageQuery)', err)
+  }
+}

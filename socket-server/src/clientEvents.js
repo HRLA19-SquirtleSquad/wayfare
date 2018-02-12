@@ -29,7 +29,7 @@ const clientDisconnect = ({}) => {
 const clientMessage = ({ io, room }, payload) => {
   console.log('client message heard');
   
-  db.storeChat(payload.author, payload.authorImage, payload.message, payload.room, function(err, data){
+  db.storeChat(payload.guestName, payload.guestImage, payload.guestId, payload.hostName, payload.hostImage, payload.hostId, payload.listingId, payload.message, payload.room, function(err, data){
     if (err) {
       console.log('couldnt save message to mongodb')
     } else {
@@ -39,18 +39,18 @@ const clientMessage = ({ io, room }, payload) => {
   })
 };
 
-const clientRoomCreate = ({ io, room }, payload) => {
-  console.log('room creation heard');
+// const clientRoomCreate = ({ io, room }, payload) => {
+//   console.log('room creation heard');
   
-  db.storeRoom(payload.roomId, payload.guestId, payload.hostId, payload.listingId, function(err, data){
-    if (err) {
-      console.log('couldnt save room to mongodb')
-    } else {
-      console.log('room saved?')
-      serverMessage({ io, room }, payload);
-    }
-  })
-};
+//   db.storeRoom(payload.roomId, payload.guestId, payload.hostId, payload.listingId, function(err, data){
+//     if (err) {
+//       console.log('couldnt save room to mongodb')
+//     } else {
+//       console.log('room saved?')
+//       serverMessage({ io, room }, payload);
+//     }
+//   })
+// };
 
 
 

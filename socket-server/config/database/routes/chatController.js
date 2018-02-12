@@ -2,15 +2,13 @@
 import db from '../mongo';
 import { getMessagesQuery, getLastMessageQuery, postStaticMessageQuery } from './chatQuery';
 
-
 export const getMessagesController = async (req, res) => {
-  console.log('inside controller')
   try {
     const data = await getMessagesQuery();
     return res.send(data)
 }
   catch (err) {
-    error('couldnt fetch messages from controller', err)
+    console.log('couldnt fetch messages from controller', err)
   }
 }
 
@@ -20,7 +18,7 @@ export const getLastMessageController = async (req, res) => {
     return res.send(data)
   }
   catch (err) {
-    error('couldnt get last message', err)
+    console.log('couldnt get last message', err)
   }
 
 }
@@ -42,7 +40,7 @@ export const postStaticMessageController = async (req, res) => {
     return res.send(data)
   }
   catch (err) {
-    error('Error posting static message (postStaticMessageController)', err)
+    console.log('Error posting static message (postStaticMessageController)', err)
   }
 
 }

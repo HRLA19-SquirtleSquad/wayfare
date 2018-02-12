@@ -1,13 +1,18 @@
 import mongoose from 'mongoose';
 import db from '../mongo';
 
-export const createRoomQuery = async (roomId, guestId, hostId, listingId) => {
+export const createRoomQuery = async (roomId, guestName, guestImage, guestId, hostName, hostImage, hostId, listingId, listingTitle) => {
   try {
     const data = await new db.Room({
       roomId: roomId,
+      guestName: guestName,
+      guestImage: guestImage,
       guestId: guestId,
+      hostName: hostName,
+      hostImage: hostImage,
       hostId: hostId,
-      listingId: listingId
+      listingId: listingId,
+      listingTitle: listingTitle
     }).save();
 
     console.log('i am saved room data...', data)

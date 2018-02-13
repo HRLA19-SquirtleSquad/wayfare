@@ -60,6 +60,14 @@ export const createSeedUsers = async () => {
   } catch (err) {
     console.log('user seed data 6 did not insert', err)
   } 
+
+  try {
+    let query = "insert into users values (DEFAULT, 'Patrick Bateman', 'ImNotPsycho0@hotmail.com', 'awefesa', 'HUGE FAN of 80s music!', 'http://www4.pictures.zimbio.com/mp/_H_E2AP8Jkmx.jpg', 'New York', 1, 4.25, 14, 5, 22)"
+    await db.queryAsync(query)
+    console.log('user seed data 7 inserted'); 
+  } catch (err) {
+    console.log('user seed data 7 did not insert', err)
+  } 
 }
 
 export const createSeedListings = async () => {
@@ -96,7 +104,7 @@ export const createSeedListings = async () => {
   }
 
   try {
-    let query = "insert into listings values (default, 'Small Bungalow Near Santa Monica Beach', '2/17/18', '2/27/18', 34.026653, -118.491537, '1221 12th St', 'Los Angeles', 'CA', 'United States', 3, null, 1, 'Small Bungalow near beach perfect for couples. Close to the beach and 3rd St. Im starting a small garden in the frontyard and need someone with experience to show me best practices.', 'PENDING') "
+    let query = "insert into listings values (default, 'Small Bungalow Near Santa Monica Beach', '2/17/18', '2/27/18', 34.026653, -118.491537, '1221 12th St', 'Los Angeles', 'CA', 'United States', 3, null, 1, 'Small Bungalow near Santa Monica perfect for couples. Close to the beach and 3rd St. Im starting a small garden in the frontyard and need someone with experience to show me best practices.', 'PENDING') "
     await db.queryAsync(query); 
     console.log('listing seed data 5 inserted'); 
   } catch (err) {
@@ -124,6 +132,14 @@ export const createSeedListings = async () => {
     console.log('listing seed data 8 inserted'); 
   } catch (err) {
     console.log('listing seed data 8 did not insert', err)
+  }
+
+  try {
+    let query = "insert into listings values (default, 'Luxurious Apartment near Central Park', '3/12/18', '4/01/18', 40.774637, -73.964338, '944 5th Ave', 'New York', 'NY', 'United States', 8, null, 1, 'Probably the best building this side of the park. You can stay here as long as you maintain it like it is. I need a graphic designer to design a new business card. It needs to be sleek and sophisticated.', 'PENDING') "
+    await db.queryAsync(query); 
+    console.log('listing seed data 9 inserted'); 
+  } catch (err) {
+    console.log('listing seed data 9 did not insert', err)
   }
   
 }
@@ -224,9 +240,17 @@ export const createSeedImages = async () => {
   try {
     let query = "insert into images values (default, 8, 'https://medias.spotern.com/spots/w640/74859.jpg')"
     await db.queryAsync(query); 
-    console.log('image seed data 7 inserted'); 
+    console.log('image seed data 8 inserted'); 
   } catch (err) {
-    console.log('image seed data 7 did not insert')
+    console.log('image seed data 8s did not insert')
+  }
+
+  try {
+    let query = "insert into images values (default, 9, 'https://i.ytimg.com/vi/jXYFUJgtrIc/hqdefault.jpg')"
+    await db.queryAsync(query); 
+    console.log('image seed data 9 inserted'); 
+  } catch (err) {
+    console.log('image seed data 9 did not insert')
   }
 }
 

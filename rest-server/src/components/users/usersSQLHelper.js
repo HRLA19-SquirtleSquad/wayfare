@@ -68,3 +68,9 @@ export const getUserDataHelper = ( userId ) => {
     SELECT * FROM users WHERE id = ${userId}
     `
 }
+
+export const getUserReviewsByListingHelper = ({listingId, userId}) => {
+  return `
+    SELECT * FROM reviews WHERE listingId = ${listingId} and commentor = ${userId}
+    `
+}

@@ -94,7 +94,7 @@ export const createSeedRequests = async () => {
 
 export const createSeedReviews = async () => {
   try {
-    let query = "insert into reviews values (default, null, 5, 'This place was great! I loved the breakfast in bed, it was even right from the table!', 2, 3, 'guest')"
+    let query = "insert into reviews values (default, null, 5, 'This place was great! I loved the breakfast in bed, it was even right from the table!', 2, 3, 1, 'guest')"
     await db.queryAsync(query); 
     console.log('review seed data 1 inserted'); 
   } catch (err) {
@@ -102,7 +102,7 @@ export const createSeedReviews = async () => {
   }
 
   try {
-    let query = "insert into reviews values (default, null, 0, 'DO NOT BOOK. Host misunderstood my offer to help him make music...', 1, 4, 'guest')"
+    let query = "insert into reviews values (default, null, 0, 'DO NOT BOOK. Host misunderstood my offer to help him make music...', 1, 4, 2, 'guest')"
     await db.queryAsync(query); 
     console.log('review seed data 2 inserted'); 
   } catch (err) {

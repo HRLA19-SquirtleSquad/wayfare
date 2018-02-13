@@ -9,7 +9,8 @@ import {
   getGivenReviewsController,
   getReceivedReviewsController,
   upgradeUserController,
-  getUserDataController
+  getUserDataController, 
+  getUserReviewsByListing
 } from './usersController';
 
 const router = express.Router();
@@ -40,5 +41,8 @@ router.route('/upgradeUser')
   
 router.route('/getUserData') 
   .get(getUserDataController); 
+
+router.route('/getUserReviewsByListing')
+  .get(getUserReviewsByListing)
 
 export default router;

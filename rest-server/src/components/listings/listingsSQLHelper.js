@@ -118,7 +118,7 @@ export const deleteListingSkillHelper = ( skillId ) => {
 
 export const acceptListingHelper = ( { listingId, guestId }) => {
   return `
-    UPDATE listings SET guestId = ${guestId}, status = 'PROGRESS' where id = ${listingId}
+    UPDATE listings SET guestId = ${guestId}, status = 'progress' where id = ${listingId}
   `
 }
 
@@ -131,5 +131,17 @@ export const rejectListingHelper = ( { guestId, listingId }) => {
 export const getRequestsByGuestHelper = ({ guestId }) => {
   return ` 
     SELECT * FROM requests JOIN listings ON requests.listingId = listings.id WHERE requests.guestId = ${guestId}
+  `
+}
+
+export const getRequestsByListingHelper = ( {listingId} ) => {
+  return `
+    SELECT * FROM requests JOIN users on requests.guestId = users.id WHERE requests.listingId = ${listingId}
+  `
+}
+
+export const completeListingHelper = ({listingId}) => {
+  return `
+    UPDATE listings SET status = 'complete' where id = ${listingId}
   `
 }

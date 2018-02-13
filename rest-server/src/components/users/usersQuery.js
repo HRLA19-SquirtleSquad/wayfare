@@ -9,7 +9,8 @@ import {
   getGivenReviewsHelper,
   getReceivedReviewsHelper,
   upgradeUserHelper,
-  getUserDataHelper
+  getUserDataHelper, 
+  getUserReviewsByListingHelper
 } from './usersSQLHelper';
 
 export const getUserQuery = async (uid) => {
@@ -116,3 +117,13 @@ export const upgradeUserQuery = async (body) => {
 //     throw new Error(err);
 //   }
 // }
+
+export const getUserReviewsByListingQuery = async ( listingDetails ) =>  {
+  try {
+    const queryString = getUserReviewsByListingHelper(listingDetails); 
+    const data = await db.queryAsync(queryString);
+    return data;
+  } catch (err) {
+    throw new Error(err); 
+  }
+}

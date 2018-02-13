@@ -26,7 +26,7 @@ export const updateListingViewCountHelper = ( listingId )  => {
 
 export const getListingSkillsHelper = ( listingId ) => {
   return `
-    SELECT skill FROM skills WHERE listingId = ${listingId}
+    SELECT * FROM skills WHERE listingId = ${listingId}
   `
 }
 
@@ -107,5 +107,11 @@ export const updateListingHelper = ( { title, startDate, endDate, latitude, long
       country = '${country}', 
       description = '${description}'
     WHERE id = ${listingId}
+  `
+}
+
+export const deleteListingSkillHelper = ( skillId ) => {
+  return `
+    DELETE FROM skills where id = ${Number(skillId.skillId)}
   `
 }

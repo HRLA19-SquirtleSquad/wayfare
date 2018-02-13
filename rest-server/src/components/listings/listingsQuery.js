@@ -11,7 +11,8 @@ import {
   postListingPhotoHelper,
   addSkillToListingHelper,
   updateListingHelper, 
-  getListingByStatusHelper
+  getListingByStatusHelper,
+  deleteListingSkillHelper
 } from './listingsSQLHelper';
 
 // define queries
@@ -100,7 +101,7 @@ export const postListingPhotoQuery = async (listingId, url) => {
 }
 export const getListingsByStatusQuery = async (status) => {
   try {
-    const queryString = getListingsByStatusHelper(status); 
+    const queryString = getListingByStatusHelper(status); 
     const data = await db.queryAsync(queryString); 
     return data; 
   } catch (err) {
@@ -123,6 +124,18 @@ export const updateListingQuery = async ( listingDetails ) => {
   try  { 
       const queryString = updateListingHelper( listingDetails );
       const data = await db.queryAsync(queryString); 
+      return data; 
+    } catch (err) {
+      throw new Error (err); 
+    }
+}
+
+
+export const deleteListingSkillQuery = async ( skillId ) => {
+  try  { 
+      const queryString = deleteListingSkillHelper( skillId );
+      const data = await db.queryAsync(queryString);
+      console.log('confirm delete', data);  
       return data; 
     } catch (err) {
       throw new Error (err); 

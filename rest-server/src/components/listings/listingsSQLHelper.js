@@ -57,7 +57,6 @@ export const getListingsByStatusHelper = ( status ) => {
   `
 }
 
-
 export const addSkillToListingHelper = ( { listingId, skill}) => {
   return `
     INSERT INTO skills VALUES (DEFAULT, null, ${listingId}, '${skill}') RETURNING id

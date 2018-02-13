@@ -104,7 +104,6 @@ export const postListingPhotoQuery = async (listingId, url) => {
 }
 export const getListingsByStatusQuery = async (status) => {
   try {
-    console.log('i am status:', status)
     const queryString = getListingsByStatusHelper(status); 
     const data = await db.queryAsync(queryString); 
     return data; 

@@ -15,9 +15,9 @@ import {
   createRequestSkillsQuery,
   getListingsByStatusQuery
 } from './listingsQuery';
-import {
-  getUserQuery
-} from '../users/usersQuery';
+// import {
+//   getUserQuery
+// } from '../users/usersQuery';
 import { getTopListings } from '../../config/redis/redis'
 
 // define controllers
@@ -163,7 +163,7 @@ export const createRequestAndRequestSkills = async (req, res) => {
 
 export const getListingsByStatus = async (req, res) => {
   try {
-   console.log('req.query.status', req.query.status)
+    console.log('req.query.status', req.query.status)
     const data = await getListingsByStatusQuery(req.query.status); 
     return res.status(200).send(data)
   }

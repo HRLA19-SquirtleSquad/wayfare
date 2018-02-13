@@ -284,7 +284,7 @@ export const createRequestSkillTable = async () => {
                 requestId INT,
                 CONSTRAINT requestSkills_pk PRIMARY KEY(id), 
                 CONSTRAINT fk_requestSkills_skillId FOREIGN KEY(skillId) REFERENCES skills(id),
-                CONSTRAINT fk_requestSkills_requestId FOREIGN KEY(requestId) REFERENCES requests(id)
+                CONSTRAINT fk_requestSkills_requestId FOREIGN KEY(requestId) REFERENCES requests(id) ON DELETE CASCADE
             )
                 `
         );

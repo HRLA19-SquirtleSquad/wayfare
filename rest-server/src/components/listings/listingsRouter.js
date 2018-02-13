@@ -16,7 +16,9 @@ import {
   createRequestAndRequestSkills,
   getListingsByStatus,
   updateListing, 
-  deleteListingSkill
+  deleteListingSkill, 
+  acceptListing, 
+  rejectListing
   // import controllers from listingsController
 } from './listingsController';
 
@@ -73,4 +75,10 @@ router.route('/updateListing')
 router.route('/deleteListingSkill') 
   .delete(deleteListingSkill)
 
+router.route('/acceptListing') 
+  .put(acceptListing)
+
+router.route('/rejectListing') 
+  .delete(rejectListing)
+  
 export default router;

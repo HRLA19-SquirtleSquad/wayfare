@@ -12,7 +12,9 @@ import {
   addSkillToListingHelper,
   updateListingHelper, 
   getListingByStatusHelper,
-  deleteListingSkillHelper
+  deleteListingSkillHelper, 
+  acceptListingHelper, 
+  rejectListingHelper,
 } from './listingsSQLHelper';
 
 // define queries
@@ -135,9 +137,29 @@ export const deleteListingSkillQuery = async ( skillId ) => {
   try  { 
       const queryString = deleteListingSkillHelper( skillId );
       const data = await db.queryAsync(queryString);
-      console.log('confirm delete', data);  
       return data; 
     } catch (err) {
       throw new Error (err); 
     }
 }
+
+export const acceptListingQuery =  async ( listingDetails ) => {
+  try  { 
+      const queryString = acceptListingHelper( listingDetails );
+      const data = await db.queryAsync(queryString);
+      return data; 
+    } catch (err) {
+      throw new Error (err); 
+    }
+}
+
+export const rejectListingQuery =  async ( listingDetails ) => {
+  try  { 
+      const queryString = rejectListingHelper( listingDetails );
+      const data = await db.queryAsync(queryString);
+      return data; 
+    } catch (err) {
+      throw new Error (err); 
+    }
+}
+

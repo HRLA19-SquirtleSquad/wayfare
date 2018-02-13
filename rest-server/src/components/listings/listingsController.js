@@ -16,10 +16,12 @@ import {
   getListingsByStatusQuery,
   updateListingQuery, 
   deleteListingSkillQuery,
+  acceptListingQuery, 
+  rejectListingQuery, 
 } from './listingsQuery';
-// import {
-//   getUserQuery
-// } from '../users/usersQuery';
+import {
+  getUserQuery
+} from '../users/usersQuery';
 import { getTopListings } from '../../config/redis/redis'
 
 // define controllers
@@ -165,7 +167,7 @@ export const createRequestAndRequestSkills = async (req, res) => {
 
 export const getListingsByStatus = async (req, res) => {
   try {
-    console.log('req.query.status', req.query.status)
+   console.log('req.query.status', req.query.status)
     const data = await getListingsByStatusQuery(req.query.status); 
     return res.status(200).send(data)
   }
@@ -187,8 +189,29 @@ export const deleteListingSkill = async (req, res) => {
   try {
     console.log('req.query', req.query); 
     await deleteListingSkillQuery(req.query);
-    return res.status(200)
+    return res.status(200); 
   } catch (err) {
     throw new Error(err);
+  }
+}
+
+export const acceptListing = async (req, res) => {
+  try {
+     const data = await acceptListingQuery(req.query); 
+     return res.status(200).send(data)
+   }
+   catch (err) {
+     throw new Error(err)
+   }
+}
+
+export const rejectListing = async (req, res) => {
+  try {
+    //get request id 
+    //delete all listing skills 
+    const data = await rejectListingQuery(req.query); 
+    return res.status(200).send(data); 
+  } catch (err) {
+    throw new Error (err); 
   }
 }

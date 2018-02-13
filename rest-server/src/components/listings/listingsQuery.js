@@ -11,7 +11,7 @@ import {
   postListingPhotoHelper,
   addSkillToListingHelper,
   updateListingHelper, 
-  getListingByStatusHelper,
+  getListingsByStatusHelper,
   deleteListingSkillHelper, 
   acceptListingHelper, 
   rejectListingHelper,
@@ -103,7 +103,7 @@ export const postListingPhotoQuery = async (listingId, url) => {
 }
 export const getListingsByStatusQuery = async (status) => {
   try {
-    const queryString = getListingByStatusHelper(status); 
+    const queryString = getListingsByStatusHelper(status); 
     const data = await db.queryAsync(queryString); 
     return data; 
   } catch (err) {

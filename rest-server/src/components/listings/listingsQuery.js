@@ -11,8 +11,10 @@ import {
   postListingPhotoHelper,
   addSkillToListingHelper,
   updateListingHelper, 
-  getListingByStatusHelper,
-  deleteListingSkillHelper
+  getListingsByStatusHelper,
+  deleteListingSkillHelper, 
+  acceptListingHelper, 
+  rejectListingHelper,
 } from './listingsSQLHelper';
 
 // define queries
@@ -101,7 +103,7 @@ export const postListingPhotoQuery = async (listingId, url) => {
 }
 export const getListingsByStatusQuery = async (status) => {
   try {
-    const queryString = getListingByStatusHelper(status); 
+    const queryString = getListingsByStatusHelper(status); 
     const data = await db.queryAsync(queryString); 
     return data; 
   } catch (err) {
@@ -135,9 +137,29 @@ export const deleteListingSkillQuery = async ( skillId ) => {
   try  { 
       const queryString = deleteListingSkillHelper( skillId );
       const data = await db.queryAsync(queryString);
-      console.log('confirm delete', data);  
       return data; 
     } catch (err) {
       throw new Error (err); 
     }
 }
+
+export const acceptListingQuery =  async ( listingDetails ) => {
+  try  { 
+      const queryString = acceptListingHelper( listingDetails );
+      const data = await db.queryAsync(queryString);
+      return data; 
+    } catch (err) {
+      throw new Error (err); 
+    }
+}
+
+export const rejectListingQuery =  async ( listingDetails ) => {
+  try  { 
+      const queryString = rejectListingHelper( listingDetails );
+      const data = await db.queryAsync(queryString);
+      return data; 
+    } catch (err) {
+      throw new Error (err); 
+    }
+}
+

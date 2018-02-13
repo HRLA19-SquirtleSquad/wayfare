@@ -115,3 +115,15 @@ export const deleteListingSkillHelper = ( skillId ) => {
     DELETE FROM skills where id = ${Number(skillId.skillId)}
   `
 }
+
+export const acceptListingHelper = ( { listingId, guestId }) => {
+  return `
+    UPDATE listings SET guestId = ${guestId}, status = 'IN PROGRESS' where id = ${listingId}
+  `
+}
+
+export const rejectListingHelper = ( { guestId, listingId }) => {
+  return `
+    DELETE FROM requests WHERE guestId = ${guestId} and listingId = ${listingId}
+  `
+}

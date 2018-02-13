@@ -17,7 +17,12 @@ import {
   rejectListingHelper,
   getRequestsByGuestHelper, 
   getRequestsByListingHelper, 
-  completeListingHelper
+  completeListingHelper, 
+  getUserSkillsHelper, 
+  createUserSkillsHelper,
+  deleteUserSkillsHelper,
+  createRequestHelper,
+  createRequestSkillsHelper
 } from './listingsSQLHelper';
 
 // define queries
@@ -193,5 +198,55 @@ export const completeListingQuery = async ( listingId ) => {
     return data; 
   } catch (err) {
     throw new Error (err); 
+  }
+}
+
+export const createUserSkillsQuery = async ( userId, skill ) => {
+  try {
+    const queryString = createUserSkillsHelper( userId, skill);
+    const data = await db.queryAsync(queryString);
+    return data;
+  } catch (err) {
+    throw new Error(err);
+  }
+}
+
+export const getUserSkillsQuery = async ( userId ) => {
+  try {
+    const queryString = getUserSkillsHelper( userId);
+    const data = await db.queryAsync(queryString);
+    return data;
+  } catch (err) {
+    throw new Error(err);
+  }
+}
+
+export const deleteUserSkillsQuery = async (id) => {
+  try {
+    const queryString = deleteUserSkillsHelper(id);
+    const data = await db.queryAsync(queryString)
+    return data;
+  } catch(err) {
+    throw new Error(err);
+  }
+}
+
+export const createRequestQuery = async (guestId, listingId ) => {
+  try {
+    const queryString = createRequestHelper(guestId, listingId);
+    const data = await db.queryAsync(queryString)
+    return data;
+  } catch(err) {
+    throw new Error(err);
+  }
+}
+     
+export const createRequestSkillsQuery = async (skillId, requestId ) => {
+  try {
+    const queryString = createRequestSkillsHelper(skillId, requestId);
+    const data = await db.queryAsync(queryString)
+    return data;
+  } catch(err) {
+    throw new Error(err);
   }
 }

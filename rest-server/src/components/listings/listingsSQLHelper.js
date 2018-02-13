@@ -26,7 +26,7 @@ export const updateListingViewCountHelper = ( listingId )  => {
 
 export const getListingSkillsHelper = ( listingId ) => {
   return `
-    SELECT skill FROM skills WHERE listingId = ${listingId}
+    SELECT * FROM skills WHERE listingId = ${listingId}
   `
 }
 
@@ -89,5 +89,29 @@ export const createRequestHelper = ( guestId, listingId ) => {
 export const createRequestSkillsHelper = (skillId, requestId) => {
   return `
     INSERT INTO requestskills VALUES (DEFAULT, ${skillId}, ${requestId})
+  `
+}
+
+
+export const updateListingHelper = ( { title, startDate, endDate, latitude, longitude, address, city, state, country, description, listingId}) => {
+  return `
+    UPDATE listings SET
+      title = '${title}', 
+      startDate = '${startDate}', 
+      endDate = '${endDate}', 
+      latitude = ${latitude}, 
+      longitude = ${longitude}, 
+      address = '${address}', 
+      city = '${city}', 
+      state = '${state}', 
+      country = '${country}', 
+      description = '${description}'
+    WHERE id = ${listingId}
+  `
+}
+
+export const deleteListingSkillHelper = ( skillId ) => {
+  return `
+    DELETE FROM skills where id = ${Number(skillId.skillId)}
   `
 }

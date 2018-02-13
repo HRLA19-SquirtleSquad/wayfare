@@ -16,6 +16,7 @@ client.on("error", function (err) {
 });
 
 export const setTopListings = async () => {
+  client.flushall(); 
   let topListings = await getTopListingsQuery();
   for (let i = 0; i < 10; i ++) {
     let listing = topListings.rows[i]; 

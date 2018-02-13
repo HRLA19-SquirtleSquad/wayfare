@@ -20,7 +20,8 @@ import {
   acceptListing, 
   rejectListing,
   getRequestsByGuest, 
-  getRequestsByListing
+  getRequestsByListing, 
+  completeListing
   // import controllers from listingsController
 } from './listingsController';
 
@@ -89,4 +90,6 @@ router.route('/getRequestsByGuest')
 router.route('/getRequestsByListing') 
   .get(getRequestsByListing)
 
+router.route('/completeListing')
+  .put(completeListing)
 export default router;

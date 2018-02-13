@@ -139,3 +139,9 @@ export const getRequestsByListingHelper = ( {listingId} ) => {
     SELECT * FROM requests JOIN users on requests.guestId = users.id WHERE requests.listingId = ${listingId}
   `
 }
+
+export const completeListingHelper = ({listingId}) => {
+  return `
+    UPDATE listings SET status = 'complete' where id = ${listingId}
+  `
+}

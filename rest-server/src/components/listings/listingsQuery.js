@@ -16,7 +16,8 @@ import {
   acceptListingHelper, 
   rejectListingHelper,
   getRequestsByGuestHelper, 
-  getRequestsByListingHelper
+  getRequestsByListingHelper, 
+  completeListingHelper
 } from './listingsSQLHelper';
 
 // define queries
@@ -178,6 +179,16 @@ export const getRequestsByGuestQuery = async ( guestId ) => {
 export const getRequestsByListingQuery = async ( listingId ) => {
   try  { 
     const queryString = getRequestsByListingHelper(listingId);
+    const data = await db.queryAsync(queryString);
+    return data; 
+  } catch (err) {
+    throw new Error (err); 
+  }
+}
+
+export const completeListingQuery = async ( listingId ) => {
+  try  { 
+    const queryString = completeListingHelper(listingId);
     const data = await db.queryAsync(queryString);
     return data; 
   } catch (err) {

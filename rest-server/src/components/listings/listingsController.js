@@ -19,7 +19,8 @@ import {
   acceptListingQuery, 
   rejectListingQuery, 
   getRequestsByGuestQuery, 
-  getRequestsByListingQuery
+  getRequestsByListingQuery, 
+  completeListingQuery
 } from './listingsQuery';
 import {
   getUserQuery
@@ -228,6 +229,16 @@ export const getRequestsByGuest = async (req, res) => {
 export const getRequestsByListing = async (req, res) => {
   try {
     const data = await getRequestsByListingQuery(req.query); 
+    return res.status(200).send(data); 
+  } catch (err) {
+    throw new Error (err); 
+  }
+}
+
+
+export const completeListing = async (req, res) => {
+  try {
+    const data = await completeListingQuery(req.body.params); 
     return res.status(200).send(data); 
   } catch (err) {
     throw new Error (err); 

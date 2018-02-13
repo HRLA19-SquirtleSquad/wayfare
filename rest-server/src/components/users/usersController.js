@@ -7,7 +7,8 @@ import {
   getGivenReviewsQuery,
   getReceivedReviewsQuery,
   upgradeUserQuery,
-  getUserDataQuery
+  getUserDataQuery, 
+  getUserReviewsByListingQuery
 } from './usersQuery';
 
 export const getUserController = async (req, res) => {
@@ -112,6 +113,15 @@ export const getUserDataController = async (req, res) => {
   try {
     const data = await getUserDataQuery(req.query.userId); 
     return res.status(200).send(data.rows[0]); 
+  } catch (err) {
+    throw new Error(err); 
+  }
+}
+
+export const getUserReviewsByListing = async (req, res) => {
+  try {
+    const data = await getUserReviewsByListingQuery(req.query); 
+    return res.status(200).send(data); 
   } catch (err) {
     throw new Error(err); 
   }

@@ -7,14 +7,14 @@ export const getMessagesQuery = async (roomId, id, accountType) => {
     console.log('req query', roomId, id, accountType)
     // if logged in as guest:
     if (accountType === '0') {
-      const data = await db.Chat.find({userId: id, room: roomId}).sort('-createdAt');
+      const data = await db.Chat.find({room: roomId}).sort('-createdAt');
       console.log('data after fetching guest messages:', data)
       return data
     }
 
     // if logged in as host:
     if (accountType === '1') {
-      const data = await db.Chat.find({userId: id, room: roomId}).sort('-createdAt');
+      const data = await db.Chat.find({room: roomId}).sort('-createdAt');
       console.log('data after fetching host messages:', data)
       return data
     }

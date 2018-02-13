@@ -145,3 +145,4 @@ export const completeListingHelper = ({listingId}) => {
     UPDATE listings SET status = 'complete' where id = ${listingId}
   `
 }
+

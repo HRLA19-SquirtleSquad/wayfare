@@ -37,11 +37,42 @@ export const createSeedUsers = async () => {
     console.log('user seed data 4 did not insert', err)
   } 
 
+  try {
+    let query = "insert into users values (DEFAULT, 'Monsieur Lapedite', 'dairyfarmer11@cows.com', 'sdiwef23r8nv', 'Im fluent in French and English!', 'https://k34.kn3.net/taringa/2/8/7/4/0/7/6/goku443/433.jpg?4144', 'Paris', 1, 4.5, 14, 5, 22)"
+    await db.queryAsync(query)
+    console.log('user seed data 5 inserted'); 
+  } catch (err) {
+    console.log('user seed data 5 did not insert', err)
+  } 
+
+  try {
+    let query = "insert into users values (DEFAULT, 'Ash K.', 'iWantToBeTheVeryBest150@aol.com', 'lasjflasf', 'I enjoy taking long journeys ', 'https://pbs.twimg.com/profile_images/1811149515/Ash-Ketchum-pokemon-18073466-447-359_1_.jpg', 'Tokyo', 1, 3.5, 14, 5, 22)"
+    await db.queryAsync(query)
+    console.log('user seed data 6 inserted'); 
+  } catch (err) {
+    console.log('user seed data 6 did not insert', err)
+  } 
+
+  try {
+    let query = "insert into users values (DEFAULT, 'Antonio Montana', 'caraCicatriz0@hotmail.com', 'wejnfasd', 'The world is MINE', 'https://steemit-production-imageproxy-upload.s3.amazonaws.com/DQmVYEvGfAK956oG1iEgPCCPkBjEb6wwEA9kq5QCKSgiJKn', 'Miami', 1, 4, 14, 5, 22)"
+    await db.queryAsync(query)
+    console.log('user seed data 6 inserted'); 
+  } catch (err) {
+    console.log('user seed data 6 did not insert', err)
+  } 
+
+  try {
+    let query = "insert into users values (DEFAULT, 'Patrick Bateman', 'ImNotPsycho0@hotmail.com', 'awefesa', 'HUGE FAN of 80s music!', 'http://www4.pictures.zimbio.com/mp/_H_E2AP8Jkmx.jpg', 'New York', 1, 4.25, 14, 5, 22)"
+    await db.queryAsync(query)
+    console.log('user seed data 7 inserted'); 
+  } catch (err) {
+    console.log('user seed data 7 did not insert', err)
+  } 
 }
 
 export const createSeedListings = async () => {
   try {
-    let query = "insert into listings values (default, 'The comfiest dining room bed in the world', '2/3/18', '2/26/18', 1.2032934, 123.2340923, '1234 drive', 'Los Angeles', 'CA', 'United States', 3, null, 0, 'Need a place to sleep in privacy and comfort? Well then, this is not for you. Come join me for a roof over your head, a comfy bed and a table to eat at, all from the same position.', 'pending')"; 
+    let query = "insert into listings values (default, 'The comfiest dining room bed in the world', '2/3/18', '2/26/18', 33.959208, -118.406233, '8864 W 86th Pl', 'Los Angeles', 'CA', 'United States', 3, null, 0, 'Need a place to sleep in privacy and comfort? Well then, this is not for you. Come join me for a roof over your head, a comfy bed and a table to eat at, all from the same position.', 'PENDING')"; 
     await db.queryAsync(query); 
     console.log('listing seed data 1 inserted')
   } catch (err) {
@@ -49,7 +80,7 @@ export const createSeedListings = async () => {
   }
 
   try {
-    let query = "insert into listings values (default, 'Erics bitchin pad', '2/14/18', '2/15/18', 24.3424, 54093.1234, '4456 place avenue', 'Los Angeles', 'CA', 'United States', 4, null, 0, 'Come sleep here for some tutuchu tutuchu', 'pending') "
+    let query = "insert into listings values (default, 'Love Shack', '2/14/18', '2/15/18', 34.107211, -118.337080, '4456 place avenue', 'Los Angeles', 'CA', 'United States', 4, null, 0, 'Come sleep here for some tutuchu tutuchu', 'PENDING') "
     await db.queryAsync(query); 
     console.log('listing seed data 2 inserted'); 
   } catch (err) {
@@ -57,7 +88,7 @@ export const createSeedListings = async () => {
   }
 
   try {
-    let query = "insert into listings values (default, 'The MF plaza', '2/17/18', '2/27/18', 4.3413412, 23.25345, '768 5th Ave', 'New York', 'NY', 'United States', 1, null, 1, 'Come sleep at tha plazaaa', 'pending') "
+    let query = "insert into listings values (default, 'Private Penthouse inside Plaza Hotel', '3/01/18', '3/15/18', 40.764609, -73.974355, '768 5th Ave', 'New York', 'NY', 'United States', 1, null, 1, 'I am an entrepeneur in need of a developer to build me a simple website. Stay at my penthouse with all amenities included. I just need a website for my new company. Thanks for looking!', 'PENDING') "
     await db.queryAsync(query); 
     console.log('listing seed data 3 inserted'); 
   } catch (err) {
@@ -65,11 +96,50 @@ export const createSeedListings = async () => {
   }
 
   try {
-    let query = "insert into listings values (default, 'SD chris cool pad', '2/17/18', '2/27/18', 2.234234, 13.63456, '11039 Avenida De Los Lobos', 'San Diego', 'CA', 'United States', 2, null, 1, 'Come sleep at tha plazaaa', 'pending') "
+    let query = "insert into listings values (default, 'Surbuban House Outside San Diego', '2/21/18', '2/28/18', 32.998508, -117.093690, '11039 Avenida De Los Lobos', 'San Diego', 'CA', 'United States', 2, null, 1, 'Quiet 3 bedroom home 15 minutes outside of San Diego. Perfect for families or larger groups. Fence surrounding backyard needs to be painted. We will provide paint.', 'PENDING') "
     await db.queryAsync(query); 
     console.log('listing seed data 4 inserted'); 
   } catch (err) {
     console.log('listing seed data 4 did not insert', err)
+  }
+
+  try {
+    let query = "insert into listings values (default, 'Small Bungalow Near Santa Monica Beach', '2/17/18', '2/27/18', 34.026653, -118.491537, '1221 12th St', 'Los Angeles', 'CA', 'United States', 3, null, 1, 'Small Bungalow near Santa Monica perfect for couples. Close to the beach and 3rd St. Im starting a small garden in the frontyard and need someone with experience to show me best practices.', 'PENDING') "
+    await db.queryAsync(query); 
+    console.log('listing seed data 5 inserted'); 
+  } catch (err) {
+    console.log('listing seed data 5 did not insert', err)
+  }
+  try {
+    let query = "insert into listings values (default, 'Small Parisian Apartment with Available Bedroom', '3/05/18', '3/27/18', 48.848400, 2.290660, '65 Rue du Théâtre', 'Paris', '', 'France', 5, null, 1, 'Small Apartment in the Grenelle district of Paris, just a 10 minute subway ride from most attractions. I need someone to help me conceal the entrance to my cellar. If you are capable, come stay with me', 'PENDING') "
+    await db.queryAsync(query); 
+    console.log('listing seed data 6 inserted'); 
+  } catch (err) {
+    console.log('listing seed data 6 did not insert', err)
+  }
+
+  try {
+    let query = "insert into listings values (default, 'Spacious Apartment in the Heart of Tokyo', '2/27/18', '3/09/18', 35.736594, 139.703865, '3 Chome−33−6', 'Tokyo', '', 'Japan', 6, null, 1, 'Very nice apartment near downtown Tokyo. I lost all my pets recently, and need help catching em all!', 'PENDING') "
+    await db.queryAsync(query); 
+    console.log('listing seed data 7 inserted'); 
+  } catch (err) {
+    console.log('listing seed data 7 did not insert', err)
+  }
+
+  try {
+    let query = "insert into listings values (default, 'Retro Apartment near South Beach', '3/15/18', '4/15/18', 25.777342, -80.131627, '728 Ocean Dr.', 'Miami', 'FL', 'United States', 7, null, 1, 'Great Location in the Art-Deco district of South Beach. I am meeting some associates of mine to purchase some product for my boss. It might be dangerous so I need extra muscle...', 'PENDING') "
+    await db.queryAsync(query); 
+    console.log('listing seed data 8 inserted'); 
+  } catch (err) {
+    console.log('listing seed data 8 did not insert', err)
+  }
+
+  try {
+    let query = "insert into listings values (default, 'Luxurious Apartment near Central Park', '3/12/18', '4/01/18', 40.774637, -73.964338, '944 5th Ave', 'New York', 'NY', 'United States', 8, null, 1, 'Probably the best building this side of the park. You can stay here as long as you maintain it like it is. I need a graphic designer to design a new business card. It needs to be sleek and sophisticated.', 'PENDING') "
+    await db.queryAsync(query); 
+    console.log('listing seed data 9 inserted'); 
+  } catch (err) {
+    console.log('listing seed data 9 did not insert', err)
   }
   
 }
@@ -130,15 +200,63 @@ export const createSeedImages = async () => {
   try {
     let query = "insert into images values (default, 3, 'https://images.datahubus.com/5739f864b5dc6545f27c3164/the-plaza-residences/1-central-park-south_.jpg')"
     await db.queryAsync(query); 
-    console.log('image seed data 2 inserted'); 
+    console.log('image seed data 3 inserted'); 
   } catch (err) {
-    console.log('image seed data 2 did not insert')
+    console.log('image seed data 3 did not insert')
+  }
+
+  try {
+    let query = "insert into images values (default, 4, 'http://lizcoden.com/wp-content/uploads/2014/03/iStock_000006040520Small1.jpg')"
+    await db.queryAsync(query); 
+    console.log('image seed data 4 inserted'); 
+  } catch (err) {
+    console.log('image seed data 4 did not insert')
+  }
+
+  try {
+    let query = "insert into images values (default, 5, 'https://i.pinimg.com/originals/65/b6/4d/65b64d0b0ac8b6054d9b5a2c36d22bc0.jpg')"
+    await db.queryAsync(query); 
+    console.log('image seed data 5 inserted'); 
+  } catch (err) {
+    console.log('image seed data 5 did not insert')
+  }
+
+  try {
+    let query = "insert into images values (default, 6, 'https://www.frenchtravel.com.au/media/catalog/product/cache/2/small_image/276x188/44128b88ca4b35f22e7c5fda8e50629f/c/i/citadines_stgermain_exterior.jpg')"
+    await db.queryAsync(query); 
+    console.log('image seed data 6 inserted'); 
+  } catch (err) {
+    console.log('image seed data 6 did not insert')
+  }
+
+  try {
+    let query = "insert into images values (default, 7, 'https://bloximages.chicago2.vip.townnews.com/ladowntownnews.com/content/tncms/assets/v3/editorial/d/da/dda25f7e-f3b6-11e6-baf2-5f35cc7ad211/58a4af54159a8.image.jpg')"
+    await db.queryAsync(query); 
+    console.log('image seed data 7 inserted'); 
+  } catch (err) {
+    console.log('image seed data 7 did not insert')
+  }
+
+  try {
+    let query = "insert into images values (default, 8, 'https://medias.spotern.com/spots/w640/74859.jpg')"
+    await db.queryAsync(query); 
+    console.log('image seed data 8 inserted'); 
+  } catch (err) {
+    console.log('image seed data 8s did not insert')
+  }
+
+  try {
+    let query = "insert into images values (default, 9, 'https://i.ytimg.com/vi/jXYFUJgtrIc/hqdefault.jpg')"
+    await db.queryAsync(query); 
+    console.log('image seed data 9 inserted'); 
+  } catch (err) {
+    console.log('image seed data 9 did not insert')
   }
 }
 
 export const createSeedSkills = async () => {
   try {
-    let query = "insert into skills values (default, 1, null, 'make music')"; 
+    let query = "insert into skills values (default, null, 7, 'Help me be the very best')"; 
     await db.queryAsync(query); 
     console.log('skill seed data 1 inserted')
   } catch (err) {
@@ -146,7 +264,7 @@ export const createSeedSkills = async () => {
   }
 
   try {
-    let query = "insert into skills values (default, 1, null, 'teach photography')"; 
+    let query = "insert into skills values (default, null, 3, 'Build basic webpage')"; 
     await db.queryAsync(query); 
     console.log('skill seed data 2 inserted')
   } catch (err) {
@@ -154,7 +272,7 @@ export const createSeedSkills = async () => {
   }
 
   try {
-    let query = "insert into skills values (default, 2, null, 'I will teach you to smash anyone in smash bros')"; 
+    let query = "insert into skills values (default, null, 4, 'Manual Labor: Paint fence')"; 
     await db.queryAsync(query); 
     console.log('skill seed data 3 inserted')
   } catch (err) {
@@ -162,7 +280,7 @@ export const createSeedSkills = async () => {
   }
 
   try {
-    let query = "insert into skills values (default, 4, null, 'I can show you how to shoot hoops')"; 
+    let query = "insert into skills values (default, null, 5, 'Gardening Expertise')"; 
     await db.queryAsync(query); 
     console.log('skill seed data 4 inserted')
   } catch (err) {
@@ -186,7 +304,15 @@ export const createSeedSkills = async () => {
   }
 
   try {
-    let query = "insert into skills values (default, 3, null, 'I will cook some bomb food')"; 
+    let query = "insert into skills values (default, null, 6, 'Cellar concealment')"; 
+    await db.queryAsync(query); 
+    console.log('skill seed data 7 inserted')
+  } catch (err) {
+    console.log('skill seed data 7 did not insert')
+  }
+
+  try {
+    let query = "insert into skills values (default, null, 8, 'Hired muscle')"; 
     await db.queryAsync(query); 
     console.log('skill seed data 7 inserted')
   } catch (err) {

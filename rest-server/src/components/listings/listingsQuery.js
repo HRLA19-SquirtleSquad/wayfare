@@ -33,7 +33,7 @@ export const getTopListingsQuery = async () => {
     //console.log('getTopListingsQuery - successfully fetched user data'); 
     return data; 
   } catch (err) {
-    throw new Error (err); 
+    console.log('this is listingimage', err); 
   }
 }
 

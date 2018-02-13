@@ -22,7 +22,7 @@ export const setTopListings = async () => {
     if (listing) {
       let image = await getListingImagesQuery(listing.id); 
       let imageURL = image.rows[0] ? image.rows[0].url : ''; 
-      client.hset([i, "id", listing.id , "title", listing.title, "city", listing.city, "image", imageURL], redis.print); 
+      client.hset([i, "id", listing.id , "title", listing.title, "city", listing.city, "image", imageURL, "startdate", listing.startdate, "enddate", listing.enddate], redis.print); 
     }
   }
   //client.quit(); 
@@ -38,8 +38,11 @@ export const getTopListings = async () => {
       obj.title = await client.hgetAsync(i, "title"); 
       obj.city = await client.hgetAsync(i, "city")
       obj.image = await client.hgetAsync(i, "image"); 
+      obj.startdate = await client.hgetAsync(i, "startdate"); 
+      obj.enddate = await client.hgetAsync(i, "enddate"); 
       topListings.push(obj); 
     }
-    client.quit(); 
+    //client.quit(); 
+    console.log('toplistings', topListings); 
   return topListings; 
 }

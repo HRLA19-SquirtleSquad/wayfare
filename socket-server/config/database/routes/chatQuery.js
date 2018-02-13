@@ -1,11 +1,32 @@
 import mongoose from 'mongoose';
 import db from '../mongo';
 
-export const getMessagesQuery = async () => {
+export const getMessagesQuery = async (roomId, id, accountType) => {
   try {
-    const data = await db.Chat.find()
-    //success('retrieved mongo messages', data);
-    return data;
+
+    console.log('req query', roomId, id, accountType)
+    // if logged in as guest:
+    if (accountType === '0') {
+      const data = await db.Chat.find({userId: id, room: roomId}).sort('-createdAt');
+      console.log('data after fetching guest messages:', data)
+      return data
+    }
+
+    // if logged in as host:
+    if (accountType === '1') {
+      const data = await db.Chat.find({userId: id, room: roomId}).sort('-createdAt');
+      console.log('data after fetching host messages:', data)
+      return data
+    }
+
+
+
+
+
+
+    // const data = await db.Chat.find()
+    // //success('retrieved mongo messages', data);
+    // return data;
   }
   catch (err) {
     console.log('messageQuery error', err)
@@ -23,16 +44,13 @@ export const getLastMessageQuery = async () => {
   }
 }
 
-export const postStaticMessageQuery = async (guestName, guestImage, guestId, hostName, hostImage, hostId, listingId, message, room) => {
+export const postStaticMessageQuery = async (userName, userImage, userId, listingId, message, room) => {
   try {
 
     const data = await new db.Chat({
-      guestName: guestName,
-      guestImage: guestImage,
-      guestId: guestId,
-      hostName: hostName,
-      hostImage: hostImage,
-      hostId: hostId,
+      userName: userName,
+      userImage: userImage,
+      userId: userId,
       listingId: listingId,
       message: message,
       room: room

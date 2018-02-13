@@ -29,7 +29,7 @@ const clientDisconnect = ({}) => {
 const clientMessage = ({ io, room }, payload) => {
   console.log('client message heard');
   
-  db.storeChat(payload.guestName, payload.guestImage, payload.guestId, payload.hostName, payload.hostImage, payload.hostId, payload.listingId, payload.message, payload.room, function(err, data){
+  db.storeChat(payload.userName, payload.userImage, payload.userId, payload.listingId, payload.message, payload.room, function(err, data){
     if (err) {
       console.log('couldnt save message to mongodb')
     } else {

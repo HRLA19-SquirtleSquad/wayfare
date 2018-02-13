@@ -24,10 +24,24 @@ export const createRoomQuery = async (roomId, guestName, guestImage, guestId, ho
   }
 }
 
-export const getRoomsQuery = async () => {
+export const getRoomsQuery = async (id, accountType) => {
   try {
-    const data = await db.Room.find().sort('-createdAt')
-    return data;
+
+    // if logged in as guest:
+    if (accountType === '0') {
+      const data = await db.Room.find({guestId: id}).sort('-createdAt');
+      console.log('data after fetching guest rooms:', data)
+      return data
+    }
+
+    // if logged in as host:
+    if (accountType === '1') {
+      const data = await db.Room.find({hostId: id}).sort('-createdAt');
+      console.log('data after fetching host rooms:', data)
+      return data
+    }
+
+
   }
   catch (err) {
     console.log('Error getting rooms (getRoomsQuery)', err)

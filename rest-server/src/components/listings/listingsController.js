@@ -18,6 +18,7 @@ import {
   deleteListingSkillQuery,
   acceptListingQuery, 
   rejectListingQuery, 
+  getRequestsByGuestQuery
 } from './listingsQuery';
 import {
   getUserQuery
@@ -207,9 +208,16 @@ export const acceptListing = async (req, res) => {
 
 export const rejectListing = async (req, res) => {
   try {
-    //get request id 
-    //delete all listing skills 
     const data = await rejectListingQuery(req.query); 
+    return res.status(200).send(data); 
+  } catch (err) {
+    throw new Error (err); 
+  }
+}
+
+export const getRequestsByGuest = async (req, res) => {
+  try {
+    const data = await getRequestsByGuestQuery(req.query); 
     return res.status(200).send(data); 
   } catch (err) {
     throw new Error (err); 

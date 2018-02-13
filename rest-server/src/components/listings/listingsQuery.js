@@ -15,6 +15,7 @@ import {
   deleteListingSkillHelper, 
   acceptListingHelper, 
   rejectListingHelper,
+  getRequestsByGuestHelper
 } from './listingsSQLHelper';
 
 // define queries
@@ -163,3 +164,12 @@ export const rejectListingQuery =  async ( listingDetails ) => {
     }
 }
 
+export const getRequestsByGuestQuery = async ( guestId ) => {
+  try  { 
+    const queryString = getRequestsByGuestHelper( guestId );
+    const data = await db.queryAsync(queryString);
+    return data; 
+  } catch (err) {
+    throw new Error (err); 
+  }
+}

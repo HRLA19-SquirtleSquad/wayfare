@@ -18,7 +18,8 @@ import {
   updateListing, 
   deleteListingSkill, 
   acceptListing, 
-  rejectListing
+  rejectListing,
+  getRequestsByGuest
   // import controllers from listingsController
 } from './listingsController';
 
@@ -81,4 +82,6 @@ router.route('/acceptListing')
 router.route('/rejectListing') 
   .delete(rejectListing)
   
+router.route('/getRequestsByGuest') 
+  .get(getRequestsByGuest)
 export default router;

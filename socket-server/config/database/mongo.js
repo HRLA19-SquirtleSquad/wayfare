@@ -12,12 +12,9 @@ db.once('open', () => {
 });
 
 const ChatSchema = mongoose.Schema({
-  guestName: String,
-  guestImage: String,
-  guestId: Number,
-  hostName: String,
-  hostImage: String,
-  hostId: Number,
+  userName: String,
+  userImage: String,
+  userId: Number,
   listingId: Number,
   message: String,
   room: String,
@@ -46,15 +43,12 @@ const RoomSchema = mongoose.Schema({
 //mongoose model
 const Chat = mongoose.model('Chat', ChatSchema);
 
-const storeChat = (guestName, guestImage, guestId, hostName, hostImage, hostId, listingId, message, room, callback) => {
+const storeChat = (userName, userImage, userId, listingId, message, room, callback) => {
 
   new Chat({
-    guestName: guestName,
-    guestImage, guestImage,
-    guestId, guestId,
-    hostName: hostName,
-    hostImage: hostImage,
-    hostId: hostId,
+    userName: userName,
+    userImage: userImage,
+    userId: userId,
     listingId: listingId,
     message: message,
     room: room,

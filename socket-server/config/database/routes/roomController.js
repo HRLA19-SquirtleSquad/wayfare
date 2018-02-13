@@ -23,13 +23,15 @@ export const createRoomController = async (req, res) => {
 }
 
 export const getRoomsController = async (req, res) => {
+  let id = req.query.id;
+  let accountType = req.query.accountType
+
   try {
-    const data = await getRoomsQuery();
+    const data = await getRoomsQuery(id, accountType);
     return res.send(data)
   }
   catch (err) {
     console.log('couldnt get rooms (getRoomsController)', err)
   }
-
 }
 

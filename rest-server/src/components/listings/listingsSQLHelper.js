@@ -38,7 +38,7 @@ export const createListingHelper = ( title, startDate, endDate, latitude, longit
 
 export const getSearchedListingsHelper = ( city ) => {
   return `
-    SELECT * FROM LISTINGS
+    SELECT * FROM LISTINGS WHERE city = '${city}'
   `
   // Revise so users can search by city
 };

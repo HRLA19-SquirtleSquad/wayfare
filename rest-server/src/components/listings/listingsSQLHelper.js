@@ -133,3 +133,9 @@ export const getRequestsByGuestHelper = ({ guestId }) => {
     SELECT * FROM requests JOIN listings ON requests.listingId = listings.id WHERE requests.guestId = ${guestId}
   `
 }
+
+export const getRequestsByListingHelper = ( {listingId} ) => {
+  return `
+    SELECT * FROM requests JOIN users on requests.guestId = users.id WHERE requests.listingId = ${listingId}
+  `
+}

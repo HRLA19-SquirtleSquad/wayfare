@@ -116,7 +116,7 @@ export const createListingTable = async () => {
                 guestId INT,
                 viewCount INT DEFAULT 0,
                 description TEXT,
-                status VARCHAR (255) NOT NULL DEFAULT 'PENDING',
+                status VARCHAR (255) NOT NULL DEFAULT 'pending',
                 CONSTRAINT listings_pk PRIMARY KEY(id),
                 CONSTRAINT fk_listings_hostId FOREIGN KEY(hostId) REFERENCES users(id),
                 CONSTRAINT fk_listings_guestId FOREIGN KEY(guestId) REFERENCES users(id)

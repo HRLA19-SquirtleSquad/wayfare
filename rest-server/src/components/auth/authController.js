@@ -16,7 +16,7 @@ export const signUpController = async (req, res) => {
       } else {
         message = 'User created successfully!';
       }
-    res.status(200).send({success: true, message: message, uid: uid, email: email});
+    res.status(200).send(data);
   } catch (err) {
     console.log('[authController.js] - Error using signUpQuery:', err);
     res.status(409).send({errMsg: err.message});

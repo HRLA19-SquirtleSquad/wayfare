@@ -45,19 +45,20 @@ const RoomSchema = mongoose.Schema({
 //mongoose model
 const Chat = mongoose.model('Chat', ChatSchema);
 
-const storeChat = (userName, userImage, userId, userUid, listingId, message, room, accountType, callback) => {
+const storeChat = (userId, userName, userImage, userUid, message, room, listingId, accountType, callback) => {
 
   new Chat({
+    userId: userId,
     userName: userName,
     userImage: userImage,
-    userId: userId,
     userUid: userUid,
-    listingId: listingId,
     message: message,
     room: room,
+    listingId: listingId,
     accountType: accountType
   }).save((err, data) => {
     if (err) {
+      console.log('error', err)
       callback(err, null);
     } else {
       callback(null, data)
@@ -70,4 +71,3 @@ const Room = mongoose.model('Room', RoomSchema);
 module.exports.Room = Room;
 module.exports.Chat = Chat;
 module.exports.storeChat = storeChat;
-

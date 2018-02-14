@@ -15,9 +15,11 @@ const ChatSchema = mongoose.Schema({
   userName: String,
   userImage: String,
   userId: Number,
+  userUid: String,
   listingId: Number,
   message: String,
   room: String,
+  accountType: Number
 },
 {
   timestamps: true
@@ -43,15 +45,17 @@ const RoomSchema = mongoose.Schema({
 //mongoose model
 const Chat = mongoose.model('Chat', ChatSchema);
 
-const storeChat = (userName, userImage, userId, listingId, message, room, callback) => {
+const storeChat = (userName, userImage, userId, userUid, listingId, message, room, accountType, callback) => {
 
   new Chat({
     userName: userName,
     userImage: userImage,
     userId: userId,
+    userUid: userUid,
     listingId: listingId,
     message: message,
     room: room,
+    accountType: accountType
   }).save((err, data) => {
     if (err) {
       callback(err, null);

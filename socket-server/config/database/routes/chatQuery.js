@@ -44,16 +44,18 @@ export const getLastMessageQuery = async () => {
   }
 }
 
-export const postStaticMessageQuery = async (userName, userImage, userId, listingId, message, room) => {
+export const postStaticMessageQuery = async (userName, userImage, userId, userUid, listingId, message, room, accountType) => {
   try {
 
     const data = await new db.Chat({
       userName: userName,
       userImage: userImage,
       userId: userId,
+      userUid: userUid,
       listingId: listingId,
       message: message,
-      room: room
+      room: room,
+      accountType: accountType
     }).save();
 
     console.log('i am new chat message:', data)

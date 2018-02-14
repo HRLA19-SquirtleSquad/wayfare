@@ -159,10 +159,9 @@ export const createRequestAndRequestSkills = async (req, res) => {
     const requestId = request.rows[0].id
     
     await skillIdArray.map(skillId => {
-      console.log(typeof skillId)
       createRequestSkillsQuery(skillId, requestId)
     })
-    return res.status(200)
+    return res.status(200).send();
   } catch(err) {
     throw new Error(err);
   }

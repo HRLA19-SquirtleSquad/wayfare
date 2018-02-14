@@ -8,7 +8,8 @@ import {
   getReceivedReviewsQuery,
   upgradeUserQuery,
   getUserDataQuery, 
-  getUserReviewsByListingQuery
+  getUserReviewsByListingQuery, 
+  postReviewQuery
 } from './usersQuery';
 
 export const getUserController = async (req, res) => {
@@ -121,6 +122,15 @@ export const getUserDataController = async (req, res) => {
 export const getUserReviewsByListing = async (req, res) => {
   try {
     const data = await getUserReviewsByListingQuery(req.query); 
+    return res.status(200).send(data); 
+  } catch (err) {
+    throw new Error(err); 
+  }
+}
+
+export const postReview = async (req, res) => {
+  try {
+    const data = await postReviewQuery(req.body.reviewDetails); 
     return res.status(200).send(data); 
   } catch (err) {
     throw new Error(err); 

@@ -68,6 +68,14 @@ export const createSeedUsers = async () => {
   } catch (err) {
     console.log('user seed data 7 did not insert', err)
   } 
+
+  try {
+    let query = "insert into users values (DEFAULT, 'Marie Morado', 'grapez0@hotmail.com', 'werasd', 'Grapes are bae.', 'https://cdn.pastemagazine.com/www/system/images/photo_albums/women-in-wine/large/3-women-wine.jpg?1384968217', 'Rome', 1, 3, 14, 5, 22)"
+    await db.queryAsync(query)
+    console.log('user seed data 7 inserted'); 
+  } catch (err) {
+    console.log('user seed data 7 did not insert', err)
+  } 
 }
 
 export const createSeedListings = async () => {
@@ -135,7 +143,15 @@ export const createSeedListings = async () => {
   }
 
   try {
-    let query = "insert into listings values (default, 'Luxurious Apartment near Central Park', '3/12/18', '4/01/18', 40.774637, -73.964338, '944 5th Ave', 'New York', 'NY', 'United States', 8, null, 1, 'Probably the best building this side of the park. You can stay here as long as you maintain it like it is. I need a graphic designer to design a new business card. It needs to be sleek and sophisticated.', 'pending') "
+    let query = "insert into listings values (default, 'Luxurious Apartment near Central Park', '3/12/18', '4/01/18', 40.774637, -73.964338, '944 5th Ave', 'new york', 'NY', 'United States', 8, null, 1, 'Probably the best building this side of the park. You can stay here as long as you maintain it like it is. I need a graphic designer to design a new business card. It needs to be sleek and sophisticated.', 'pending') "
+    await db.queryAsync(query); 
+    console.log('listing seed data 9 inserted'); 
+  } catch (err) {
+    console.log('listing seed data 9 did not insert', err)
+  }
+
+  try {
+    let query = "insert into listings values (default, 'Lovely Vineyard Outside Rome', '3/2/18', '3/21/18', 42.021078, 12.423134, '00123 Rome', 'rome','', 'Italy', 8, null, 1, 'We have a room available for a 1-2 people. Free to stay with us as long as you help with duties around the vineyard. Guest can enjoy the fruits of their labor', 'pending') "
     await db.queryAsync(query); 
     console.log('listing seed data 9 inserted'); 
   } catch (err) {
@@ -177,6 +193,22 @@ export const createSeedReviews = async () => {
     console.log('review seed data 2 inserted'); 
   } catch (err) {
     console.log('review seed data 2 did not insert')
+  }
+
+  try {
+    let query = "insert into reviews values (default, null, 3, 'Great Host. Awesome Space!!', 3, 6, 7, 'guest')"
+    await db.queryAsync(query); 
+    console.log('review seed data 3 inserted'); 
+  } catch (err) {
+    console.log('review seed data 3 did not insert')
+  }
+
+  try {
+    let query = "insert into reviews values (default, null, 4, 'Host was very knowledgable about local wildlife!', 4, 6, 7, 'guest')"
+    await db.queryAsync(query); 
+    console.log('review seed data 4 inserted'); 
+  } catch (err) {
+    console.log('review seed data 4 did not insert')
   }
 }
 
@@ -247,6 +279,14 @@ export const createSeedImages = async () => {
 
   try {
     let query = "insert into images values (default, 9, 'https://i.ytimg.com/vi/jXYFUJgtrIc/hqdefault.jpg')"
+    await db.queryAsync(query); 
+    console.log('image seed data 9 inserted'); 
+  } catch (err) {
+    console.log('image seed data 9 did not insert')
+  }
+
+  try {
+    let query = "insert into images values (default, 10, 'http://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2015/4/29/2/HUHH2015-Privacy_Vacaville_10.jpg.rend.hgtvcom.1280.853.suffix/1430363526389.jpeg')"
     await db.queryAsync(query); 
     console.log('image seed data 9 inserted'); 
   } catch (err) {

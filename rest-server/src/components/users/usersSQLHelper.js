@@ -74,3 +74,18 @@ export const getUserReviewsByListingHelper = ({listingId, userId}) => {
     SELECT * FROM reviews WHERE listingId = ${listingId} and commentor = ${userId}
     `
 }
+
+export const postReviewHelper = ({rating, review, commentor, commentee, listingId, type}) => {
+  return ` INSERT INTO reviews VALUES (
+      DEFAULT,
+      null,
+      ${rating}, 
+      '${review}', 
+      ${commentor}, 
+      ${commentee}, 
+      ${listingId}, 
+      '${type}'
+    )
+  `
+}
+

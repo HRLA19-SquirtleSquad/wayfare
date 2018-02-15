@@ -9,7 +9,7 @@ export const signUpHelper = (email, uid, image, name) => {
 
 export const loginHelper = (email, uid) => {
   return `
-    SELECT email, id
+    SELECT email, id, uid, image, name, type
     FROM users
     WHERE email='${email}'
   `;

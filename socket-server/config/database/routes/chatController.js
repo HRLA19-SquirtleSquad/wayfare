@@ -32,12 +32,14 @@ export const postStaticMessageController = async (req, res) => {
   let userName = req.body.userName;
   let userImage = req.body.userImage;
   let userId = req.body.userId;
+  let userUid = req.body.userUid;
   let listingId = req.body.listingId;
   let message = req.body.message;
   let room = req.body.room
+  let accountType = req.body.accountType
 
   try {
-    const data = await postStaticMessageQuery(userName, userImage, userId, listingId, message, room);
+    const data = await postStaticMessageQuery(userName, userImage, userId, userUid, listingId, message, room, accountType);
     return res.send(data)
   }
   catch (err) {

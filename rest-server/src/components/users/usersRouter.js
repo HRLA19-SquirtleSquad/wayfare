@@ -10,7 +10,8 @@ import {
   getReceivedReviewsController,
   upgradeUserController,
   getUserDataController, 
-  getUserReviewsByListing
+  getUserReviewsByListing, 
+  postReview
 } from './usersController';
 
 const router = express.Router();
@@ -44,5 +45,8 @@ router.route('/getUserData')
 
 router.route('/getUserReviewsByListing')
   .get(getUserReviewsByListing)
+
+router.route('/postReview')
+  .post(postReview); 
 
 export default router;

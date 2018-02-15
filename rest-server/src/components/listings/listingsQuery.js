@@ -22,7 +22,8 @@ import {
   createUserSkillsHelper,
   deleteUserSkillsHelper,
   createRequestHelper,
-  createRequestSkillsHelper
+  createRequestSkillsHelper, 
+  deleteListingHelper
 } from './listingsSQLHelper';
 
 // define queries
@@ -33,7 +34,7 @@ export const getTopListingsQuery = async () => {
     //console.log('getTopListingsQuery - successfully fetched user data'); 
     return data; 
   } catch (err) {
-    throw new Error (err); 
+    console.log('this is listingimage', err); 
   }
 }
 
@@ -244,6 +245,16 @@ export const createRequestQuery = async (guestId, listingId ) => {
 export const createRequestSkillsQuery = async (skillId, requestId ) => {
   try {
     const queryString = createRequestSkillsHelper(skillId, requestId);
+    const data = await db.queryAsync(queryString)
+    return data;
+  } catch(err) {
+    throw new Error(err);
+  }
+}
+
+export const deleteListingQuery = async (id) => {
+  try {
+    const queryString = deleteListingHelper(id);
     const data = await db.queryAsync(queryString)
     return data;
   } catch(err) {

@@ -16,7 +16,7 @@ export const signUpController = async (req, res) => {
       } else {
         message = 'User created successfully!';
       }
-    res.status(200).send({success: true, message: message, uid: uid, email: email});
+    res.status(200).send(data);
   } catch (err) {
     console.log('[authController.js] - Error using signUpQuery:', err);
     res.status(409).send({errMsg: err.message});
@@ -28,7 +28,8 @@ export const loginController = async (req, res) => {
     let email = req.body.email;
     let uid = req.body.uid;
     const data = await loginQuery(email, uid)
-    res.status(200).send({success: true, message:`This user has signed in: ${email}`, uid: uid, email: email})
+    console.log('data from login controller', data)
+    res.status(200).send(data)
   } catch (err) {
     console.log('[authController.js] - Error logging in: ', err)
     res.status(409).send({errMsg: err.message})

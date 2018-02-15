@@ -92,6 +92,11 @@ export const createRequestSkillsHelper = (skillId, requestId) => {
   `
 }
 
+export const deleteListingHelper = ({listingId}) => {
+  return `
+    DELETE FROM listings WHERE id = ${listingId}
+  `
+}
 
 export const updateListingHelper = ( { title, startDate, endDate, latitude, longitude, address, city, state, country, description, listingId}) => {
   return `
@@ -130,7 +135,10 @@ export const rejectListingHelper = ( { guestId, listingId }) => {
 
 export const getRequestsByGuestHelper = ({ guestId }) => {
   return ` 
-    SELECT * FROM requests JOIN listings ON requests.listingId = listings.id WHERE requests.guestId = ${guestId}
+    SELECT * FROM requests 
+    JOIN listings 
+    ON requests.listingId = listings.id 
+    WHERE requests.guestId = ${guestId}
   `
 }
 

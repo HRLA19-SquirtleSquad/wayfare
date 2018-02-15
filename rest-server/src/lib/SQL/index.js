@@ -150,7 +150,7 @@ export const createRequestTable = async () => {
                 guestId INT,
                 listingId INT,
                 CONSTRAINT requests_pk PRIMARY KEY(id),
-                CONSTRAINT fk_requests_listingId FOREIGN KEY(listingId) REFERENCES listings(id),
+                CONSTRAINT fk_requests_listingId FOREIGN KEY(listingId) REFERENCES listings(id) ON DELETE CASCADE,
                 CONSTRAINT fk_requests_guestId FOREIGN KEY(guestId) REFERENCES users(id)
             )
                 `
@@ -190,7 +190,7 @@ export const createReviewTable = async () => {
                 CONSTRAINT fk_reviews_parentId FOREIGN KEY(parentId) REFERENCES reviews(id),
                 CONSTRAINT fk_reviews_commentor FOREIGN KEY(commentor) REFERENCES users(id),
                 CONSTRAINT fk_reviews_commentee FOREIGN KEY(commentee) REFERENCES users(id),
-                CONSTRAINT fk_reviews_listingId FOREIGN KEY(listingId) REFERENCES listings(id)
+                CONSTRAINT fk_reviews_listingId FOREIGN KEY(listingId) REFERENCES listings(id) ON DELETE CASCADE
             )
                 `
         );
@@ -222,7 +222,7 @@ export const createImageTable = async () => {
                 listingId INT, 
                 url VARCHAR (500) NOT NULL,
                 CONSTRAINT images_pk PRIMARY KEY(id), 
-                CONSTRAINT fk_images_listingId FOREIGN KEY(listingId) REFERENCES listings(id)
+                CONSTRAINT fk_images_listingId FOREIGN KEY(listingId) REFERENCES listings(id) ON DELETE CASCADE
               )
                 `
         );
@@ -255,7 +255,7 @@ export const createSkillTable = async () => {
                 skill VARCHAR(255) NOT NULL, 
                 CONSTRAINT skills_pk PRIMARY KEY(id), 
                 CONSTRAINT fk_skills_userId FOREIGN KEY(userId) REFERENCES users(id),
-                CONSTRAINT fk_skills_listingId FOREIGN KEY(listingId) REFERENCES listings(id)
+                CONSTRAINT fk_skills_listingId FOREIGN KEY(listingId) REFERENCES listings(id) ON DELETE CASCADE
             )
                 `
         );

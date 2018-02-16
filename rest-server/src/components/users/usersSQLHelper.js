@@ -1,3 +1,6 @@
+import { s } from '../../lib/SQL/helper'
+
+
 export const getUserHelper = (uid) => {
   return `
     SELECT * FROM users 
@@ -6,6 +9,9 @@ export const getUserHelper = (uid) => {
 }
 
 export const postUserHelper = (name, email, uid) => {
+  name = s(name); 
+  email = s(email); 
+
   return `
     insert into users values (
       default, 
@@ -23,6 +29,9 @@ export const postUserHelper = (name, email, uid) => {
 }
 
 export const putUserHelper = (city, bio, image, uid) => {
+  city = s(city); 
+  bio = s(bio); 
+
   return `
     UPDATE users
     SET city = '${city}', bio = '${bio}', image = '${image}'
@@ -76,6 +85,10 @@ export const getUserReviewsByListingHelper = ({listingId, userId}) => {
 }
 
 export const postReviewHelper = ({rating, review, commentor, commentee, listingId, type}) => {
+  review = s(review); 
+  commentor = s(commentor); 
+  commentee = s(commentee); 
+  
   return ` INSERT INTO reviews VALUES (
       DEFAULT,
       null,

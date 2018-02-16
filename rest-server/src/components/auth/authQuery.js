@@ -12,7 +12,6 @@ export const signUpQuery = async (email, uid, image, name) => {
     return data
   } catch(err) {
     console.log('[authQuery.js] - Error adding user data: ', err);
-    throw new Error (err);
   }
 }
 

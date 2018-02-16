@@ -4,8 +4,6 @@ import {
   editUserQuery,
   getUserNameQuery, 
   getUserReviewsQuery,
-  getGivenReviewsQuery,
-  getReceivedReviewsQuery,
   upgradeUserQuery,
   getUserDataQuery, 
   getUserReviewsByListingQuery, 
@@ -19,7 +17,7 @@ export const getUserController = async (req, res) => {
     const data = await getUserQuery(req.query.uid); 
     return res.status(200).send(data);
   } catch (err) {
-    throw new Error(err);
+    console.log('Error', err);
   }
 }
 
@@ -28,7 +26,7 @@ export const postUserController = async (req, res) => {
     const data = await postUserQuery(req.body);
     return res.status(201).send(data);
   } catch (err) {
-    throw new Error(err);
+    console.log('Error', err);
   }
 }
 
@@ -37,7 +35,7 @@ export const updateUserController = async (req, res) => {
     const data = await editUserQuery(req.body);
     return res.status(200).send(data);
   } catch (err) {
-    throw new Error(err);
+    console.log('Error', err);
   }
 }
 
@@ -46,7 +44,7 @@ export const getUserNameController = async (req, res) => {
     const data = await getUserNameQuery(req.query.userId); 
     return res.status(200).send(data.rows[0].name); 
   } catch (err) {
-    throw new Error(err); 
+    console.log('Error', err); 
   }
 }
 
@@ -65,46 +63,16 @@ export const getUserReviewsController = async (req, res) => {
     }
     return res.status(200).send(data); 
   } catch (err) {
-    throw new Error(err); 
+    console.log('Error', err); 
   }
 }
-
-// export const getGivenReviewsController = async (req, res) => {
-//   try {
-//     const reviews = await getGivenReviewsQuery(req.query.userId);
-//     for (let i = 0; i < reviews.rows.length; i++) {
-//       let commentor = await getUserNameQuery(reviews.rows[i].commentor);
-//       let commentee = await getUserNameQuery(reviews.rows[i].commentee);
-//       reviews.rows[i].commentor = commentor.rows[0].name;
-//       reviews.rows[i].commentee = commentee.rows[0].name
-//     }
-//     return res.status(200).send(reviews.rows); 
-//   } catch (err) {
-//     throw new Error(err);
-//   }
-// }
-
-// export const getReceivedReviewsController = async (req, res) => {
-//   try {
-//     const reviews = await getReceivedReviewsQuery(req.query.userId);
-//     for (let i = 0; i < reviews.rows.length; i++) {
-//       let commentor = await getUserNameQuery(reviews.rows[i].commentor);
-//       let commentee = await getUserNameQuery(reviews.rows[i].commentee);
-//       reviews.rows[i].commentor = commentor.rows[0].name;
-//       reviews.rows[i].commentee = commentee.rows[0].name
-//     }
-//     return res.status(200).send(reviews.rows); 
-//   } catch (err) {
-//     throw new Error(err);
-//   }
-// }
 
 export const upgradeUserController = async (req, res) => {
   try {
     const data = await upgradeUserQuery(req.body);
     return res.status(200).send(data);
   } catch (err) {
-    throw new Error(err); 
+    console.log('Error', err); 
   }
 }
 
@@ -113,7 +81,7 @@ export const getUserDataController = async (req, res) => {
     const data = await getUserDataQuery(req.query.userId); 
     return res.status(200).send(data.rows[0]); 
   } catch (err) {
-    throw new Error(err); 
+    console.log('Error', err); 
   }
 }
 
@@ -122,7 +90,7 @@ export const getUserReviewsByListing = async (req, res) => {
     const data = await getUserReviewsByListingQuery(req.query); 
     return res.status(200).send(data); 
   } catch (err) {
-    throw new Error(err); 
+    console.log('Error', err); 
   }
 }
 
@@ -131,7 +99,7 @@ export const postReview = async (req, res) => {
     const data = await postReviewQuery(req.body.reviewDetails); 
     return res.status(200).send(data); 
   } catch (err) {
-    throw new Error(err); 
+    console.log('Error', err); 
   }
 }
 
@@ -140,7 +108,7 @@ export const updateHostRating = async (req, res) => {
     const data = await updateHostRatingQuery(req.body);
     return res.status(200).send(data);
   } catch (err) {
-    throw new Error(err); 
+    console.log('Error', err); 
   }
 }
 
@@ -149,6 +117,6 @@ export const updateGuestRating = async (req, res) => {
     const data = await updateGuestRatingQuery(req.body);
     return res.status(200).send(data);
   } catch (err) {
-    throw new Error(err); 
+    console.log('Error', err); 
   }
 }

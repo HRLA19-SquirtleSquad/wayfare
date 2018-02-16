@@ -104,14 +104,9 @@ export const postListingPhoto = async (req, res) => {
 
 export const createUserSkills = async (req, res) => {
   try {
-    //get user id first using uid
-    // const user = await getUserQuery(req.body.uid);
-    
     // create user skill using the userId
-    // console.log(user.rows[0].id)
     await createUserSkillsQuery(req.body.userId, req.body.skill)
     const data = await getUserSkillsQuery(req.body.userId);
-    // console.log(data)
     return res.status(200).send(data)
   } catch (err) {
     throw new Error (err); 
@@ -120,11 +115,7 @@ export const createUserSkills = async (req, res) => {
 
 export const getUserSkills = async (req, res) => {
   try {
-    console.log('query id', req.query.userId)
-    // const userId = await getUserQuery(req.query.userId);
-    // console.log('userId', userId)
     const data = await getUserSkillsQuery(req.query.userId)
-    // console.log('data', data)
     return res.status(200).send(data)
   } catch (err) {
     throw new Error (err); 
@@ -143,7 +134,6 @@ export const deleteUserSkills = async (req, res) => {
   try {
     await deleteUserSkillsQuery(req.query.id);
     const data = await getUserSkillsQuery(req.query.uid)
-    console.log(data)
     return res.status(200).send(data)
   } catch (err) {
     throw new Error(err);
@@ -170,7 +160,6 @@ export const createRequestAndRequestSkills = async (req, res) => {
 
 export const getListingsByStatus = async (req, res) => {
   try {
-   console.log('req.query.status', req.query.status)
     const data = await getListingsByStatusQuery(req.query.status); 
     return res.status(200).send(data)
   }
@@ -190,7 +179,6 @@ export const updateListing = async (req, res) => {
 
 export const deleteListingSkill = async (req, res) => {
   try {
-    console.log('req.query', req.query); 
     await deleteListingSkillQuery(req.query);
     return res.status(200); 
   } catch (err) {

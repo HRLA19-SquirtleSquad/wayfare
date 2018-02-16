@@ -21,7 +21,6 @@ export const setTopListings = async () => {
   for (let i = 0; i < 10; i ++) {    
     let listing = topListings.rows[i]; 
     if (listing) {
-      console.log('i:', i, ' && listing:', listing)
       let image = await getListingImagesQuery(listing.id); 
       let imageURL = image.rows[0] ? image.rows[0].url : ''; 
       client.hset(i, 'id', listing.id)
@@ -47,6 +46,5 @@ export const getTopListings = async () => {
       obj.enddate = await client.hgetAsync(i, "enddate"); 
       topListings.push(obj); 
     }
-    console.log('toplistings', topListings); 
   return topListings; 
 }

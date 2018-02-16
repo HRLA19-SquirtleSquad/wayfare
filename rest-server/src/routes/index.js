@@ -2,7 +2,7 @@ import express from 'express';
 import usersRouter from '../components/users/usersRouter'
 import authRouter from '../components/auth/authRouter'
 import listingsRouter from '../components/listings/listingsRouter'
-import s3upload from '../config/s3/s3.js';
+import s3upload from '../config/s3/s3';
 
 const router = express.Router();
 

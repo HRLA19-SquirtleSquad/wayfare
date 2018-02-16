@@ -14,7 +14,7 @@ export const createSeedUsers = async () => {
   }
   
   try {
-    let query = "insert into users values (DEFAULT, 'Chris King-Kong', 'emergency@poopvan.com', 'asdf823r9asd', 'hi, im chris', 'https://images-na.ssl-images-amazon.com/images/I/513Y54TGdwL._SY445_.jpg', 'LA', 0, 0, 0, 2.2, 43)"
+    let query = "insert into users values (DEFAULT, 'Chris Kong', 'emergency@poopvan.com', 'asdf823r9asd', 'hi, im chris', 'https://images-na.ssl-images-amazon.com/images/I/513Y54TGdwL._SY445_.jpg', 'LA', 0, 0, 0, 2.2, 43)"
     await db.queryAsync(query)
     console.log('user seed data 2 inserted'); 
   } catch (err) {
@@ -30,7 +30,7 @@ export const createSeedUsers = async () => {
   }
   
   try {
-    let query = "insert into users values (DEFAULT, 'ErIc Carmona', 'BballinEric@lakers.com', 'sdiwef23r8nv', 'hi, im erIc', 'https://cdn-s3.si.com/s3fs-public/teams/basketball/nba/players/214152-300x300.png', 'LA', 1, .01, 14, 5, 22)"
+    let query = "insert into users values (DEFAULT, 'Lebron James', 'BballinEric@lakers.com', 'sdiwef23r8nv', 'I need help. I need a playmaker on my farm.', 'https://cdn-s3.si.com/s3fs-public/teams/basketball/nba/players/214152-300x300.png', 'charlotte', 1, .01, 14, 5, 22)"
     await db.queryAsync(query)
     console.log('user seed data 4 inserted'); 
   } catch (err) {
@@ -88,7 +88,7 @@ export const createSeedListings = async () => {
   }
 
   try {
-    let query = "insert into listings values (default, 'Love Shack', '2/14/18', '2/15/18', 34.107211, -118.337080, '4456 place avenue', 'los angeles', 'CA', 'United States', 4, null, 0, 'Come sleep here for some tutuchu tutuchu', 'pending') "
+    let query = "insert into listings values (default, 'Pumpkin Farm', '2/14/18', '2/15/18', 35.273754, -80.704550, '3900 Rocky River Rd.', 'charlotte', 'NC', 'United States', 4, null, 0, 'I have a warm and spacious loft available so long as you can help me with planting the pumpkin vines.', 'pending') "
     await db.queryAsync(query); 
     console.log('listing seed data 2 inserted'); 
   } catch (err) {
@@ -222,7 +222,7 @@ export const createSeedImages = async () => {
   }
 
   try {
-    let query = "insert into images values (default, 2, 'http://www.topinspired.com/wp-content/uploads/2013/11/Ideas-For-Unforgettable-Romantic-Surprise-1.jpg')"
+    let query = "insert into images values (default, 2, 'http://www.parentingnh.com/pumpkins_large_fb.jpg')"
     await db.queryAsync(query); 
     console.log('image seed data 2 inserted'); 
   } catch (err) {
@@ -336,7 +336,7 @@ export const createSeedSkills = async () => {
   }
 
   try {
-    let query = "insert into skills values (default, null, 2, 'Totochu-totochu')"; 
+    let query = "insert into skills values (default, null, 2, 'Farmwork, planting pumpkins')"; 
     await db.queryAsync(query); 
     console.log('skill seed data 6 inserted')
   } catch (err) {

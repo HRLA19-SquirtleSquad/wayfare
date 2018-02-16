@@ -11,7 +11,9 @@ import {
   upgradeUserHelper,
   getUserDataHelper, 
   getUserReviewsByListingHelper, 
-  postReviewHelper
+  postReviewHelper, 
+  updateGuestRatingHelper, 
+  updateHostRatingHelper
 } from './usersSQLHelper';
 
 export const getUserQuery = async (uid) => {
@@ -133,6 +135,26 @@ export const postReviewQuery =  async ( reviewDetails ) =>  {
   try {
     console.log('review details', reviewDetails)
     const queryString = postReviewHelper(reviewDetails); 
+    const data = await db.queryAsync(queryString);
+    return data;
+  } catch (err) {
+    throw new Error(err); 
+  }
+}
+
+export const updateHostRatingQuery = async (body) => {
+  try {
+    const queryString = updateHostRatingHelper( body);
+    const data = await db.queryAsync(queryString);
+    return data;
+  } catch (err) {
+    throw new Error(err); 
+  }
+}
+
+export const updateGuestRatingQuery = async (body) => {
+  try {
+    const queryString = updateGuestRatingHelper( body);
     const data = await db.queryAsync(queryString);
     return data;
   } catch (err) {

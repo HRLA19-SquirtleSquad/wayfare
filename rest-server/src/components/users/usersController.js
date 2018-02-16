@@ -9,7 +9,9 @@ import {
   upgradeUserQuery,
   getUserDataQuery, 
   getUserReviewsByListingQuery, 
-  postReviewQuery
+  postReviewQuery, 
+  updateGuestRatingQuery, 
+  updateHostRatingQuery
 } from './usersQuery';
 
 export const getUserController = async (req, res) => {
@@ -132,6 +134,24 @@ export const postReview = async (req, res) => {
   try {
     const data = await postReviewQuery(req.body.reviewDetails); 
     return res.status(200).send(data); 
+  } catch (err) {
+    throw new Error(err); 
+  }
+}
+
+export const updateHostRating = async (req, res) => {
+  try {
+    const data = await updateHostRatingQuery(req.body);
+    return res.status(200).send(data);
+  } catch (err) {
+    throw new Error(err); 
+  }
+}
+
+export const updateGuestRating = async (req, res) => {
+  try {
+    const data = await updateGuestRatingQuery(req.body);
+    return res.status(200).send(data);
   } catch (err) {
     throw new Error(err); 
   }

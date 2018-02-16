@@ -89,3 +89,23 @@ export const postReviewHelper = ({rating, review, commentor, commentee, listingI
   `
 }
 
+export const updateHostRatingHelper = ({userId, hostRatingCount, hostRating}) => {
+  
+  return `
+    UPDATE users
+    SET 
+    hostRating = ${hostRating}, 
+    hostRatingCount = ${hostRatingCount}
+    WHERE id = ${userId}
+  `
+}
+
+export const updateGuestRatingHelper = ({userId, guestRatingCount, guestRating}) => {
+  return `
+    UPDATE users
+    SET 
+    guestRating = ${guestRating}, 
+    guestRatingCount = ${guestRatingCount}
+    WHERE id = ${userId}
+  `
+}

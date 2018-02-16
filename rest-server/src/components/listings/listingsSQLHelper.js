@@ -1,3 +1,5 @@
+import { s } from '../../lib/SQL/helper'
+
 // RETURN string of psql syntax
 export const getTopListingsHelper = () => {
   return `
@@ -31,6 +33,13 @@ export const getListingSkillsHelper = ( listingId ) => {
 }
 
 export const createListingHelper = ( title, startDate, endDate, latitude, longitude, address, city, state, country, hostId, description ) => {
+  title = s(title); 
+  address = s(address); 
+  city = s(city); 
+  state = s(state); 
+  country = s(country); 
+  description = s(description)
+
   return `
     INSERT INTO listings VALUES (DEFAULT, '${title}', '${startDate}', '${endDate}', ${latitude}, ${longitude}, '${address}', '${city}', '${state}', '${country}', ${hostId}, null, 0, '${description}', 'pending') RETURNING id
   `
@@ -58,11 +67,13 @@ export const getListingsByStatusHelper = ( status ) => {
 }
 
 export const addSkillToListingHelper = ( { listingId, skill}) => {
+  skill = s(skill)
   return `
     INSERT INTO skills VALUES (DEFAULT, null, ${listingId}, '${skill}') RETURNING id
   `
 }
 export const createUserSkillsHelper = (userId, skill) => {
+  skill = s(skill)
   return `
     INSERT INTO skills values (DEFAULT, ${userId}, null, '${skill}') 
   `
@@ -99,6 +110,13 @@ export const deleteListingHelper = ({listingId}) => {
 }
 
 export const updateListingHelper = ( { title, startDate, endDate, latitude, longitude, address, city, state, country, description, listingId}) => {
+  title = s(title); 
+  address = s(address); 
+  city = s(city); 
+  state = s(state); 
+  country = s(country); 
+  description = s(description)
+  
   return `
     UPDATE listings SET
       title = '${title}', 

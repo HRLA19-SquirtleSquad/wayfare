@@ -23,9 +23,7 @@ import {
   completeListingQuery, 
   deleteListingQuery
 } from './listingsQuery';
-import {
-  getUserQuery
-} from '../users/usersQuery';
+
 import { getTopListings } from '../../config/redis/redis'
 
 // define controllers
@@ -36,7 +34,7 @@ export const getListingPhoto = async (req, res) => {
     const result = data.rows[0] ? data.rows[0].url : ''; 
     return res.status(200).send(result);
   } catch (err) {
-    throw new Error(err);
+    console.log('Error', err);
   }
 }
 
@@ -45,7 +43,7 @@ export const getListing  = async (req, res) => {
     const data = await getListingQuery(req.query.listingId); 
     return res.status(200).send(data.rows[0]); 
   } catch (err) {
-    throw new Error(err); 
+    console.log('Error', err); 
   }
 }
 
@@ -54,7 +52,7 @@ export const updateListingViewCount = async (req, res) => {
     const data = await updateListingViewCountQuery(req.body.params.listingId); 
     return res.status(200).send(data); 
   } catch (err) {
-    throw new Error (err); 
+    console.log('Error', err); 
   }
 }
 
@@ -63,7 +61,7 @@ export const getTopTenListings = async (req, res) => {
     const data = await getTopListings(); 
     return res.status(200).send(data); 
   } catch (err) {
-    throw new Error (err); 
+    console.log('Error', err); 
   }
 }
 
@@ -72,7 +70,7 @@ export const getListingSkills = async (req, res) => {
     const data = await getListingSkillsQuery(req.query.listingId); 
     return res.status(200).send(data.rows); 
   }  catch (err) {
-    throw new Error (err); 
+    console.log('Error', err); 
   }
 }
 
@@ -81,7 +79,7 @@ export const createListing = async (req, res) => {
     const data = await createListingQuery(req.body.params.listingDetails); 
     return res.status(200).send(data); 
   } catch (err) {
-    throw new Error (err); 
+    console.log('Error', err); 
   }
 }
 
@@ -90,7 +88,7 @@ export const getSearchedListings = async (req, res) => {
     const data = await getSearchedListingsQuery(req.query.city);
     return res.status(200).send(data);
   } catch (err) {
-    throw new Error (err);
+    console.log('Error', err);
   }
 }
 export const postListingPhoto = async (req, res) => {
@@ -98,7 +96,7 @@ export const postListingPhoto = async (req, res) => {
     const data = await postListingPhotoQuery(req.body.listingId, req.body.url); 
     return res.status(200).send(data); 
   } catch (err) {
-    throw new Error (err); 
+    console.log('Error', err); 
   }
 }
 
@@ -109,7 +107,7 @@ export const createUserSkills = async (req, res) => {
     const data = await getUserSkillsQuery(req.body.userId);
     return res.status(200).send(data)
   } catch (err) {
-    throw new Error (err); 
+    console.log('Error', err); 
   }
 }
 
@@ -118,7 +116,7 @@ export const getUserSkills = async (req, res) => {
     const data = await getUserSkillsQuery(req.query.userId)
     return res.status(200).send(data)
   } catch (err) {
-    throw new Error (err); 
+    console.log('Error', err); 
   }
 }
 
@@ -127,7 +125,7 @@ export const addSkillToListing = async (req, res) => {
     const data = await addSkillToListingQuery(req.body.params); 
     return res.status(200).send(data); 
   } catch (err) {
-    throw new Error (err); 
+    console.log('Error', err); 
   }
 }
 export const deleteUserSkills = async (req, res) => {
@@ -136,7 +134,7 @@ export const deleteUserSkills = async (req, res) => {
     const data = await getUserSkillsQuery(req.query.uid)
     return res.status(200).send(data)
   } catch (err) {
-    throw new Error(err);
+    console.log('Error', err);
   }
 }
 
@@ -154,7 +152,7 @@ export const createRequestAndRequestSkills = async (req, res) => {
     })
     return res.status(200).send();
   } catch(err) {
-    throw new Error(err);
+    console.log('Error', err);
   }
 }
 
@@ -164,7 +162,7 @@ export const getListingsByStatus = async (req, res) => {
     return res.status(200).send(data)
   }
   catch (err) {
-    throw new Error(err)
+    console.log('Error', err)
   }
 }
 
@@ -173,7 +171,7 @@ export const updateListing = async (req, res) => {
     const data = await updateListingQuery(req.body.params.listingDetails); 
     return res.status(200).send(data); 
   } catch (err) {
-    throw new Error (err); 
+    console.log('Error', err); 
   }
 }
 
@@ -182,7 +180,7 @@ export const deleteListingSkill = async (req, res) => {
     await deleteListingSkillQuery(req.query);
     return res.status(200); 
   } catch (err) {
-    throw new Error(err);
+    console.log('Error', err);
   }
 }
 
@@ -192,7 +190,7 @@ export const acceptListing = async (req, res) => {
      return res.status(200).send(data)
    }
    catch (err) {
-     throw new Error(err)
+     console.log('Error', err)
    }
 }
 
@@ -201,7 +199,7 @@ export const rejectListing = async (req, res) => {
     const data = await rejectListingQuery(req.query); 
     return res.status(200).send(data); 
   } catch (err) {
-    throw new Error (err); 
+    console.log('Error', err); 
   }
 }
 
@@ -210,7 +208,7 @@ export const getRequestsByGuest = async (req, res) => {
     const data = await getRequestsByGuestQuery(req.query); 
     return res.status(200).send(data); 
   } catch (err) {
-    throw new Error (err); 
+    console.log('Error', err); 
   }
 }
 
@@ -219,7 +217,7 @@ export const getRequestsByListing = async (req, res) => {
     const data = await getRequestsByListingQuery(req.query); 
     return res.status(200).send(data); 
   } catch (err) {
-    throw new Error (err); 
+    console.log('Error', err); 
   }
 }
 
@@ -229,7 +227,7 @@ export const completeListing = async (req, res) => {
     const data = await completeListingQuery(req.body.params); 
     return res.status(200).send(data); 
   } catch (err) {
-    throw new Error (err); 
+    console.log('Error', err); 
   }
 }
 
@@ -238,6 +236,6 @@ export const deleteListing = async (req, res) => {
     const data = await deleteListingQuery(req.query); 
     return res.status(200).send(data); 
   } catch (err) {
-    throw new Error (err); 
+    console.log('Error', err); 
   }
 }

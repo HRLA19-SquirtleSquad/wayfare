@@ -44,7 +44,7 @@ export const getListingImagesQuery = async (listingId) => {
     
     return data; 
   } catch (err) {
-    throw new Error (err); 
+    console.log('Error', err); 
   }
 }
 
@@ -54,7 +54,7 @@ export const getListingQuery = async (listingId) => {
     const data = await db.queryAsync(queryString);
     return data; 
   } catch (err) {
-    throw new Error (err); 
+    console.log('Error', err); 
   }
 }
 
@@ -64,7 +64,7 @@ export const updateListingViewCountQuery = async (listingId) => {
     const data = await db.queryAsync(queryString); 
     return data;
   } catch (err) {
-    throw new Error (err); 
+    console.log('Error', err); 
   }
 }
 
@@ -74,7 +74,7 @@ export const getListingSkillsQuery = async ( listingId ) => {
     const data = await db.queryAsync(queryString); 
     return data; 
   } catch (err) {
-    throw new Error (err); 
+    console.log('Error', err); 
   }
 }
 
@@ -84,7 +84,7 @@ export const createListingQuery = async ( {title, startDate, endDate, latitude, 
     const data = await db.queryAsync(queryString); 
     return data; 
   } catch (err) {
-    throw new Error (err); 
+    console.log('Error', err); 
   }
 }
 
@@ -94,7 +94,7 @@ export const getSearchedListingsQuery = async (city) => {
     const data = await db.queryAsync(queryString);
     return data;
   } catch (err) {
-    throw new Error (err);
+    console.log('Error', err);
   }
 }
 export const postListingPhotoQuery = async (listingId, url) => {
@@ -103,7 +103,7 @@ export const postListingPhotoQuery = async (listingId, url) => {
     const data = await db.queryAsync(queryString); 
     return data; 
   } catch (err) {
-    throw new Error (err); 
+    console.log('Error', err); 
   }
 }
 export const getListingsByStatusQuery = async (status) => {
@@ -112,7 +112,7 @@ export const getListingsByStatusQuery = async (status) => {
     const data = await db.queryAsync(queryString); 
     return data; 
   } catch (err) {
-    throw new Error (err); 
+    console.log('Error', err); 
   }
 }
 
@@ -123,7 +123,7 @@ export const addSkillToListingQuery = async ( skillDetails ) => {
     const data = await db.queryAsync(queryString); 
     return data; 
   } catch (err) {
-    throw new Error (err); 
+    console.log('Error', err); 
   }
 }
 
@@ -133,7 +133,7 @@ export const updateListingQuery = async ( listingDetails ) => {
       const data = await db.queryAsync(queryString); 
       return data; 
     } catch (err) {
-      throw new Error (err); 
+      console.log('Error', err); 
     }
 }
 
@@ -144,7 +144,7 @@ export const deleteListingSkillQuery = async ( skillId ) => {
       const data = await db.queryAsync(queryString);
       return data; 
     } catch (err) {
-      throw new Error (err); 
+      console.log('Error', err); 
     }
 }
 
@@ -154,7 +154,7 @@ export const acceptListingQuery =  async ( listingDetails ) => {
       const data = await db.queryAsync(queryString);
       return data; 
     } catch (err) {
-      throw new Error (err); 
+      console.log('Error', err); 
     }
 }
 
@@ -164,7 +164,7 @@ export const rejectListingQuery =  async ( listingDetails ) => {
       const data = await db.queryAsync(queryString);
       return data; 
     } catch (err) {
-      throw new Error (err); 
+      console.log('Error', err); 
     }
 }
 
@@ -174,7 +174,7 @@ export const getRequestsByGuestQuery = async ( guestId ) => {
     const data = await db.queryAsync(queryString);
     return data; 
   } catch (err) {
-    throw new Error (err); 
+    console.log('Error', err); 
   }
 }
 
@@ -184,7 +184,7 @@ export const getRequestsByListingQuery = async ( listingId ) => {
     const data = await db.queryAsync(queryString);
     return data; 
   } catch (err) {
-    throw new Error (err); 
+    console.log('Error', err); 
   }
 }
 
@@ -194,7 +194,7 @@ export const completeListingQuery = async ( listingId ) => {
     const data = await db.queryAsync(queryString);
     return data; 
   } catch (err) {
-    throw new Error (err); 
+    console.log('Error', err); 
   }
 }
 
@@ -204,7 +204,7 @@ export const createUserSkillsQuery = async ( userId, skill ) => {
     const data = await db.queryAsync(queryString);
     return data;
   } catch (err) {
-    throw new Error(err);
+    console.log('Error', err);
   }
 }
 
@@ -214,7 +214,7 @@ export const getUserSkillsQuery = async ( userId ) => {
     const data = await db.queryAsync(queryString);
     return data;
   } catch (err) {
-    throw new Error(err);
+    console.log('Error', err);
   }
 }
 
@@ -224,7 +224,7 @@ export const deleteUserSkillsQuery = async (id) => {
     const data = await db.queryAsync(queryString)
     return data;
   } catch(err) {
-    throw new Error(err);
+    console.log('Error', err);
   }
 }
 
@@ -234,7 +234,7 @@ export const createRequestQuery = async (guestId, listingId ) => {
     const data = await db.queryAsync(queryString)
     return data;
   } catch(err) {
-    throw new Error(err);
+    console.log('Error', err);
   }
 }
      
@@ -244,7 +244,7 @@ export const createRequestSkillsQuery = async (skillId, requestId ) => {
     const data = await db.queryAsync(queryString)
     return data;
   } catch(err) {
-    throw new Error(err);
+    console.log('Error', err);
   }
 }
 
@@ -254,6 +254,6 @@ export const deleteListingQuery = async (id) => {
     const data = await db.queryAsync(queryString)
     return data;
   } catch(err) {
-    throw new Error(err);
+    console.log('Error', err);
   }
 }

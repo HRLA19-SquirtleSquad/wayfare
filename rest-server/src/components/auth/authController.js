@@ -28,7 +28,6 @@ export const loginController = async (req, res) => {
     let email = req.body.email;
     let uid = req.body.uid;
     const data = await loginQuery(email, uid)
-    console.log('data from login controller', data)
     res.status(200).send(data)
   } catch (err) {
     console.log('[authController.js] - Error logging in: ', err)

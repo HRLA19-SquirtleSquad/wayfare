@@ -31,7 +31,6 @@ export const getTopListingsQuery = async () => {
   try {
     const queryString = getTopListingsHelper(); 
     const data = await db.queryAsync(queryString); 
-    //console.log('getTopListingsQuery - successfully fetched user data'); 
     return data; 
   } catch (err) {
     console.log('this is listingimage', err); 
@@ -43,8 +42,6 @@ export const getListingImagesQuery = async (listingId) => {
     const queryString = getListingImagesHelper(listingId); 
     const data = await db.queryAsync(queryString);
     
-    // console.log('i am data after getting images from sql...', data) 
-    //console.log('getListingImagesQuery - successfully fetched listing images'); 
     return data; 
   } catch (err) {
     throw new Error (err); 
@@ -102,7 +99,6 @@ export const getSearchedListingsQuery = async (city) => {
 }
 export const postListingPhotoQuery = async (listingId, url) => {
   try {
-    console.log('i am listingid and url:', listingId, url)
     const queryString = postListingPhotoHelper(listingId, url); 
     const data = await db.queryAsync(queryString); 
     return data; 

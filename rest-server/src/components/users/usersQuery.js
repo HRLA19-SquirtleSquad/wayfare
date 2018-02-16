@@ -20,7 +20,6 @@ export const getUserQuery = async (uid) => {
   try {
     const queryString = getUserHelper(uid);
     const data = await db.queryAsync(queryString);    
-    // console.log('getUserQuery - successfully fetched user data', data)
     return data
   } catch(err) {
     throw new Error(err);
@@ -35,7 +34,6 @@ export const postUserQuery = async (body) => {
       body.uid
     );
     const data = await db.queryAsync(queryString);    
-    // console.log('postUserQuery - successfully posted user data', data)
     return data
   } catch(err) {
     throw new Error(err);
@@ -51,7 +49,6 @@ export const editUserQuery = async (body) => {
       body.uid
     );
     const data = await db.queryAsync(queryString);
-    // console.log('editUserQuery - successfully edited user data', data)
     return data;
   } catch (err) {
     throw new Error(err);
@@ -133,7 +130,6 @@ export const getUserReviewsByListingQuery = async ( listingDetails ) =>  {
 
 export const postReviewQuery =  async ( reviewDetails ) =>  {
   try {
-    console.log('review details', reviewDetails)
     const queryString = postReviewHelper(reviewDetails); 
     const data = await db.queryAsync(queryString);
     return data;

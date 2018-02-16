@@ -15,7 +15,6 @@ export const createRoomQuery = async (roomId, guestName, guestImage, guestId, ho
       listingTitle: listingTitle
     }).save();
 
-    console.log('i am saved room data...', data)
     return data;
   }
   catch (err) {
@@ -30,14 +29,12 @@ export const getRoomsQuery = async (id, accountType) => {
     // if logged in as guest:
     if (accountType === '0') {
       const data = await db.Room.find({guestId: id}).sort('-createdAt');
-      console.log('data after fetching guest rooms:', data)
       return data
     }
 
     // if logged in as host:
     if (accountType === '1') {
       const data = await db.Room.find({hostId: id}).sort('-createdAt');
-      console.log('data after fetching host rooms:', data)
       return data
     }
 
